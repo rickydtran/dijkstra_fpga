@@ -1,5 +1,5 @@
 # Optimization of Dijkstra's Shortest Path Algorithm on FPGA
-[CLICK TO SEE PROJECT SPECIFICATIONS](http://rickytran.com:8000/f/fd1c01e620/?dl=1)  
+[CLICK TO SEE PROJECT SPECIFICATIONS](https://github.com/rickydtran/dijkstra_fpga/blob/master/doc/RC-Project-Proposal.pdf)  
 
 # Table of Contents
 [Group Members](#team-members)  
@@ -12,17 +12,17 @@
 * "Wyndham Hudson" <caelum@ufl.edu>
 
 # <a name="todo"></a>TODO:
-* ~~Stop Short Path Algorithm when destination is reached. Right now it computes incantations to all realms. Source to all destination~~
-* ~~REVISION: Don't need path anymore. Compute gems necessary in realtime with Short Path Alg.~~  ~~Store pathway from source to destination from from Short Path Algorithm~~ 
-* Implement Heap to Lower Time Complexity of Short Path Algorithm
-* ~~REVISION: Subsequence gets it's own array. Also modified function 
-with a binary search to increase performance.~~ ~~Modify find max 
-subsequence 
-function to actually 
-return 
-the 
-subsequence~~
-* ~~Use hash map for string lookup pointer retrieval. Reduces lookup from O(n) to constant time~~
+* ~~Created Makefile for Environment for project~~
+* ~~Implemented Graph Object~~
+* ~~Created Graph Object functions (ie. add edges, num of edges, size, etc.)
+* ~~Created Spanning Tree to have all nodes connected
+* ~~Random Graph Data generation based off of P factor b/w 0.1 and 0.9~~
+* ~~Setup testcases for Graph Object~~
+* Create SW Implementation of Dijkstra's (adj matrix and adj list impl w/ heap).
+* Brainstorm HW implementation and Optimizations
+* Create HW Implmenetation of Dijkstra's
+* Do performance metrics of SW Implmentation
+* Do performance metrics of HW Implemenation
 
 # <a name="descritpion"></a>Project Description
 Dijkstra’s shortest path algorithm is one of the most important algorithms available for generating the exact optimal solutions to a large set of shortest path problems. Dijkstra’s is a greedy algorithm that provides a solution to several real world problems, such as traversing road, router, and telephone networks. Optimizing Dijkstra’s algorithm would improve performance in the world of navigation and communication. 
