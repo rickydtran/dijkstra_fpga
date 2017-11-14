@@ -14,8 +14,8 @@
 # <a name="todo"></a>TODO:
 * ~~Created Makefile for Environment for project~~
 * ~~Implemented Graph Object~~
-* ~~Created Graph Object functions (ie. add edges, num of edges, size, etc.)
-* ~~Created Spanning Tree to have all nodes connected
+* ~~Created Graph Object functions (ie. add edges, num of edges, size, etc.) ~~
+* ~~Created Spanning Tree to have all nodes connected ~~
 * ~~Random Graph Data generation based off of P factor b/w 0.1 and 0.9~~
 * ~~Setup testcases for Graph Object~~
 * Create SW Implementation of Dijkstra's (adj matrix and adj list impl w/ heap).
