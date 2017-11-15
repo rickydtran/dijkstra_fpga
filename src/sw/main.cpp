@@ -25,14 +25,14 @@ int main(int argc, char **argv) {
   //   exit(-1);
   // }
 
-  unsigned size = 128;
+  unsigned size = 500;
   // unsigned go, done;
 
   Graph g(size);
   unsigned seed = 123;
   double p;
 
-  p = 0.9;
+  p = 0.1;
   g.create_random_graph(seed, p);
 
   unsigned **input = g.get_matrix();
@@ -45,18 +45,18 @@ int main(int argc, char **argv) {
   sw_par_matrix = new int[size];
   sw_par_list = new int[size];
 
-  sw_matrix_time.start();
-  dijkstra_sw_matrix(input, 0, size, sw_dist_matrix, sw_par_matrix);
-  sw_matrix_time.stop();
-
   sw_list_time.start();
   dijkstra_sw_adj_list(&g, 0, sw_dist_list, sw_par_list);
   sw_list_time.stop();
 
+  sw_matrix_time.start();
+  dijkstra_sw_matrix(input, 0, size, sw_dist_matrix, sw_par_matrix);
+  sw_matrix_time.stop();
+
   std::cout << "Matrix Time: " << sw_matrix_time.elapsedTime() << std::endl;
   std::cout << "List Time: " << sw_list_time.elapsedTime() << std::endl;
   std::cout << "Speedup: "
-            << sw_list_time.elapsedTime() / sw_matrix_time.elapsedTime()
+            << sw_matrix_time.elapsedTime() / sw_list_time.elapsedTime()
             << std::endl;
 
   delete[] input;

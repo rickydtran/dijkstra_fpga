@@ -78,26 +78,30 @@ TEST_CASE("dijkstra adj list test", "[adj_list]") {
 }
 
 TEST_CASE("data gen w/ dijk", "[data_dijk]") {
-  unsigned size = 10;
+  unsigned size = 1024;
 
   Graph g(size);
   unsigned seed = 123;
   double p;
 
-  p = 0.9;
+  p = 0.1;
   g.create_random_graph(seed, p);
-  REQUIRE(g.num_of_edges() == size * size * p);
+  // REQUIRE(g.num_of_edges() == size * size * p);
 
   unsigned **input = g.get_matrix();
-  int *dist = new int[size];
-  int *parent = new int[size];
+  int *dist_mat = new int[size];
+  int *par_mat = new int[size];
+  int *dist_list = new int[size];
+  int *par_list = new int[size];
 
-  for (int i = 0; i < size; i++) {
-    for (int j = 0; j < size; j++) {
-      REQUIRE(input[i][j] == g.get_weight(i, j));
-    }
+  dijkstra_sw_matrix(input, 0, size, dist_mat, par_mat);
+  dijkstra_sw_adj_list(&g, 0, dist_list, par_list);
+  // print_solution(dist_mat, par_mat, 0, size);
+  // print_solution(dist_list, par_list, 0, size);
+  // g.print_graph();
+
+  for(int i = 0; i < size; i++) {
+    REQUIRE(dist_mat[i] == dist_list[i]);
+    REQUIRE(par_mat[i] == par_list[i]);
   }
-
-  dijkstra_sw_matrix(input, 0, size, dist, parent);
-  print_solution(dist, parent, 0, size);
 }

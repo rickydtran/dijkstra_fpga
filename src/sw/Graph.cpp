@@ -49,7 +49,7 @@ void Graph::create_random_graph(unsigned seed, double p) {
   }
 
   for (auto it = container.begin(); it != container.end(); it++) {
-    add_edge(it->first, it->second, rand() % 99);
+    add_edge(it->first, it->second, 1 + rand() % 1024);
   }
 }
 
