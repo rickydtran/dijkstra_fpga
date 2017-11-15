@@ -20,7 +20,7 @@
 * ~~Random Graph Data generation based off of P factor b/w 0.1 and 0.9~~
 * ~~Setup testcases for Graph Object~~
 * ~~Create SW Implementation of Dijkstra's for adj matrix~~
-* Create SW Implementation of Dijkstra's for adj list and heap(pqueue)
+* ~~Create SW Implementation of Dijkstra's for adj list and heap(pqueue)~~
 * Brainstorm HW implementation and Optimizations
 * Create HW Implmenetation of Dijkstra's
 * Do performance metrics of SW Implmentation

@@ -16,6 +16,7 @@ class Graph {
   int get_weight(unsigned i, unsigned j) const;
   void print_graph();
   unsigned **get_matrix();
+  std::vector<std::pair<int, int>> get_adj_list(int i) const;
 
  private:
   unsigned V;

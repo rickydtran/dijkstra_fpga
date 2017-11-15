@@ -126,3 +126,7 @@ unsigned **Graph::get_matrix() {
   }
   return matrix;
 }
+
+std::vector<std::pair<int, int>> Graph::get_adj_list(int i) const {
+  return adj[i];
+}
