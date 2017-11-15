@@ -30,15 +30,16 @@ void Graph::create_random_graph(unsigned seed, double p) {
   std::set<std::pair<int, int>> container;
   srand(seed);
 
-  create_spanning_tree(container, seed); // Guaranteeds every node to be connected
+  create_spanning_tree(container,
+                       seed);  // Guaranteeds every node to be connected
 
   int e = round(V * V * p) / 2 - (V - 1);
 
-  for (int i = 0; i < e; i++) { // Fill in till Connectivity is met
+  for (int i = 0; i < e; i++) {  // Fill in till Connectivity is met
     int u = rand() % V;
     int v = rand() % V;
     std::pair<int, int> p = std::make_pair(u, v);
-    std::pair<int, int> p_r = std::make_pair(u, v);
+    std::pair<int, int> p_r = std::make_pair(v, u);
     if (container.find(p) != container.end() ||
         container.find(p_r) != container.end() || u == v) {
       i--;
@@ -85,6 +86,15 @@ void Graph::create_spanning_tree(std::set<std::pair<int, int>> &c,
   }
 }
 
+int Graph::get_weight(unsigned i, unsigned j) const {
+  for (auto it = adj[i].begin(); it != adj[i].end(); it++) {
+    if (it->first == j) {
+      return it->second;
+    }
+  }
+  return 0;
+}
+
 void Graph::print_graph() {
   int v, w;
   for (unsigned u = 0; u < V; u++) {
@@ -95,4 +105,24 @@ void Graph::print_graph() {
       std::cout << "\tNode " << v << " with edge weight of " << w << std::endl;
     }
   }
+}
+
+unsigned **Graph::get_matrix() {
+  unsigned **matrix = new unsigned *[V];
+  for (int i = 0; i < V; i++) {
+    matrix[i] = new unsigned[V];
+  }
+
+  for (int i = 0; i < V; i++) {
+    for (int j = 0; j < V; j++) {
+      matrix[i][j] = 0;
+    }
+  }
+
+  for (int u = 0; u < V; u++) {
+    for (auto it = adj[u].begin(); it != adj[u].end(); it++) {
+      matrix[u][it->first] = it->second;
+    }
+  }
+  return matrix;
 }

@@ -3,7 +3,8 @@
 #include "Graph.h"
 #include "Timer.h"
 
-// #define MAX_SIZE (1<<ADDR_WIDTH)
+#define ADDR_WIDTH 15
+#define MAX_SIZE (1<<ADDR_WIDTH)
 
 int main(int argc, char **argv) {
   if (argc != 2) {

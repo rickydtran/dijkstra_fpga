@@ -57,3 +57,23 @@ TEST_CASE("Random Graph Generation", "[random_graph]") {
   // d.print_graph();
   // std::cout << d.num_of_edges() << std::endl;
 }
+
+TEST_CASE("adj list to 2d matrix test", "[adj_matrix]") {
+  unsigned size = 10;
+
+  Graph g(size);
+  unsigned seed = 100;
+  double p;
+
+  p = 0.9;
+  g.create_random_graph(seed, p);
+  REQUIRE(g.num_of_edges() == size * size * p);
+
+  unsigned **input = g.get_matrix();
+
+  for (int i = 0; i < size; i++) {
+    for (int j = 0; j < size; j++) {
+      REQUIRE(input[i][j] == g.get_weight(i, j));
+    }
+  }
+}

@@ -1,8 +1,8 @@
 #ifndef _GRAPH_H_
 #define _GRAPH_H_
 
-#include <vector>
 #include <set>
+#include <vector>
 
 class Graph {
  public:
@@ -13,7 +13,9 @@ class Graph {
   void add_edge(unsigned u, unsigned v, unsigned wt);
   void create_random_graph(unsigned seed, double p);
   void create_spanning_tree(std::set<std::pair<int, int>> &c, unsigned seed);
+  int get_weight(unsigned i, unsigned j) const;
   void print_graph();
+  unsigned **get_matrix();
 
  private:
   unsigned V;
