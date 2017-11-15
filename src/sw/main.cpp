@@ -25,30 +25,19 @@ int main(int argc, char **argv) {
   //   exit(-1);
   // }
 
-  unsigned size = 9;
+  unsigned size = 128;
   // unsigned go, done;
 
   Graph g(size);
+  unsigned seed = 123;
+  double p;
 
-  g.add_edge(0, 1, 4);
-  g.add_edge(0, 7, 8);
-  g.add_edge(1, 2, 8);
-  g.add_edge(1, 7, 11);
-  g.add_edge(2, 3, 7);
-  g.add_edge(2, 8, 2);
-  g.add_edge(2, 5, 4);
-  g.add_edge(3, 4, 9);
-  g.add_edge(3, 5, 14);
-  g.add_edge(4, 5, 10);
-  g.add_edge(5, 6, 2);
-  g.add_edge(6, 7, 1);
-  g.add_edge(6, 8, 6);
-  g.add_edge(7, 8, 7);
+  p = 0.9;
+  g.create_random_graph(seed, p);
 
   unsigned **input = g.get_matrix();
 
   int *sw_dist_matrix, *sw_dist_list, *sw_par_matrix, *sw_par_list;
-  // Timer sw_time, hw_time, read_time, write_time, wait_time;
   Timer sw_matrix_time, sw_list_time;
 
   sw_dist_matrix = new int[size];
