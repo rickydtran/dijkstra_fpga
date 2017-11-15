@@ -38,4 +38,30 @@ TEST_CASE("dijkstra matrix test", "[adj_matrix]") {
   for (int i = 0; i < size; i++) {
     REQUIRE(parent[i] == path_key[i]);
   }
+
+}
+
+TEST_CASE("data gen w/ dijk", "[data_dijk]") {
+  unsigned size = 10;
+
+  Graph g(size);
+  unsigned seed = 123;
+  double p;
+
+  p = 0.9;
+  g.create_random_graph(seed, p);
+  REQUIRE(g.num_of_edges() == size * size * p);
+
+  unsigned **input = g.get_matrix();
+  int *dist = new int[size];
+  int *parent = new int[size];
+
+  for (int i = 0; i < size; i++) {
+    for (int j = 0; j < size; j++) {
+      REQUIRE(input[i][j] == g.get_weight(i, j));
+    }
+  }
+
+  dijkstra_sw_matrix(input, 0, size, dist, parent);
+  print_solution(dist, parent, 0, size);
 }

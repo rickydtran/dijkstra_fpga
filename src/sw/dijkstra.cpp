@@ -52,7 +52,6 @@ void dijkstra_sw_matrix(unsigned **graph, int src, int size, int *dist,
       }
     }
   }
-  // print_solution(dist, parent, src, size);
 }
 
 // void dijkstra_hw(int graph[][], int src) {}
