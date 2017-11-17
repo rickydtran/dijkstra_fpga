@@ -1,3 +1,9 @@
+/**
+  RICKY TRAN
+  UNIVERSITY OF FLORIDA
+  FIBOQUEUE INHERITANCE
+**/
+
 #ifndef FIBOQUEUE_HPP_
 #define FIBOQUEUE_HPP_
 
@@ -15,9 +21,6 @@ class FibQueue : public fibonacci_heap<K, T, Compare> {
     typename std::unordered_map<
         T, typename fibonacci_heap<K, T, Compare>::node>::iterator it =
         fstore.find(n.data());
-    // fstore.erase(it);
-    // fstore.insert(std::pair<T, typename fibonacci_heap<K, T,
-    // Compare>::node>(n.data(), new_key));
     fibonacci_heap<K, T, Compare>::decrease_key(it->second, new_key);
   }
   typename fibonacci_heap<K, T, Compare>::node push(K key, const T &data) {

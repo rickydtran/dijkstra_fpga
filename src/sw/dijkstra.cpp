@@ -1,3 +1,9 @@
+/**
+  RICKY TRAN
+  UNIVERSITY OF FLORIDA
+  DIJKSTRA IMPLEMENTATION
+**/
+
 #include "dijkstra.h"
 #include <limits.h>
 #include <vector>

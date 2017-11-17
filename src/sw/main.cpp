@@ -1,3 +1,9 @@
+/**
+  RICKY TRAN
+  UNIVERSITY OF FLORIDA
+  MAIN DRIVER
+**/
+
 #include <iostream>
 #include "Board.h"
 #include "Graph.h"

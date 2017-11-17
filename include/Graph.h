@@ -1,3 +1,9 @@
+/**
+  RICKY TRAN
+  UNIVERSITY OF FLORIDA
+  GRAPH HEADER
+**/
+
 #ifndef _GRAPH_H_
 #define _GRAPH_H_
 

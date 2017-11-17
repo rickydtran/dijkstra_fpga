@@ -1,3 +1,9 @@
+/**
+  RICKY TRAN
+  UNIVERSITY OF FLORIDA
+  DIJKSTRA HEADER
+**/
+
 #ifndef _DIJKSTRA_H_
 #define _DIJKSTRA_H_
 

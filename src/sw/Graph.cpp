@@ -1,3 +1,9 @@
+/**
+  RICKY TRAN
+  UNIVERSITY OF FLORIDA
+  GRAPH AND DATA GEN IMPL
+**/
+
 #include "Graph.h"
 #include <math.h>
 #include <stdlib.h>

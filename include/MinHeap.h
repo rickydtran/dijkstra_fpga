@@ -1,3 +1,9 @@
+/**
+  RICKY TRAN
+  UNIVERSITY OF FLORIDA
+  MINHEAP HEADER
+**/
+
 #ifndef _MINHEAP_H_
 #define _MINHEAP_H_
 

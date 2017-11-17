@@ -1,3 +1,9 @@
+/**
+  RICKY TRAN
+  UNIVERSITY OF FLORIDA
+  MINHEAP IMPLEMENTATION
+**/
+
 #include "MinHeap.h"
 #include <limits.h>
 #include <iostream>
