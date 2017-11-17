@@ -6,20 +6,20 @@
 
 class Graph {
  public:
-  Graph(unsigned V);
+  Graph(int V);
   ~Graph();
-  unsigned size() const;
-  unsigned num_of_edges();
-  void add_edge(unsigned u, unsigned v, unsigned wt);
-  void create_random_graph(unsigned seed, double p);
-  void create_spanning_tree(std::set<std::pair<int, int>> &c, unsigned seed);
-  int get_weight(unsigned i, unsigned j) const;
+  int size() const;
+  int num_of_edges();
+  void add_edge(int u, int v, int wt);
+  void create_random_graph(int seed, double p);
+  void create_spanning_tree(std::set<std::pair<int, int>> &c, int seed);
+  int get_weight(int i, int j) const;
   void print_graph();
-  unsigned **get_matrix();
+  int **get_matrix();
   std::vector<std::pair<int, int>> get_adj_list(int i) const;
 
  private:
-  unsigned V;
+  int V;
   std::vector<std::pair<int, int>> *adj;
 };
 

@@ -4,7 +4,7 @@
 #include "dijkstra.h"
 
 TEST_CASE("dijkstra matrix test", "[adj_matrix]") {
-  unsigned size = 9;
+  int size = 9;
 
   int dist_key[9] = {0, 4, 12, 19, 21, 11, 9, 8, 14};
   int path_key[9] = {-1, 0, 1, 2, 5, 6, 7, 0, 2};
@@ -25,7 +25,7 @@ TEST_CASE("dijkstra matrix test", "[adj_matrix]") {
   g.add_edge(6, 8, 6);
   g.add_edge(7, 8, 7);
 
-  unsigned **input = g.get_matrix();
+  int **input = g.get_matrix();
   int *dist = new int[size];
   int *parent = new int[size];
 
@@ -41,7 +41,7 @@ TEST_CASE("dijkstra matrix test", "[adj_matrix]") {
 }
 
 TEST_CASE("dijkstra adj list test", "[adj_list]") {
-  unsigned size = 9;
+  int size = 9;
 
   int dist_key[9] = {0, 4, 12, 19, 21, 11, 9, 8, 14};
   int path_key[9] = {-1, 0, 1, 2, 5, 6, 7, 0, 2};
@@ -80,7 +80,7 @@ TEST_CASE("dijkstra adj list test", "[adj_list]") {
 }
 
 TEST_CASE("dijkstra fib test", "[fib_list]") {
-  unsigned size = 9;
+  int size = 9;
 
   int dist_key[9] = {0, 4, 12, 19, 21, 11, 9, 8, 14};
   int path_key[9] = {-1, 0, 1, 2, 5, 6, 7, 0, 2};
@@ -120,17 +120,17 @@ TEST_CASE("dijkstra fib test", "[fib_list]") {
 
 TEST_CASE("data gen w/ dijk", "[data_dijk]") {
   for (int i = 10; i < 32; i++) {
-    unsigned size = i;
+    int size = i;
 
     Graph g(size);
-    unsigned seed = 194594329;
+    int seed = 194594329;
     double p;
 
     p = 0.1;
     g.create_random_graph(seed, p);
     // REQUIRE(g.num_of_edges() == size * size * p);
 
-    unsigned **input = g.get_matrix();
+    int **input = g.get_matrix();
     int *dist_mat = new int[size];
     int *par_mat = new int[size];
     int *dist_list = new int[size];

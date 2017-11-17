@@ -4,29 +4,29 @@
 #include <iostream>
 #include <set>
 
-Graph::Graph(unsigned V) {
+Graph::Graph(int V) {
   this->V = V;
   this->adj = new std::vector<std::pair<int, int>>[this->V];
 }
 
 Graph::~Graph() { delete[] this->adj; }
 
-unsigned Graph::size() const { return this->V; }
+int Graph::size() const { return this->V; }
 
-unsigned Graph::num_of_edges() {
-  unsigned no_e = 0;
-  for (unsigned i = 0; i < V; i++) {
+int Graph::num_of_edges() {
+  int no_e = 0;
+  for (int i = 0; i < V; i++) {
     no_e += adj[i].size();
   }
   return no_e;
 }
 
-void Graph::add_edge(unsigned u, unsigned v, unsigned wt) {
+void Graph::add_edge(int u, int v, int wt) {
   adj[u].push_back(std::make_pair(v, wt));
   adj[v].push_back(std::make_pair(u, wt));
 }
 
-void Graph::create_random_graph(unsigned seed, double p) {
+void Graph::create_random_graph(int seed, double p) {
   std::set<std::pair<int, int>> container;
   srand(seed);
 
@@ -54,10 +54,10 @@ void Graph::create_random_graph(unsigned seed, double p) {
 }
 
 void Graph::create_spanning_tree(std::set<std::pair<int, int>> &c,
-                                 unsigned seed) {
+                                 int seed) {
   srand(seed);
   bool check[V];
-  for (unsigned i = 0; i < V; i++) {
+  for (int i = 0; i < V; i++) {
     check[i] = false;
   }
   int nodeNum = V;
@@ -86,7 +86,7 @@ void Graph::create_spanning_tree(std::set<std::pair<int, int>> &c,
   }
 }
 
-int Graph::get_weight(unsigned i, unsigned j) const {
+int Graph::get_weight(int i, int j) const {
   for (auto it = adj[i].begin(); it != adj[i].end(); it++) {
     if (it->first == j) {
       return it->second;
@@ -97,7 +97,7 @@ int Graph::get_weight(unsigned i, unsigned j) const {
 
 void Graph::print_graph() {
   int v, w;
-  for (unsigned u = 0; u < V; u++) {
+  for (int u = 0; u < V; u++) {
     std::cout << "Node " << u << " has an edge with" << std::endl;
     for (auto it = adj[u].begin(); it != adj[u].end(); it++) {
       v = it->first;
@@ -107,10 +107,10 @@ void Graph::print_graph() {
   }
 }
 
-unsigned **Graph::get_matrix() {
-  unsigned **matrix = new unsigned *[V];
+int **Graph::get_matrix() {
+  int **matrix = new int *[V];
   for (int i = 0; i < V; i++) {
-    matrix[i] = new unsigned[V];
+    matrix[i] = new int[V];
   }
 
   for (int i = 0; i < V; i++) {

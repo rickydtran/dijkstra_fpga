@@ -32,13 +32,13 @@ TEST_CASE("Adding an Edge to Graph", "[add_edge]") {
 }
 
 TEST_CASE("Random Graph Generation", "[random_graph]") {
-  unsigned size = 500;
+  int size = 500;
 
   Graph a(size);
   Graph b(size);
   Graph c(size);
   Graph d(size);
-  unsigned seed = 100;
+  int seed = 100;
   double p;
 
   p = 0.1;
@@ -59,17 +59,17 @@ TEST_CASE("Random Graph Generation", "[random_graph]") {
 }
 
 TEST_CASE("adj list to 2d matrix test", "[adj_matrix]") {
-  unsigned size = 10;
+  int size = 10;
 
   Graph g(size);
-  unsigned seed = 100;
+  int seed = 100;
   double p;
 
   p = 0.9;
   g.create_random_graph(seed, p);
   REQUIRE(g.num_of_edges() == size * size * p);
 
-  unsigned **input = g.get_matrix();
+  int **input = g.get_matrix();
 
   for (int i = 0; i < size; i++) {
     for (int j = 0; j < size; j++) {

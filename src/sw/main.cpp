@@ -36,7 +36,7 @@ int main(int argc, char **argv) {
   // p = 0.1;
   g.create_random_graph(seed, p);
 
-  unsigned **input = g.get_matrix();
+  int **input = g.get_matrix();
 
   int *sw_dist_matrix, *sw_dist_list, *sw_par_matrix, *sw_par_list, *sw_dist_fib, *sw_par_fib;
   Timer sw_matrix_time, sw_list_time, sw_fib_time;
