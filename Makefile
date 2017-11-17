@@ -30,10 +30,11 @@ test: $(TEST_TARGET)
 
 $(TARGET): $(OBJS)
 	@echo "Linking Binaries..."
+	@mkdir -p bin	
 	@echo "  $(CC) -o $(TARGET) $(OBJS) $(LIB)"; $(CC) -o $(TARGET) $(OBJS) $(LIB)
 
 $(TEST_TARGET): $(TEST_OBJS)
-	@echo "Linking Testcases Binaries..."	
+	@echo "Linking Testcases Binaries..."
 	@echo "  $(CC) -o $(TEST_TARGET) $(TEST_OBJS) $(LIB)"; $(CC) -o $(TEST_TARGET) $(TEST_OBJS) $(LIB)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.$(SRC_EXT)
