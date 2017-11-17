@@ -67,8 +67,8 @@ TEST_CASE("dijkstra adj list test", "[adj_list]") {
   int *parent = new int[size];
 
   dijkstra_sw_adj_list(&g, 0, dist, parent);
-  print_solution(dist, parent, 0, size);
-  print_solution(dist_key, path_key, 0, size);
+  // print_solution(dist, parent, 0, size);
+  // print_solution(dist_key, path_key, 0, size);
 
   for (int i = 0; i < size; i++) {
     REQUIRE(dist[i] == dist_key[i]);
@@ -84,7 +84,7 @@ TEST_CASE("data gen w/ dijk", "[data_dijk]") {
     unsigned size = i;
 
     Graph g(size);
-    unsigned seed = 100;
+    unsigned seed = 194594329;
     double p;
 
     p = 0.1;
@@ -103,7 +103,7 @@ TEST_CASE("data gen w/ dijk", "[data_dijk]") {
     // print_solution(dist_list, par_list, 0, size);
     // g.print_graph();
 
-    for(int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {
       REQUIRE(dist_mat[i] == dist_list[i]);
       REQUIRE(par_mat[i] == par_list[i]);
     }

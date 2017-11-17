@@ -1,6 +1,6 @@
+#include "MinHeap.h"
 #include <limits.h>
 #include <iostream>
-#include "MinHeap.h"
 
 MinHeap::MinHeap(unsigned V) {
   this->cap = V;
@@ -9,14 +9,14 @@ MinHeap::MinHeap(unsigned V) {
   this->pos = new int[V];
 }
 
-MinHeap::~MinHeap() { 
+MinHeap::~MinHeap() {
   delete[] this->heap;
   delete[] this->pos;
 }
 
 bool MinHeap::isInMinHeap(int v) {
-   if (pos[v] < size) return true;
-   return false;
+  if (pos[v] < size) return true;
+  return false;
 }
 
 int MinHeap::parent(int v) const { return (v - 1) / 2; }
@@ -36,15 +36,13 @@ void MinHeap::insertKey(int v, int w) {
   int i = size;
   heap[i] = p;
   pos[v] = i;
-  size++;  
+  size++;
   while (i && heap[parent(i)].second > heap[i].second) {
     pos[heap[i].first] = parent(i);
     pos[heap[parent(i)].first] = i;
     swap(heap[i], heap[parent(i)]);
     i = parent(i);
   }
-  // std::cout << "Vertex " << v << " inserted at position " << pos[v]
-  //           << std::endl;
 }
 
 void MinHeap::decreaseKey(int v, int new_val) {
@@ -55,20 +53,20 @@ void MinHeap::decreaseKey(int v, int new_val) {
     pos[heap[parent(i)].first] = i;
     swap(heap[i], heap[parent(i)]);
     i = parent(i);
-  }  
+  }
 }
 
 void MinHeap::MinHeapify(int v) {
   int l = left(v);
   int r = right(v);
   int min = v;
-  if(l < size && heap[l].second < heap[min].second) {
+  if (l < size && heap[l].second < heap[min].second) {
     min = l;
   }
-  if(r < size && heap[r].second < heap[min].second) {
+  if (r < size && heap[r].second < heap[min].second) {
     min = r;
   }
-  if(min != v) {
+  if (min != v) {
     pos[heap[v].first] = min;
     pos[heap[min].first] = v;
     swap(heap[v], heap[min]);
@@ -77,10 +75,10 @@ void MinHeap::MinHeapify(int v) {
 }
 
 std::pair<int, int> MinHeap::extractMin() {
-  if(isEmpty()) {
+  if (isEmpty()) {
     return std::make_pair(INT_MAX, INT_MAX);
   }
-  if(size == 1) {
+  if (size == 1) {
     size--;
     return heap[0];
   }
@@ -93,7 +91,7 @@ std::pair<int, int> MinHeap::extractMin() {
 }
 
 void MinHeap::printPos() {
-  for(int i = 0; i < size; i++) {
+  for (int i = 0; i < size; i++) {
     std::cout << pos[i] << ' ' << std::endl;
   }
 }

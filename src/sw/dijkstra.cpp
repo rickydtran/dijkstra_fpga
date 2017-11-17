@@ -69,7 +69,6 @@ void dijkstra_sw_adj_list(const Graph *g, int src, int *dist, int *parent) {
     dist[i] = INT_MAX;
     parent[i] = 0;
     h.insertKey(i, dist[i]);
-    // h.printPos();
   }
 
   while (!h.isEmpty()) {
@@ -79,12 +78,10 @@ void dijkstra_sw_adj_list(const Graph *g, int src, int *dist, int *parent) {
     for (auto it = adj.begin(); it != adj.end(); it++) {
       int v = it->first;
       int w = it->second;
-      if(h.isInMinHeap(v) && dist[u] != INT_MAX && dist[v] > dist[u] + w) {
+      if (h.isInMinHeap(v) && dist[u] != INT_MAX && dist[v] > dist[u] + w) {
         parent[v] = u;
         dist[v] = dist[u] + w;
-        // std::cout << dist[u] << " + " << w << " = " << dist[v] << std::endl;
         h.decreaseKey(v, dist[v]);
-        // h.insertKey(v, dist[v]);
       }
     }
   }
@@ -106,7 +103,6 @@ void dijkstra_sw_matrix(unsigned **graph, int src, int size, int *dist,
       if ((!done[v]) && (graph[u][v]) && (dist[v] > dist[u] + graph[u][v])) {
         parent[v] = u;
         dist[v] = dist[u] + graph[u][v];
-        // std::cout << dist[u] << " + " << graph[u][v] << " = " << dist[v] << std::endl;
       }
     }
   }

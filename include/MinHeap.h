@@ -1,3 +1,8 @@
+#ifndef _MINHEAP_H_
+#define _MINHEAP_H_
+
+#include <utility>
+
 class MinHeap {
  private:
   int cap;
@@ -21,3 +26,5 @@ class MinHeap {
 };
 
 void swap(std::pair<int, int> &x, std::pair<int, int> &y);
+
+#endif
