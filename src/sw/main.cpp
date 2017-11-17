@@ -25,7 +25,7 @@ int main(int argc, char **argv) {
   //   exit(-1);
   // }
 
-  unsigned size = 256;
+  int size = atoi(argv[1]);
   // unsigned go, done;
 
   Graph g(size);
