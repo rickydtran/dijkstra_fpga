@@ -1,7 +1,8 @@
 # RICKY TRAN
 # DIJKSTRA MAKEFILE
 
-CC := g++
+# CC := g++
+CC := arm-linux-g++
 SRC_DIR := src/sw
 BUILD_DIR := build
 TARGET := bin/dijkstra
@@ -17,7 +18,7 @@ OBJS := $(patsubst $(SRC_DIR)/%, $(BUILD_DIR)/%, $(SRCS:.$(SRC_EXT)=.o))
 TESTS := $(shell find $(TEST_DIR) -type f -name *.$(SRC_EXT))
 TEST_OBJS := $(filter-out build/main.o, $(OBJS)) $(patsubst $(TEST_DIR)/%, $(TBUILD_DIR)/%, $(TESTS:.$(SRC_EXT)=.o))
 
-CFLAGS := -g -std=c++11 -O3 -Wall
+CFLAGS := -std=c++11 -O3 -Wall -ansi -g
 LIB :=
 INC := -I include
 
