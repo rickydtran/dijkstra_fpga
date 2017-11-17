@@ -71,7 +71,7 @@ int main(int argc, char **argv) {
 
   double transfer_time = write_time.elapsedTime() + read_time.elapsedTime();
   double hw_time_no_transfer = hw_time.elapsedTime() - transfer_time;
-
+  std::cout << std::endl;
   std::cout << " Dijkstra Base Time: " << sw_base_time.elapsedTime()
             << std::endl;
   std::cout << "   Binary Heap Time: " << sw_bin_time.elapsedTime()
@@ -138,6 +138,8 @@ int main(int argc, char **argv) {
     std::cout << "PASS!\n";
   else
     std::cout << "FAIL!\nError count: " << derr_hw << std::endl;
+
+  std::cout << std::endl;
 
   delete[] input;
   delete[] sw_dist_base;
