@@ -5,6 +5,7 @@
 #include <vector>
 #include "Graph.h"
 #include "MinHeap.h"
+#include "fiboqueue.h"
 
 int min_distance(int dist[], bool done[], int size) {
   int min = INT_MAX, min_index;
@@ -34,7 +35,35 @@ void print_solution(int dist[], int parent[], int src, int size) {
   }
 }
 
-void dijkstra_sw_fib(const Graph *g, int src, int *dist, int *parent) {}
+void dijkstra_sw_fib(const Graph *g, int src, int *dist, int *parent) {
+  FibQueue<int> fq;
+  dist[src] = 0;
+  parent[src] = -1;
+  fq.push(dist[src], src);
+  for (int i = 1; i < (*g).size(); i++) {
+    // int *z = new int;
+    // *z = i;
+    dist[i] = INT_MAX;
+    parent[i] = 0;
+    fq.push(dist[i], i);
+  }
+
+  while (!fq.empty()) {
+    int u = fq.topNode()->payload;
+    fq.pop();
+    std::vector<std::pair<int, int>> adj = (*g).get_adj_list(u);
+    for (auto it = adj.begin(); it != adj.end(); it++) {
+      int v = it->first;
+      int w = it->second;
+      if (dist[u] != INT_MAX && dist[v] > dist[u] + w) {
+        parent[v] = u;
+        dist[v] = dist[u] + w;
+        FibHeap<int>::FibNode *n = fq.findNode(v);  
+        fq.decrease_key(n, dist[v]);
+      }
+    }
+  }
+}
 
 void dijkstra_sw_adj_list(const Graph *g, int src, int *dist, int *parent) {
   // std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>,

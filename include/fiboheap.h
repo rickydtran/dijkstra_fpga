@@ -33,7 +33,7 @@ class FibHeap
   class FibNode
   {
   public:
-    FibNode(T k, void *pl)
+    FibNode(T k, T pl)
       :key(k),mark(false),p(nullptr),left(nullptr),right(nullptr),child(nullptr),degree(-1),payload(pl)
     {
     }
@@ -41,7 +41,6 @@ class FibHeap
     ~FibNode()
       {
       }
-
     T key;
     bool mark;
     FibNode *p;
@@ -49,7 +48,7 @@ class FibHeap
     FibNode *right;
     FibNode *child;
     int degree;
-    void *payload;
+    int payload;
   }; // end FibNode
 
   FibHeap()
@@ -554,7 +553,7 @@ class FibHeap
       delete x;
   }
 
-  FibNode* push(T k, void *pl)
+  FibNode* push(T k, int pl)
   {
     FibNode *x = new FibNode(k,pl);
     insert(x);

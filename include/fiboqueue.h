@@ -45,16 +45,16 @@ class FibQueue : public FibHeap<T>
   void decrease_key(typename FibHeap<T>::FibNode *x, int k)
   {
     typename std::unordered_map<T,typename FibHeap<T>::FibNode*>::iterator mit
-      = find(x->key);
+      = find(x->payload);
     fstore.erase(mit);
-    fstore.insert(std::pair<T,typename FibHeap<T>::FibNode*>(k,x));
+    fstore.insert(std::pair<T,typename FibHeap<T>::FibNode*>(x->payload,x));
     FibHeap<T>::decrease_key(x,k);
   }
   
-  typename FibHeap<T>::FibNode* push(T k, void *pl)
+  typename FibHeap<T>::FibNode* push(T k, int pl)
   {
     typename FibHeap<T>::FibNode *x = FibHeap<T>::push(k,pl);
-    fstore.insert(std::pair<T,typename FibHeap<T>::FibNode*>(k,x));
+    fstore.insert(std::pair<T,typename FibHeap<T>::FibNode*>(pl,x));
     return x;
   }
 
@@ -84,7 +84,7 @@ class FibQueue : public FibHeap<T>
     typename FibHeap<T>::FibNode *x = FibHeap<T>::extract_min();
     if (!x)
       return; // should not happen.
-    auto range = fstore.equal_range(x->key);
+    auto range = fstore.equal_range(x->payload);
     auto mit = std::find_if(range.first, range.second,
                             [x](const std::pair<T,typename FibHeap<T>::FibNode*> &ele){
                                 return ele.second == x;

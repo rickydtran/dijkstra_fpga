@@ -38,13 +38,19 @@ int main(int argc, char **argv) {
 
   unsigned **input = g.get_matrix();
 
-  int *sw_dist_matrix, *sw_dist_list, *sw_par_matrix, *sw_par_list;
-  Timer sw_matrix_time, sw_list_time;
+  int *sw_dist_matrix, *sw_dist_list, *sw_par_matrix, *sw_par_list, *sw_dist_fib, *sw_par_fib;
+  Timer sw_matrix_time, sw_list_time, sw_fib_time;
 
+  sw_dist_fib = new int[size];
   sw_dist_matrix = new int[size];
   sw_dist_list = new int[size];
+  sw_par_fib = new int[size];
   sw_par_matrix = new int[size];
   sw_par_list = new int[size];
+
+  sw_fib_time.start();
+  dijkstra_sw_fib(&g, 0, sw_dist_fib, sw_par_fib);
+  sw_fib_time.stop();
 
   sw_list_time.start();
   dijkstra_sw_adj_list(&g, 0, sw_dist_list, sw_par_list);
@@ -58,9 +64,16 @@ int main(int argc, char **argv) {
   // print_solution(sw_dist_list, sw_par_list, 0, size);
 
   std::cout << "Matrix Time: " << sw_matrix_time.elapsedTime() << std::endl;
-  std::cout << "List Time: " << sw_list_time.elapsedTime() << std::endl;
-  std::cout << "Speedup: "
+  std::cout << "List Time:   " << sw_list_time.elapsedTime() << std::endl;
+  std::cout << "Fib Time:    " << sw_fib_time.elapsedTime() << std::endl;
+  std::cout << "Speedup(L/M): "
             << sw_matrix_time.elapsedTime() / sw_list_time.elapsedTime()
+            << std::endl;
+  std::cout << "Speedup(F/M): "
+            << sw_matrix_time.elapsedTime() / sw_fib_time.elapsedTime()
+            << std::endl;
+  std::cout << "Speedup(F/L): "
+            << sw_list_time.elapsedTime() / sw_fib_time.elapsedTime()
             << std::endl;
 
   delete[] input;
@@ -68,6 +81,8 @@ int main(int argc, char **argv) {
   delete[] sw_dist_list;
   delete[] sw_par_matrix;
   delete[] sw_par_list;
+  delete[] sw_dist_fib;
+  delete[] sw_par_fib;
   // delete board;
 
   return 0;
