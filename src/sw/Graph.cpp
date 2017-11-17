@@ -53,8 +53,7 @@ void Graph::create_random_graph(int seed, double p) {
   }
 }
 
-void Graph::create_spanning_tree(std::set<std::pair<int, int>> &c,
-                                 int seed) {
+void Graph::create_spanning_tree(std::set<std::pair<int, int>> &c, int seed) {
   srand(seed);
   bool check[V];
   for (int i = 0; i < V; i++) {

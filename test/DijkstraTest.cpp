@@ -3,11 +3,10 @@
 #include "catch.hpp"
 #include "dijkstra.h"
 
-TEST_CASE("dijkstra matrix test", "[adj_matrix]") {
+TEST_CASE("dijkstra base test", "[base]") {
   int size = 9;
 
   int dist_key[9] = {0, 4, 12, 19, 21, 11, 9, 8, 14};
-  int path_key[9] = {-1, 0, 1, 2, 5, 6, 7, 0, 2};
 
   Graph g(size);
   g.add_edge(0, 1, 4);
@@ -27,24 +26,18 @@ TEST_CASE("dijkstra matrix test", "[adj_matrix]") {
 
   int **input = g.get_matrix();
   int *dist = new int[size];
-  int *parent = new int[size];
 
-  dijkstra_sw_matrix(input, 0, size, dist, parent);
+  dijkstra_sw_base(input, 0, size, dist);
 
   for (int i = 0; i < size; i++) {
     REQUIRE(dist[i] == dist_key[i]);
   }
-
-  for (int i = 0; i < size; i++) {
-    REQUIRE(parent[i] == path_key[i]);
-  }
 }
 
-TEST_CASE("dijkstra adj list test", "[adj_list]") {
+TEST_CASE("dijkstra bin minheap test", "[bin_heap]") {
   int size = 9;
 
   int dist_key[9] = {0, 4, 12, 19, 21, 11, 9, 8, 14};
-  int path_key[9] = {-1, 0, 1, 2, 5, 6, 7, 0, 2};
 
   Graph g(9);
 
@@ -64,26 +57,18 @@ TEST_CASE("dijkstra adj list test", "[adj_list]") {
   g.add_edge(7, 8, 7);
 
   int *dist = new int[size];
-  int *parent = new int[size];
 
-  dijkstra_sw_adj_list(&g, 0, dist, parent);
-  // print_solution(dist, parent, 0, size);
-  // print_solution(dist_key, path_key, 0, size);
+  dijkstra_sw_bin(&g, 0, dist);
 
   for (int i = 0; i < size; i++) {
     REQUIRE(dist[i] == dist_key[i]);
   }
-
-  for (int i = 0; i < size; i++) {
-    REQUIRE(parent[i] == path_key[i]);
-  }
 }
 
-TEST_CASE("dijkstra fib test", "[fib_list]") {
+TEST_CASE("dijkstra fib minheap test", "[fib_heap]") {
   int size = 9;
 
   int dist_key[9] = {0, 4, 12, 19, 21, 11, 9, 8, 14};
-  int path_key[9] = {-1, 0, 1, 2, 5, 6, 7, 0, 2};
 
   Graph g(9);
 
@@ -103,23 +88,16 @@ TEST_CASE("dijkstra fib test", "[fib_list]") {
   g.add_edge(7, 8, 7);
 
   int *dist = new int[size];
-  int *parent = new int[size];
 
-  dijkstra_sw_fib(&g, 0, dist, parent);
-  // print_solution(dist, parent, 0, size);
-  // print_solution(dist_key, path_key, 0, size);
+  dijkstra_sw_fib(&g, 0, dist);
 
   for (int i = 0; i < size; i++) {
     REQUIRE(dist[i] == dist_key[i]);
-  }
-
-  for (int i = 0; i < size; i++) {
-    REQUIRE(parent[i] == path_key[i]);
   }
 }
 
 TEST_CASE("data gen w/ dijk", "[data_dijk]") {
-  for (int i = 10; i < 32; i++) {
+  for (int i = 10; i < 256; i++) {
     int size = i;
 
     Graph g(size);
@@ -128,23 +106,16 @@ TEST_CASE("data gen w/ dijk", "[data_dijk]") {
 
     p = 0.45;
     g.create_random_graph(seed, p);
-    // REQUIRE(g.num_of_edges() == size * size * p);
 
     int **input = g.get_matrix();
-    int *dist_mat = new int[size];
-    int *par_mat = new int[size];
+    int *dist_base = new int[size];
     int *dist_list = new int[size];
-    int *par_list = new int[size];
 
-    dijkstra_sw_matrix(input, 0, size, dist_mat, par_mat);
-    dijkstra_sw_adj_list(&g, 0, dist_list, par_list);
-    // print_solution(dist_mat, par_mat, 0, size);
-    // print_solution(dist_list, par_list, 0, size);
-    // g.print_graph();
+    dijkstra_sw_base(input, 0, size, dist_base);
+    dijkstra_sw_bin(&g, 0, dist_list);
 
     for (int i = 0; i < size; i++) {
-      REQUIRE(dist_mat[i] == dist_list[i]);
-      REQUIRE(par_mat[i] == par_list[i]);
+      REQUIRE(dist_base[i] == dist_list[i]);
     }
   }
 }

@@ -38,49 +38,106 @@ int main(int argc, char **argv) {
 
   int **input = g.get_matrix();
 
-  int *sw_dist_matrix, *sw_dist_list, *sw_par_matrix, *sw_par_list,
-      *sw_dist_fib, *sw_par_fib;
-  Timer sw_matrix_time, sw_list_time, sw_fib_time;
+  int *sw_dist_base, *sw_dist_bin, *sw_dist_fib, *hw_dist;
+  Timer sw_base_time, sw_bin_time, sw_fib_time, hw_time, read_time, write_time,
+      wait_time;
 
+  sw_dist_base = new int[size];
+  sw_dist_bin = new int[size];
   sw_dist_fib = new int[size];
-  sw_dist_matrix = new int[size];
-  sw_dist_list = new int[size];
-  sw_par_fib = new int[size];
-  sw_par_matrix = new int[size];
-  sw_par_list = new int[size];
+  hw_dist = new int[size];
+
+  sw_base_time.start();
+  dijkstra_sw_base(input, 0, size, sw_dist_base);
+  sw_base_time.stop();
+
+  sw_bin_time.start();
+  dijkstra_sw_bin(&g, 0, sw_dist_bin);
+  sw_bin_time.stop();
 
   sw_fib_time.start();
-  dijkstra_sw_fib(&g, 0, sw_dist_fib, sw_par_fib);
+  dijkstra_sw_fib(&g, 0, sw_dist_fib);
   sw_fib_time.stop();
 
-  sw_list_time.start();
-  dijkstra_sw_adj_list(&g, 0, sw_dist_list, sw_par_list);
-  sw_list_time.stop();
+  // hw_time.start();
+  // dijkstra_hw(input, 0, size, sw_dist_base);
+  // hw_time.stop();
 
-  sw_matrix_time.start();
-  dijkstra_sw_matrix(input, 0, size, sw_dist_matrix, sw_par_matrix);
-  sw_matrix_time.stop();
+  double transfer_time = write_time.elapsedTime() + read_time.elapsedTime();
+  double hw_time_no_transfer = hw_time.elapsedTime() - transfer_time;
 
-  std::cout << "Matrix Time : " << sw_matrix_time.elapsedTime() << std::endl;
-  std::cout << "List Time   : " << sw_list_time.elapsedTime() << std::endl;
-  std::cout << "Fibo Time   : " << sw_fib_time.elapsedTime() << std::endl;
-  std::cout << "Speedup(L/M): "
-            << sw_matrix_time.elapsedTime() / sw_list_time.elapsedTime()
+  std::cout << " Dijkstra Base Time: " << sw_base_time.elapsedTime()
             << std::endl;
-  std::cout << "Speedup(F/M): "
-            << sw_matrix_time.elapsedTime() / sw_fib_time.elapsedTime()
+  std::cout << "   Binary Heap Time: " << sw_bin_time.elapsedTime()
             << std::endl;
-  std::cout << "Speedup(F/L): "
-            << sw_list_time.elapsedTime() / sw_fib_time.elapsedTime()
+  std::cout << "Fibonacci Heap Time: " << sw_fib_time.elapsedTime()
             << std::endl;
+  std::cout << " Dijkstra FPGA Time: " << hw_time.elapsedTime() << std::endl;
+  std::cout << "  No Transfers Time: " << hw_time_no_transfer << std::endl;
+  std::cout << std::endl;
+  std::cout << "       Speedup(BIN): "
+            << sw_base_time.elapsedTime() / sw_bin_time.elapsedTime()
+            << std::endl;
+  std::cout << "       Speedup(FIB): "
+            << sw_base_time.elapsedTime() / sw_fib_time.elapsedTime()
+            << std::endl;
+  std::cout << "       Speedup(F/B): "
+            << sw_bin_time.elapsedTime() / sw_fib_time.elapsedTime()
+            << std::endl;
+  std::cout << "    Speedup(HW/BAS): "
+            << sw_base_time.elapsedTime() / hw_time.elapsedTime() << std::endl;
+  std::cout << "       No Transfers: "
+            << sw_base_time.elapsedTime() / hw_time_no_transfer << std::endl;
+  std::cout << "    Speedup(HW/BIN): "
+            << sw_bin_time.elapsedTime() / hw_time.elapsedTime() << std::endl;
+  std::cout << "       No Transfers: "
+            << sw_bin_time.elapsedTime() / hw_time_no_transfer << std::endl;
+  std::cout << "    Speedup(HW/FIB): "
+            << sw_fib_time.elapsedTime() / hw_time.elapsedTime() << std::endl;
+  std::cout << "       No Transfers: "
+            << sw_fib_time.elapsedTime() / hw_time_no_transfer << std::endl;
+
+  int derr_bin = 0;
+  int derr_fib = 0;
+  int derr_hw = 0;
+
+  for (int i = 0; i < size; i++) {
+    if (sw_dist_bin[i] != sw_dist_base[i]) {
+      derr_bin++;
+    }
+  }
+  for (int i = 0; i < size; i++) {
+    if (sw_dist_fib[i] != sw_dist_base[i]) {
+      derr_fib++;
+    }
+  }
+  for (int i = 0; i < size; i++) {
+    if (hw_dist[i] != sw_dist_base[i]) {
+      derr_hw++;
+    }
+  }
+
+  std::cout << "\nBIN MINHEAP DIST CHECK: ";
+  if (!derr_bin)
+    std::cout << "PASS!\n";
+  else
+    std::cout << "FAIL!\nError count: " << derr_bin << std::endl;
+  std::cout << "FIB MINHEAP DIST CHECK: ";
+  if (!derr_fib)
+    std::cout << "PASS!\n";
+  else
+    std::cout << "FAIL!\nError count: " << derr_fib << std::endl;
+  std::cout << "DIJ HW FPGA DIST CHECK: ";
+  if (!derr_hw)
+    std::cout << "PASS!\n";
+  else
+    std::cout << "FAIL!\nError count: " << derr_hw << std::endl;
 
   delete[] input;
-  delete[] sw_dist_matrix;
-  delete[] sw_dist_list;
-  delete[] sw_par_matrix;
-  delete[] sw_par_list;
+  delete[] sw_dist_base;
+  delete[] sw_dist_bin;
   delete[] sw_dist_fib;
-  delete[] sw_par_fib;
+  delete[] hw_dist;
   // delete board;
 
   return 0;
