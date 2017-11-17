@@ -1,7 +1,10 @@
 // Greg Stitt
 // University of Florida
 // Board class
-// This class implements a number of methods for interfacing with the FPGA. For the ZedBoard, this "board" is just the programmable logic section, but the class maintains the board analogy for use with other FPGAs that are on a separate board.
+// This class implements a number of methods for interfacing with the FPGA. For
+// the ZedBoard, this "board" is just the programmable logic section, but the
+// class maintains the board analogy for use with other FPGAs that are on a
+// separate board.
 
 #ifndef _BOARD_H_
 #define _BOARD_H_
@@ -26,28 +29,25 @@ enum MemId {
   MEM_LAST  // this is an invalid memory and is used for bounds checking only
 };
 
-
 class Board {
-
  public:
   Board(const char *bitfile, const std::vector<float> &frequencies);
   virtual ~Board();
-  
+
   virtual bool write(unsigned *data, unsigned long addr, unsigned long words);
   virtual bool read(unsigned *data, unsigned long addr, unsigned long words);
 
   // number of bytes in a page
   const unsigned PAGE_SIZE;
-  
+
   static const unsigned NUM_FPGA_CLOCKS = 4;
 
  protected:
-      
   // pointer to each page used in the memory-mapped AXI address space.
   unsigned **mmapPages;
 
   void copy(const char *to, const char *from);
-  void loadBitfile(const char* bitfile);
+  void loadBitfile(const char *bitfile);
   void writeToDriver(std::string file, std::string data) const;
   std::string readFromDriver(std::string file) const;
   void configureFpgaClock(unsigned clk, double freq);

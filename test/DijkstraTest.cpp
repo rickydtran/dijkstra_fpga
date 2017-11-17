@@ -126,7 +126,7 @@ TEST_CASE("data gen w/ dijk", "[data_dijk]") {
     int seed = 194594329;
     double p;
 
-    p = 0.1;
+    p = 0.45;
     g.create_random_graph(seed, p);
     // REQUIRE(g.num_of_edges() == size * size * p);
 

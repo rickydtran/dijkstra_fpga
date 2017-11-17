@@ -6,32 +6,18 @@
 
 #include "Timer.h"
 
-Timer::Timer() : startTime(0.0), stopTime(0.0) {
+Timer::Timer() : startTime(0.0), stopTime(0.0) {}
 
-}
-
-Timer::~Timer() {
-
-}
+Timer::~Timer() {}
 
 double Timer::currentTime() const {
-
-   timeval st;
-   gettimeofday(&st,NULL);
-   return st.tv_sec + st.tv_usec*1e-6;
+  timeval st;
+  gettimeofday(&st, NULL);
+  return st.tv_sec + st.tv_usec * 1e-6;
 }
 
-void Timer::start() {
+void Timer::start() { startTime = currentTime(); }
 
-  startTime = currentTime();
-}
+void Timer::stop() { stopTime = currentTime(); }
 
-void Timer::stop() {
-  
-  stopTime = currentTime();
-}
-
-double Timer::elapsedTime() const {
-
-  return stopTime-startTime;
-}
+double Timer::elapsedTime() const { return stopTime - startTime; }

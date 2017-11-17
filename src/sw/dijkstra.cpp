@@ -8,7 +8,8 @@
 #include "fiboqueue.h"
 
 int min_distance(int dist[], bool done[], int size) {
-  int min = INT_MAX, min_index;
+  int min = INT_MAX;
+  int min_index = -1;
   for (int i = 0; i < size; i++) {
     if (done[i] == false && dist[i] < min) {
       min = dist[i], min_index = i;
@@ -58,7 +59,7 @@ void dijkstra_sw_fib(const Graph *g, int src, int *dist, int *parent) {
       if (dist[u] != INT_MAX && dist[v] > dist[u] + w) {
         parent[v] = u;
         dist[v] = dist[u] + w;
-        FibHeap<int>::FibNode *n = fq.findNode(v);  
+        FibHeap<int>::FibNode *n = fq.findNode(v);
         fq.decrease_key(n, dist[v]);
       }
     }

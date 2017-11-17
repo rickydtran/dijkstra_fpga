@@ -8,9 +8,11 @@
 #define MAX_SIZE (1 << ADDR_WIDTH)
 
 int main(int argc, char **argv) {
-  // if (argc != 2) {
-  //   return -1;
-  // }
+  if (argc != 3) {  // Update to 4 when hw done
+    std::cerr << "Usage: " << argv[0] << " <vertices> <cfactor> <bitfile>"
+              << std::endl;
+    return -1;
+  }
 
   // std::vector<float> clocks(Board::NUM_FPGA_CLOCKS);
   // clocks[0] = 100.0;
@@ -31,14 +33,13 @@ int main(int argc, char **argv) {
 
   Graph g(size);
   unsigned seed = 194594329;
-  // double p;
 
-  // p = 0.1;
   g.create_random_graph(seed, p);
 
   int **input = g.get_matrix();
 
-  int *sw_dist_matrix, *sw_dist_list, *sw_par_matrix, *sw_par_list, *sw_dist_fib, *sw_par_fib;
+  int *sw_dist_matrix, *sw_dist_list, *sw_par_matrix, *sw_par_list,
+      *sw_dist_fib, *sw_par_fib;
   Timer sw_matrix_time, sw_list_time, sw_fib_time;
 
   sw_dist_fib = new int[size];
@@ -60,12 +61,9 @@ int main(int argc, char **argv) {
   dijkstra_sw_matrix(input, 0, size, sw_dist_matrix, sw_par_matrix);
   sw_matrix_time.stop();
 
-  // print_solution(sw_dist_matrix, sw_par_matrix, 0, size);
-  // print_solution(sw_dist_list, sw_par_list, 0, size);
-
-  std::cout << "Matrix Time: " << sw_matrix_time.elapsedTime() << std::endl;
-  std::cout << "List Time:   " << sw_list_time.elapsedTime() << std::endl;
-  std::cout << "Fib Time:    " << sw_fib_time.elapsedTime() << std::endl;
+  std::cout << "Matrix Time : " << sw_matrix_time.elapsedTime() << std::endl;
+  std::cout << "List Time   : " << sw_list_time.elapsedTime() << std::endl;
+  std::cout << "Fibo Time   : " << sw_fib_time.elapsedTime() << std::endl;
   std::cout << "Speedup(L/M): "
             << sw_matrix_time.elapsedTime() / sw_list_time.elapsedTime()
             << std::endl;

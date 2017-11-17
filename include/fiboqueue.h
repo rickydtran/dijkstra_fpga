@@ -11,7 +11,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library.
  */
@@ -25,78 +25,65 @@
 #ifndef FIBOQUEUE_H
 #define FIBOQUEUE_H
 
-#include "fiboheap.h"
-#include <unordered_map>
 #include <algorithm>
+#include <unordered_map>
+#include "fiboheap.h"
 
-template<class T>
-class FibQueue : public FibHeap<T>
-{
+template <class T>
+class FibQueue : public FibHeap<T> {
  public:
-  FibQueue()
-    :FibHeap<T>()
-    {
-    }
+  FibQueue() : FibHeap<T>() {}
 
-  ~FibQueue()
-    {
-    }
+  ~FibQueue() {}
 
-  void decrease_key(typename FibHeap<T>::FibNode *x, int k)
-  {
-    typename std::unordered_map<T,typename FibHeap<T>::FibNode*>::iterator mit
-      = find(x->payload);
+  void decrease_key(typename FibHeap<T>::FibNode *x, int k) {
+    typename std::unordered_map<T, typename FibHeap<T>::FibNode *>::iterator
+        mit = find(x->payload);
     fstore.erase(mit);
-    fstore.insert(std::pair<T,typename FibHeap<T>::FibNode*>(x->payload,x));
-    FibHeap<T>::decrease_key(x,k);
+    fstore.insert(std::pair<T, typename FibHeap<T>::FibNode *>(x->payload, x));
+    FibHeap<T>::decrease_key(x, k);
   }
-  
-  typename FibHeap<T>::FibNode* push(T k, int pl)
-  {
-    typename FibHeap<T>::FibNode *x = FibHeap<T>::push(k,pl);
-    fstore.insert(std::pair<T,typename FibHeap<T>::FibNode*>(pl,x));
+
+  typename FibHeap<T>::FibNode *push(T k, int pl) {
+    typename FibHeap<T>::FibNode *x = FibHeap<T>::push(k, pl);
+    fstore.insert(std::pair<T, typename FibHeap<T>::FibNode *>(pl, x));
     return x;
   }
 
-  typename FibHeap<T>::FibNode* push(T k)
-  {
-    return push(k,NULL);
-  }
+  typename FibHeap<T>::FibNode *push(T k) { return push(k, NULL); }
 
-  typename std::unordered_map<T,typename FibHeap<T>::FibNode*>::iterator find(T k)
-  {
-    typename std::unordered_map<T,typename FibHeap<T>::FibNode*>::iterator mit
-      =fstore.find(k);
+  typename std::unordered_map<T, typename FibHeap<T>::FibNode *>::iterator find(
+      T k) {
+    typename std::unordered_map<T, typename FibHeap<T>::FibNode *>::iterator
+        mit = fstore.find(k);
     return mit;
   }
 
-  typename FibHeap<T>::FibNode* findNode(T k)
-  {
-    typename std::unordered_map<T,typename FibHeap<T>::FibNode*>::iterator mit
-      = find(k);
+  typename FibHeap<T>::FibNode *findNode(T k) {
+    typename std::unordered_map<T, typename FibHeap<T>::FibNode *>::iterator
+        mit = find(k);
     return (*mit).second;
   }
-  
-  void pop()
-  {
-    if (FibHeap<T>::empty())
-      return;
+
+  void pop() {
+    if (FibHeap<T>::empty()) return;
     typename FibHeap<T>::FibNode *x = FibHeap<T>::extract_min();
-    if (!x)
-      return; // should not happen.
+    if (!x) return;  // should not happen.
     auto range = fstore.equal_range(x->payload);
-    auto mit = std::find_if(range.first, range.second,
-                            [x](const std::pair<T,typename FibHeap<T>::FibNode*> &ele){
-                                return ele.second == x;
-                            }
-    );
+    auto mit = std::find_if(
+        range.first, range.second,
+        [x](const std::pair<T, typename FibHeap<T>::FibNode *> &ele) {
+          return ele.second == x;
+        });
     if (mit != range.second)
       fstore.erase(mit);
-    else std::cerr << "[Error]: key " << x->key << " cannot be found in FiboQueue fast store\n";
+    else
+      std::cerr << "[Error]: key " << x->key
+                << " cannot be found in FiboQueue fast store\n";
     delete x;
   }
-  
-  std::unordered_multimap<T,typename FibHeap<T>::FibNode*> fstore;
+
+  std::unordered_multimap<T, typename FibHeap<T>::FibNode *> fstore;
 };
 
 #endif
