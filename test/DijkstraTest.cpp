@@ -32,8 +32,9 @@ TEST_CASE("dijkstra base test", "[base]") {
 
   int **input = g.get_matrix();
   int *dist = new int[size];
+  int *prev = new int[size];
 
-  dijkstra_sw_base(input, 0, size, dist);
+  dijkstra_sw_base(input, 0, size, dist, prev);
 
   for (int i = 0; i < size; i++) {
     REQUIRE(dist[i] == dist_key[i]);
@@ -63,8 +64,9 @@ TEST_CASE("dijkstra bin minheap test", "[bin_heap]") {
   g.add_edge(7, 8, 7);
 
   int *dist = new int[size];
+  int *prev = new int[size];
 
-  dijkstra_sw_bin(&g, 0, dist);
+  dijkstra_sw_bin(&g, 0, dist, prev);
 
   for (int i = 0; i < size; i++) {
     REQUIRE(dist[i] == dist_key[i]);
@@ -94,8 +96,9 @@ TEST_CASE("dijkstra fib minheap test", "[fib_heap]") {
   g.add_edge(7, 8, 7);
 
   int *dist = new int[size];
+  int *prev = new int[size];
 
-  dijkstra_sw_fib(&g, 0, dist);
+  dijkstra_sw_fib(&g, 0, dist, prev);
 
   for (int i = 0; i < size; i++) {
     REQUIRE(dist[i] == dist_key[i]);
@@ -105,23 +108,26 @@ TEST_CASE("dijkstra fib minheap test", "[fib_heap]") {
 TEST_CASE("data gen w/ dijk", "[data_dijk]") {
   for (int i = 10; i < 256; i++) {
     int size = i;
-
     Graph g(size);
     int seed = 194594329;
     double p;
 
     p = 0.45;
-    g.create_random_graph(seed, p);
+    g.create_random_graph(seed, p, 255);
 
     int **input = g.get_matrix();
     int *dist_base = new int[size];
-    int *dist_list = new int[size];
+    int *dist_bin = new int[size];
 
-    dijkstra_sw_base(input, 0, size, dist_base);
-    dijkstra_sw_bin(&g, 0, dist_list);
+    int *prev_base = new int[size];
+    int *prev_bin = new int[size];
+
+    dijkstra_sw_base(input, 0, size, dist_base, prev_base);
+    dijkstra_sw_bin(&g, 0, dist_bin, prev_bin);
 
     for (int i = 0; i < size; i++) {
-      REQUIRE(dist_base[i] == dist_list[i]);
+      REQUIRE(dist_base[i] == dist_bin[i]);
+      // REQUIRE(prev_base[i] == prev_bin[i]);
     }
   }
 }

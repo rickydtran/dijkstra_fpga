@@ -5,9 +5,9 @@
 **/
 
 #include "Graph.h"
-#include <math.h>
-#include <stdlib.h>
+#include <cmath>
 #include <iostream>
+#include <random>
 #include <set>
 
 Graph::Graph(int V) {
@@ -32,9 +32,11 @@ void Graph::add_edge(int u, int v, int wt) {
   adj[v].push_back(std::make_pair(u, wt));
 }
 
-void Graph::create_random_graph(int seed, double p) {
+void Graph::create_random_graph(int seed, double p, int max_wt) {
   std::set<std::pair<int, int>> container;
-  srand(seed);
+  std::mt19937 mt(seed);
+  std::uniform_int_distribution<int> dist(0, V - 1);
+  std::uniform_int_distribution<int> dist_wt(1, max_wt);
 
   create_spanning_tree(container,
                        seed);  // Guaranteeds every node to be connected
@@ -42,8 +44,8 @@ void Graph::create_random_graph(int seed, double p) {
   int e = round(V * V * p) / 2 - (V - 1);
 
   for (int i = 0; i < e; i++) {  // Fill in till Connectivity is met
-    int u = rand() % V;
-    int v = rand() % V;
+    int u = dist(mt);
+    int v = dist(mt);
     std::pair<int, int> p = std::make_pair(u, v);
     std::pair<int, int> p_r = std::make_pair(v, u);
     if (container.find(p) != container.end() ||
@@ -55,12 +57,13 @@ void Graph::create_random_graph(int seed, double p) {
   }
 
   for (auto it = container.begin(); it != container.end(); it++) {
-    add_edge(it->first, it->second, 1 + rand() % 1024);
+    add_edge(it->first, it->second, dist_wt(mt));
   }
 }
 
 void Graph::create_spanning_tree(std::set<std::pair<int, int>> &c, int seed) {
-  srand(seed);
+  std::mt19937 mt(seed);
+  std::uniform_int_distribution<int> dist(0, V - 1);
   bool check[V];
   for (int i = 0; i < V; i++) {
     check[i] = false;
@@ -68,8 +71,8 @@ void Graph::create_spanning_tree(std::set<std::pair<int, int>> &c, int seed) {
   int nodeNum = V;
   bool firstIteration = true;
   while (nodeNum != 0) {
-    int u = rand() % V;
-    int v = rand() % V;
+    int u = dist(mt);
+    int v = dist(mt);
     if (u == v) {
       continue;
     }

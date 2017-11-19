@@ -48,16 +48,16 @@ TEST_CASE("Random Graph Generation", "[random_graph]") {
   double p;
 
   p = 0.1;
-  a.create_random_graph(seed, p);
+  a.create_random_graph(seed, p, 255);
   REQUIRE(a.num_of_edges() == size * size * p);
   p = 0.3;
-  b.create_random_graph(seed, p);
+  b.create_random_graph(seed, p, 255);
   REQUIRE(b.num_of_edges() == size * size * p);
   p = 0.5;
-  c.create_random_graph(seed, p);
+  c.create_random_graph(seed, p, 255);
   REQUIRE(c.num_of_edges() == size * size * p);
   p = 0.9;
-  d.create_random_graph(seed, p);
+  d.create_random_graph(seed, p, 255);
   REQUIRE(d.num_of_edges() == size * size * p);
 
   // d.print_graph();
@@ -72,7 +72,7 @@ TEST_CASE("adj list to 2d matrix test", "[adj_matrix]") {
   double p;
 
   p = 0.9;
-  g.create_random_graph(seed, p);
+  g.create_random_graph(seed, p, 256);
   REQUIRE(g.num_of_edges() == size * size * p);
 
   int **input = g.get_matrix();
