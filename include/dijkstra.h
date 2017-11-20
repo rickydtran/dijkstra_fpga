@@ -10,6 +10,8 @@
 #include "Graph.h"
 #include "dijkstra.h"
 
+void print_path(int prev[], int dst);
+void print_solution(int dist[], int prev[], int src, int size);
 int min_distance(int dist[], bool done[], int size);
 void print_path(int parent[], int dst);
 void print_solution(int dist[], int parent[], int src, int size);

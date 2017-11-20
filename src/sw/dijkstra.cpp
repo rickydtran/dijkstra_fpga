@@ -6,10 +6,29 @@
 
 #include "dijkstra.h"
 #include <limits.h>
+#include <iostream>
 #include <vector>
 #include "Graph.h"
 #include "MinHeap.h"
 #include "fiboqueue.hpp"
+
+void print_path(int prev[], int dst) {
+  if (prev[dst] == -1) {
+    std::cout << dst << " ";
+    return;
+  }
+  print_path(prev, prev[dst]);
+  std::cout << dst << " ";
+}
+
+void print_solution(int dist[], int prev[], int src, int size) {
+  std::cout << "Vertex      Distance      Path" << std::endl;
+  for (int i = 0; i < size; i++) {
+    std::cout << src << " -> " << i << "\t\t" << dist[i] << "\t  ";
+    print_path(prev, i);
+    std::cout << std::endl;
+  }
+}
 
 int min_distance(int dist[], bool done[], int size) {
   int min = INT_MAX;

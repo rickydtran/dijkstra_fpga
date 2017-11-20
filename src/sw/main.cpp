@@ -12,6 +12,7 @@
 #include "Timer.h"
 #include "dijkstra.h"
 
+// #define PRINT_PATH
 #define ADDR_WIDTH 3
 #define MAX_SIZE (1 << ADDR_WIDTH)
 
@@ -46,6 +47,23 @@ int main(int argc, char **argv) {
   Graph g(size);
   unsigned seed = 194594329;
 
+  std::cout << std::endl;
+
+  std::cout << "    ____  ____    ____ _________________  ___ " << std::endl;
+  std::cout << "   / __ \\/  _/   / / //_/ ___/_  __/ __ \\/   |" << std::endl;
+  std::cout << "  / / / // /__  / / ,<  \\__ \\ / / / /_/ / /| |" << std::endl;
+  std::cout << " / /_/ // // /_/ / /| |___/ // / / _, _/ ___ |" << std::endl;
+  std::cout << "/_____/___/\\____/_/ |_/____//_/ /_/ |_/_/  |_|" << std::endl;
+  std::cout << "                        __________  _________ " << std::endl;
+  std::cout << "                       / ____/ __ \\/ ____/   |" << std::endl;
+  std::cout << "                      / /_  / /_/ / / __/ /| |" << std::endl;
+  std::cout << "                     / __/ / ____/ /_/ / ___ |" << std::endl;
+  std::cout << "                    /_/   /_/    \\____/_/  |_|" << std::endl;
+
+  std::cout << "Beginning Benchmarks..." << std::endl;
+  std::cout << "Generating Data..." << std::endl;
+  std::cout << size << " Vertices with connectivity factor of " << p << std::endl;  
+
   g.create_random_graph(seed, p, max_wt);
 
   int **input = g.get_matrix();
@@ -65,37 +83,35 @@ int main(int argc, char **argv) {
   sw_prev_fib = (int *)malloc(size * sizeof(int));
   hw_prev = (int *)malloc(size * sizeof(int));
 
-  std::cout << std::endl;
-
-  std::cout << "    ____  ____    ____ _________________  ___ " << std::endl;
-  std::cout << "   / __ \\/  _/   / / //_/ ___/_  __/ __ \\/   |" << std::endl;
-  std::cout << "  / / / // /__  / / ,<  \\__ \\ / / / /_/ / /| |" << std::endl;
-  std::cout << " / /_/ // // /_/ / /| |___/ // / / _, _/ ___ |" << std::endl;
-  std::cout << "/_____/___/\\____/_/ |_/____//_/ /_/ |_/_/  |_|" << std::endl;
-  std::cout << "                        __________  _________ " << std::endl;
-  std::cout << "                       / ____/ __ \\/ ____/   |" << std::endl;
-  std::cout << "                      / /_  / /_/ / / __/ /| |" << std::endl;
-  std::cout << "                     / __/ / ____/ /_/ / ___ |" << std::endl;
-  std::cout << "                    /_/   /_/    \\____/_/  |_|" << std::endl;
-
-  std::cout << "Beginning Benchmarks..." << std::endl;
   std::cout << "Executing Each Benchmark For " << runs << " Runs" << std::endl;
   for (int i = 0; i < runs; i++) {
     sw_base_time.start();
     dijkstra_sw_base(input, 0, size, sw_dist_base, sw_prev_base);
     sw_base_time.stop();
+    #ifdef PRINT_PATH
+    print_solution(sw_dist_base, sw_prev_base, 0, size);
+    #endif
 
     sw_bin_time.start();
     dijkstra_sw_bin(&g, 0, sw_dist_bin, sw_prev_bin);
     sw_bin_time.stop();
+    #ifdef PRINT_PATH
+    print_solution(sw_dist_bin, sw_prev_bin, 0, size);
+    #endif
 
     sw_fib_time.start();
     dijkstra_sw_fib(&g, 0, sw_dist_fib, sw_prev_fib);
     sw_fib_time.stop();
+    #ifdef PRINT_PATH
+    print_solution(sw_dist_fib, sw_prev_fib, 0, size);
+    #endif
 
     // hw_time.start();
     // dijkstra_hw(input, 0, size, sw_dist_base);
     // hw_time.stop();
+    // #ifdef
+    // print_solution(hw_dist, hw_prev, 0, size);
+    // #endif
   }
 
   double transfer_time = (write_time.elapsedTime() + read_time.elapsedTime());
