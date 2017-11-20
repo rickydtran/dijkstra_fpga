@@ -1,23 +1,25 @@
-// Greg Stitt
-// University of Florida
-
-#include <sys/time.h>
-#include <cstddef>
+/**
+  RICKY TRAN
+  UNIVERSITY OF FLORIDA
+  TIMER IMPLEMENTATION
+**/
 
 #include "Timer.h"
+#include <chrono>
 
-Timer::Timer() : startTime(0.0), stopTime(0.0) {}
+Timer::Timer() {}
 
 Timer::~Timer() {}
 
-double Timer::currentTime() const {
-  timeval st;
-  gettimeofday(&st, NULL);
-  return st.tv_sec + st.tv_usec * 1e-6;
+std::chrono::steady_clock::time_point Timer::currentTime() const {
+  auto curr = std::chrono::steady_clock::now();
+  return curr;
 }
 
 void Timer::start() { startTime = currentTime(); }
 
 void Timer::stop() { stopTime = currentTime(); }
 
-double Timer::elapsedTime() const { return stopTime - startTime; }
+double Timer::elapsedTime() const {
+  return std::chrono::duration<double, std::nano>(stopTime - startTime).count();
+}

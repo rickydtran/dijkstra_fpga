@@ -1,8 +1,13 @@
-// Greg Stitt
-// University of Florida
+/**
+  RICKY TRAN
+  UNIVERSITY OF FLORIDA
+  TIMER HEADER
+**/
 
 #ifndef _TIMER_H_
 #define _TIMER_H_
+
+#include <chrono>
 
 class Timer {
  public:
@@ -14,10 +19,9 @@ class Timer {
   double elapsedTime() const;
 
  protected:
-  double startTime;
-  double stopTime;
-
-  double currentTime() const;
+  std::chrono::steady_clock::time_point startTime;
+  std::chrono::steady_clock::time_point stopTime;
+  std::chrono::steady_clock::time_point currentTime() const;
 };
 
 #endif

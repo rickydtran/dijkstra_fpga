@@ -5,6 +5,7 @@
 **/
 
 #include <cmath>
+#include <iomanip>
 #include <iostream>
 #include "Board.h"
 #include "Graph.h"
@@ -76,7 +77,6 @@ int main(int argc, char **argv) {
   std::cout << "                      / /_  / /_/ / / __/ /| |" << std::endl;
   std::cout << "                     / __/ / ____/ /_/ / ___ |" << std::endl;
   std::cout << "                    /_/   /_/    \\____/_/  |_|" << std::endl;
-                          
 
   std::cout << "Beginning Benchmarks..." << std::endl;
   std::cout << "Executing Each Benchmark For " << runs << " Runs" << std::endl;
@@ -101,47 +101,53 @@ int main(int argc, char **argv) {
   double transfer_time = (write_time.elapsedTime() + read_time.elapsedTime());
   double hw_time_no_transfer = (hw_time.elapsedTime() - transfer_time) / runs;
   std::cout << "============AVERAGE EXECUTION TIME============" << std::endl;
-  std::cout << "  Dijkstra Base Time: " << sw_base_time.elapsedTime() / runs
+  std::cout << "  Dijkstra Base Time: " << std::fixed << std::setprecision(1)
+            << std::setw(9) << std::right << sw_base_time.elapsedTime() / runs
+            << " ns" << std::endl;
+  std::cout << "    Binary Heap Time: " << std::fixed << std::setprecision(1)
+            << std::setw(9) << std::right << sw_bin_time.elapsedTime() / runs
+            << " ns" << std::endl;
+  std::cout << " Fibonacci Heap Time: " << std::fixed << std::setprecision(1)
+            << std::setw(9) << std::right << sw_fib_time.elapsedTime() / runs
+            << " ns" << std::endl;
+  std::cout << "  Dijkstra FPGA Time: " << std::fixed << std::setprecision(1)
+            << std::setw(9) << std::right << hw_time.elapsedTime() / runs
+            << " ns" << std::endl;
+  std::cout << "   No Transfers Time: " << std::fixed << std::setprecision(1)
+            << std::setw(9) << std::right << hw_time_no_transfer << " ns"
             << std::endl;
-  std::cout << "    Binary Heap Time: " << sw_bin_time.elapsedTime() / runs
-            << std::endl;
-  std::cout << " Fibonacci Heap Time: " << sw_fib_time.elapsedTime() / runs
-            << std::endl;
-  std::cout << "  Dijkstra FPGA Time: " << hw_time.elapsedTime() / runs
-            << std::endl;
-  std::cout << "   No Transfers Time: " << hw_time_no_transfer << std::endl;
   std::cout << "===============AVERAGE SPEEDUP================" << std::endl;
-  std::cout << "        Speedup(BIN): "
+  std::cout << "        Speedup(BIN): " << std::setprecision(5)
             << (sw_base_time.elapsedTime() / runs) /
                    (sw_bin_time.elapsedTime() / runs)
             << std::endl;
-  std::cout << "        Speedup(FIB): "
+  std::cout << "        Speedup(FIB): " << std::setprecision(5)
             << (sw_base_time.elapsedTime() / runs) /
                    (sw_fib_time.elapsedTime() / runs)
             << std::endl;
-  std::cout << "        Speedup(F/B): "
+  std::cout << "        Speedup(F/B): " << std::setprecision(5)
             << (sw_bin_time.elapsedTime() / runs) /
                    (sw_fib_time.elapsedTime() / runs)
             << std::endl;
-  std::cout << "     Speedup(HW/BAS): "
+  std::cout << "     Speedup(HW/BAS): " << std::setprecision(5)
             << (sw_base_time.elapsedTime() / runs) /
                    (hw_time.elapsedTime() / runs)
             << std::endl;
-  std::cout << "        No Transfers: "
+  std::cout << "        No Transfers: " << std::setprecision(5)
             << (sw_base_time.elapsedTime() / runs) / hw_time_no_transfer
             << std::endl;
-  std::cout << "     Speedup(HW/BIN): "
+  std::cout << "     Speedup(HW/BIN): " << std::setprecision(5)
             << (sw_bin_time.elapsedTime() / runs) /
                    (hw_time.elapsedTime() / runs)
             << std::endl;
-  std::cout << "        No Transfers: "
+  std::cout << "        No Transfers: " << std::setprecision(5)
             << (sw_bin_time.elapsedTime() / runs) / hw_time_no_transfer
             << std::endl;
-  std::cout << "     Speedup(HW/FIB): "
+  std::cout << "     Speedup(HW/FIB): " << std::setprecision(5)
             << (sw_fib_time.elapsedTime() / runs) /
                    (hw_time.elapsedTime() / runs)
             << std::endl;
-  std::cout << "        No Transfers: "
+  std::cout << "        No Transfers: " << std::setprecision(5)
             << (sw_fib_time.elapsedTime() / runs) / hw_time_no_transfer
             << std::endl;
 
