@@ -49,7 +49,7 @@ void dijkstra_sw_base(int **graph, int src, int size, int *dist, int *prev) {
   }
   dist[src] = 0;
   prev[src] = -1;
-  for (int i = 1; i < size; i++) {
+  for (int i = 0; i < size; i++) {
     int u = min_distance(dist, done, size);
     done[u] = true;
     for (int v = 0; v < size; v++) {

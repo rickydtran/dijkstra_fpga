@@ -62,7 +62,8 @@ int main(int argc, char **argv) {
 
   std::cout << "Beginning Benchmarks..." << std::endl;
   std::cout << "Generating Data..." << std::endl;
-  std::cout << size << " Vertices with connectivity factor of " << p << std::endl;  
+  std::cout << size << " Vertices with connectivity factor of " << p
+            << std::endl;
 
   g.create_random_graph(seed, p, max_wt);
 
@@ -88,23 +89,23 @@ int main(int argc, char **argv) {
     sw_base_time.start();
     dijkstra_sw_base(input, 0, size, sw_dist_base, sw_prev_base);
     sw_base_time.stop();
-    #ifdef PRINT_PATH
+#ifdef PRINT_PATH
     print_solution(sw_dist_base, sw_prev_base, 0, size);
-    #endif
+#endif
 
     sw_bin_time.start();
     dijkstra_sw_bin(&g, 0, sw_dist_bin, sw_prev_bin);
     sw_bin_time.stop();
-    #ifdef PRINT_PATH
+#ifdef PRINT_PATH
     print_solution(sw_dist_bin, sw_prev_bin, 0, size);
-    #endif
+#endif
 
     sw_fib_time.start();
     dijkstra_sw_fib(&g, 0, sw_dist_fib, sw_prev_fib);
     sw_fib_time.stop();
-    #ifdef PRINT_PATH
+#ifdef PRINT_PATH
     print_solution(sw_dist_fib, sw_prev_fib, 0, size);
-    #endif
+#endif
 
     // hw_time.start();
     // dijkstra_hw(input, 0, size, sw_dist_base);
