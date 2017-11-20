@@ -65,6 +65,19 @@ int main(int argc, char **argv) {
   hw_prev = (int *)malloc(size * sizeof(int));
 
   std::cout << std::endl;
+
+  std::cout << "    ____  ____    ____ _________________  ___ " << std::endl;
+  std::cout << "   / __ \\/  _/   / / //_/ ___/_  __/ __ \\/   |" << std::endl;
+  std::cout << "  / / / // /__  / / ,<  \\__ \\ / / / /_/ / /| |" << std::endl;
+  std::cout << " / /_/ // // /_/ / /| |___/ // / / _, _/ ___ |" << std::endl;
+  std::cout << "/_____/___/\\____/_/ |_/____//_/ /_/ |_/_/  |_|" << std::endl;
+  std::cout << "                        __________  _________ " << std::endl;
+  std::cout << "                       / ____/ __ \\/ ____/   |" << std::endl;
+  std::cout << "                      / /_  / /_/ / / __/ /| |" << std::endl;
+  std::cout << "                     / __/ / ____/ /_/ / ___ |" << std::endl;
+  std::cout << "                    /_/   /_/    \\____/_/  |_|" << std::endl;
+                          
+
   std::cout << "Beginning Benchmarks..." << std::endl;
   std::cout << "Executing Each Benchmark For " << runs << " Runs" << std::endl;
   for (int i = 0; i < runs; i++) {
@@ -87,7 +100,7 @@ int main(int argc, char **argv) {
 
   double transfer_time = (write_time.elapsedTime() + read_time.elapsedTime());
   double hw_time_no_transfer = (hw_time.elapsedTime() - transfer_time) / runs;
-  std::cout << "=======AVERAGE EXECUTION TIME=======" << std::endl;
+  std::cout << "============AVERAGE EXECUTION TIME============" << std::endl;
   std::cout << "  Dijkstra Base Time: " << sw_base_time.elapsedTime() / runs
             << std::endl;
   std::cout << "    Binary Heap Time: " << sw_bin_time.elapsedTime() / runs
@@ -97,7 +110,7 @@ int main(int argc, char **argv) {
   std::cout << "  Dijkstra FPGA Time: " << hw_time.elapsedTime() / runs
             << std::endl;
   std::cout << "   No Transfers Time: " << hw_time_no_transfer << std::endl;
-  std::cout << "==========AVERAGE SPEEDUP===========" << std::endl;
+  std::cout << "===============AVERAGE SPEEDUP================" << std::endl;
   std::cout << "        Speedup(BIN): "
             << (sw_base_time.elapsedTime() / runs) /
                    (sw_bin_time.elapsedTime() / runs)
@@ -173,7 +186,7 @@ int main(int argc, char **argv) {
 
   const double err_margin = 0.2;  // Could be more than one path with same
                                   // distance. Allow 2% Error Margin
-  std::cout << "=============CHECK WORK=============" << std::endl;
+  std::cout << "=================CHECK WORK===================" << std::endl;
   std::cout << "BIN MINHEAP DIST CHECK: ";
   if (!derr_bin)
     std::cout << "PASS!\n";
