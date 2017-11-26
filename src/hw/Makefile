@@ -28,3 +28,4 @@ bit:
 clean:
 	@echo "Cleaning..."
 	rm -rf dijkstra_fpga
+	rm -rf .Xil
