@@ -4,6 +4,7 @@
   MAIN DRIVER
 **/
 
+#include <cassert>
 #include <cmath>
 #include <iomanip>
 #include <iostream>
@@ -13,8 +14,17 @@
 #include "dijkstra.h"
 
 // #define PRINT_PATH
-#define ADDR_WIDTH 3
+#define ADDR_WIDTH 10
+#define WORD_WIDTH 8
 #define MAX_SIZE (1 << ADDR_WIDTH)
+#define MAX_WEIGHT (1 << WORD_WIDTH)
+#define MEM_IN_ADDR 0
+#define MEM_OUT_ADDR 0
+#define GO_ADDR ((1 << MMAP_ADDR_WIDTH) - 5)
+#define SIZE_ADDR ((1 << MMAP_ADDR_WIDTH) - 4)
+#define MEM_IN_SEL ((1 << MMAP_ADDR_WIDTH) - 3)
+#define SRC_ADDR ((1 << MMAP_ADDR_WIDTH) - 2)
+#define DONE_ADDR ((1 << MMAP_ADDR_WIDTH) - 1)
 
 int main(int argc, char **argv) {
   if (argc != 5) {  // Update to 6 when hw done
@@ -38,9 +48,13 @@ int main(int argc, char **argv) {
   // }
 
   int runs = atoi(argv[1]);
+  assert(runs > 0);
   int size = atoi(argv[2]);
+  assert(size <= MAX_SIZE);
   double p = atof(argv[3]);
+  assert(std::islessequal(p, 0.9) && !std::islessequal(p, 0.0));
   int max_wt = atoi(argv[4]);
+  assert(max_wt < MAX_WEIGHT);
 
   // unsigned go, done;
 
@@ -106,12 +120,40 @@ int main(int argc, char **argv) {
 #ifdef PRINT_PATH
     print_solution(sw_dist_fib, sw_prev_fib, 0, size);
 #endif
-
+    /**
+      BEGIN FPGA STUFF
+    **/
+    // transfer input array and size to FPGA
     // hw_time.start();
-    // dijkstra_hw(input, 0, size, sw_dist_base);
+    // write_time.start();
+    // // board->write(input, MEM_IN_ADDR, size);
+    // // board->write(&size, SIZE_ADDR, 1);
+    // for(int i = 0; i < size; i++) {
+    //   board->write(&i, MEM_IN_SEL, 1)
+    //   board->write(input[i], MEM_IN_ADDR, size);
+    // }
+    // write_time.stop();
+
+    // // assert go. Note that the memory map automatically sets go back to 1 to
+    // // avoid an additional transfer.
+    // go = 1;
+    // board->write(&go, GO_ADDR, 1);
+
+    // // wait for the board to assert done
+    // wait_time.start();
+    // done = 0;
+    // while (!done) {
+    //   board->read(&done, DONE_ADDR, 1);
+    // }
+    // wait_time.stop();
+
+    // // read the outputs back from the FPGA
+    // read_time.start();
+    // board->read(hwOutput, MEM_OUT_ADDR, size);
+    // read_time.stop();
     // hw_time.stop();
     // #ifdef
-    // print_solution(hw_dist, hw_prev, 0, size);
+    //     print_solution(hw_dist, hw_prev, 0, size);
     // #endif
   }
 

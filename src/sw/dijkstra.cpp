@@ -53,7 +53,7 @@ void dijkstra_sw_base(int **graph, int src, int size, int *dist, int *prev) {
     int u = min_distance(dist, done, size);
     done[u] = true;
     for (int v = 0; v < size; v++) {
-      if ((!done[v]) && (graph[u][v]) && (dist[v] > dist[u] + graph[u][v])) {
+      if ((graph[u][v]) && (dist[v] > dist[u] + graph[u][v])) {
         prev[v] = u;
         dist[v] = dist[u] + graph[u][v];
       }
@@ -77,7 +77,7 @@ void dijkstra_sw_bin(const Graph *g, int src, int *dist, int *prev) {
     for (auto it = adj.begin(); it != adj.end(); it++) {
       int v = it->first;
       int w = it->second;
-      if (h.isInMinHeap(v) && dist[u] != INT_MAX && dist[v] > dist[u] + w) {
+      if (dist[v] > dist[u] + w) {
         prev[v] = u;
         dist[v] = dist[u] + w;
         h.decreaseKey(v, dist[v]);
@@ -102,7 +102,7 @@ void dijkstra_sw_fib(const Graph *g, int src, int *dist, int *prev) {
     for (auto it = adj.begin(); it != adj.end(); it++) {
       int v = it->first;
       int w = it->second;
-      if (dist[u] != INT_MAX && dist[v] > dist[u] + w) {
+      if (dist[v] > dist[u] + w) {
         prev[v] = u;
         dist[v] = dist[u] + w;
         auto temp = fq.findNode(v);
@@ -111,5 +111,3 @@ void dijkstra_sw_fib(const Graph *g, int src, int *dist, int *prev) {
     }
   }
 }
-
-// void dijkstra_hw(int graph[][], int src) {}
