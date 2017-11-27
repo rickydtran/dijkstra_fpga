@@ -11,8 +11,8 @@
 MinHeap::MinHeap(unsigned V) {
   this->cap = V;
   this->size = 0;
-  this->heap = new std::pair<int, int>[V];
-  this->pos = new int[V];
+  this->heap = new std::pair<unsigned, unsigned>[V];
+  this->pos = new unsigned[V];
 }
 
 MinHeap::~MinHeap() {
@@ -20,26 +20,26 @@ MinHeap::~MinHeap() {
   delete[] this->pos;
 }
 
-bool MinHeap::isInMinHeap(int v) {
+bool MinHeap::isInMinHeap(unsigned v) {
   if (pos[v] < size) return true;
   return false;
 }
 
-int MinHeap::parent(int v) const { return (v - 1) / 2; }
-int MinHeap::left(int v) const { return (2 * v + 1); }
-int MinHeap::right(int v) const { return (2 * v + 2); }
+unsigned MinHeap::parent(unsigned v) const { return (v - 1) / 2; }
+unsigned MinHeap::left(unsigned v) const { return (2 * v + 1); }
+unsigned MinHeap::right(unsigned v) const { return (2 * v + 2); }
 
 bool MinHeap::isEmpty() {
   if (size == 0) return true;
   return false;
 }
 
-void MinHeap::insertKey(int v, int w) {
-  std::pair<int, int> p = std::make_pair(v, w);
+void MinHeap::insertKey(unsigned v, unsigned w) {
+  std::pair<unsigned, unsigned> p = std::make_pair(v, w);
   if (size == cap) {
     return;
   }
-  int i = size;
+  unsigned i = size;
   heap[i] = p;
   pos[v] = i;
   size++;
@@ -51,9 +51,9 @@ void MinHeap::insertKey(int v, int w) {
   }
 }
 
-void MinHeap::decreaseKey(int v, int new_val) {
+void MinHeap::decreaseKey(unsigned v, unsigned new_val) {
   heap[pos[v]].second = new_val;
-  int i = pos[v];
+  unsigned i = pos[v];
   while (i && heap[parent(i)].second > heap[i].second) {
     pos[heap[i].first] = parent(i);
     pos[heap[parent(i)].first] = i;
@@ -62,10 +62,10 @@ void MinHeap::decreaseKey(int v, int new_val) {
   }
 }
 
-void MinHeap::MinHeapify(int v) {
-  int l = left(v);
-  int r = right(v);
-  int min = v;
+void MinHeap::MinHeapify(unsigned v) {
+  unsigned l = left(v);
+  unsigned r = right(v);
+  unsigned min = v;
   if (l < size && heap[l].second < heap[min].second) {
     min = l;
   }
@@ -80,15 +80,15 @@ void MinHeap::MinHeapify(int v) {
   }
 }
 
-std::pair<int, int> MinHeap::extractMin() {
+std::pair<unsigned, unsigned> MinHeap::extractMin() {
   if (isEmpty()) {
-    return std::make_pair(INT_MAX, INT_MAX);
+    return std::make_pair(UINT_MAX, UINT_MAX);
   }
   if (size == 1) {
     size--;
     return heap[0];
   }
-  std::pair<int, int> root = heap[0];
+  std::pair<unsigned, unsigned> root = heap[0];
   heap[0] = heap[size - 1];
   pos[heap[0].first] = 0;
   size--;
@@ -97,13 +97,13 @@ std::pair<int, int> MinHeap::extractMin() {
 }
 
 void MinHeap::printPos() {
-  for (int i = 0; i < size; i++) {
+  for (unsigned i = 0; i < size; i++) {
     std::cout << pos[i] << ' ' << std::endl;
   }
 }
 
-void swap(std::pair<int, int> &x, std::pair<int, int> &y) {
-  std::pair<int, int> temp = x;
+void swap(std::pair<unsigned, unsigned> &x, std::pair<unsigned, unsigned> &y) {
+  std::pair<unsigned, unsigned> temp = x;
   x = y;
   y = temp;
 }

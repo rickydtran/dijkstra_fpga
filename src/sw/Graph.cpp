@@ -10,33 +10,33 @@
 #include <random>
 #include <set>
 
-Graph::Graph(int V) {
+Graph::Graph(unsigned V) {
   this->V = V;
-  this->adj = new std::vector<std::pair<int, int>>[this->V];
+  this->adj = new std::vector<std::pair<unsigned, unsigned>>[this->V];
 }
 
 Graph::~Graph() { delete[] this->adj; }
 
-int Graph::size() const { return this->V; }
+unsigned Graph::size() const { return this->V; }
 
-int Graph::num_of_edges() {
-  int no_e = 0;
-  for (int i = 0; i < V; i++) {
+unsigned Graph::num_of_edges() {
+  unsigned no_e = 0;
+  for (unsigned i = 0; i < V; i++) {
     no_e += adj[i].size();
   }
   return no_e;
 }
 
-void Graph::add_edge(int u, int v, int wt) {
+void Graph::add_edge(unsigned u, unsigned v, unsigned wt) {
   adj[u].push_back(std::make_pair(v, wt));
   adj[v].push_back(std::make_pair(u, wt));
 }
 
-void Graph::create_random_graph(int seed, double p, int max_wt) {
-  std::set<std::pair<int, int>> container;
+void Graph::create_random_graph(unsigned seed, double p, unsigned max_wt) {
+  std::set<std::pair<unsigned, unsigned>> container;
   std::mt19937 mt(seed);
-  std::uniform_int_distribution<int> dist(0, V - 1);
-  std::uniform_int_distribution<int> dist_wt(1, max_wt);
+  std::uniform_int_distribution<unsigned> dist(0, V - 1);
+  std::uniform_int_distribution<unsigned> dist_wt(1, max_wt);
 
   create_spanning_tree(container,
                        seed);  // Guaranteeds every node to be connected
@@ -44,10 +44,10 @@ void Graph::create_random_graph(int seed, double p, int max_wt) {
   int e = round(V * V * p) / 2 - (V - 1);
 
   for (int i = 0; i < e; i++) {  // Fill in till Connectivity is met
-    int u = dist(mt);
-    int v = dist(mt);
-    std::pair<int, int> p = std::make_pair(u, v);
-    std::pair<int, int> p_r = std::make_pair(v, u);
+    unsigned u = dist(mt);
+    unsigned v = dist(mt);
+    std::pair<unsigned, unsigned> p = std::make_pair(u, v);
+    std::pair<unsigned, unsigned> p_r = std::make_pair(v, u);
     if (container.find(p) != container.end() ||
         container.find(p_r) != container.end() || u == v) {
       i--;
@@ -61,18 +61,18 @@ void Graph::create_random_graph(int seed, double p, int max_wt) {
   }
 }
 
-void Graph::create_spanning_tree(std::set<std::pair<int, int>> &c, int seed) {
+void Graph::create_spanning_tree(std::set<std::pair<unsigned, unsigned>> &c, unsigned seed) {
   std::mt19937 mt(seed);
-  std::uniform_int_distribution<int> dist(0, V - 1);
+  std::uniform_int_distribution<unsigned> dist(0, V - 1);
   bool check[V];
-  for (int i = 0; i < V; i++) {
+  for (unsigned i = 0; i < V; i++) {
     check[i] = false;
   }
-  int nodeNum = V;
+  unsigned nodeNum = V;
   bool firstIteration = true;
   while (nodeNum != 0) {
-    int u = dist(mt);
-    int v = dist(mt);
+    unsigned u = dist(mt);
+    unsigned v = dist(mt);
     if (u == v) {
       continue;
     }
@@ -81,7 +81,7 @@ void Graph::create_spanning_tree(std::set<std::pair<int, int>> &c, int seed) {
     } else if ((check[u] && check[v]) || (!check[u] && !check[v])) {
       continue;
     }
-    std::pair<int, int> p = std::make_pair(u, v);
+    std::pair<unsigned, unsigned> p = std::make_pair(u, v);
     c.insert(p);
     if (!check[u]) {
       check[u] = true;
@@ -94,7 +94,7 @@ void Graph::create_spanning_tree(std::set<std::pair<int, int>> &c, int seed) {
   }
 }
 
-int Graph::get_weight(int i, int j) const {
+unsigned Graph::get_weight(unsigned i, unsigned j) const {
   for (auto it = adj[i].begin(); it != adj[i].end(); it++) {
     if (it->first == j) {
       return it->second;
@@ -104,8 +104,8 @@ int Graph::get_weight(int i, int j) const {
 }
 
 void Graph::print_graph() {
-  int v, w;
-  for (int u = 0; u < V; u++) {
+  unsigned v, w;
+  for (unsigned u = 0; u < V; u++) {
     std::cout << "Node " << u << " has an edge with" << std::endl;
     for (auto it = adj[u].begin(); it != adj[u].end(); it++) {
       v = it->first;
@@ -115,19 +115,19 @@ void Graph::print_graph() {
   }
 }
 
-int **Graph::get_matrix() {
-  int **matrix = new int *[V];
-  for (int i = 0; i < V; i++) {
-    matrix[i] = new int[V];
+unsigned **Graph::get_matrix() {
+  unsigned **matrix = new unsigned *[V];
+  for (unsigned i = 0; i < V; i++) {
+    matrix[i] = new unsigned[V];
   }
 
-  for (int i = 0; i < V; i++) {
-    for (int j = 0; j < V; j++) {
+  for (unsigned i = 0; i < V; i++) {
+    for (unsigned j = 0; j < V; j++) {
       matrix[i][j] = 0;
     }
   }
 
-  for (int u = 0; u < V; u++) {
+  for (unsigned u = 0; u < V; u++) {
     for (auto it = adj[u].begin(); it != adj[u].end(); it++) {
       matrix[u][it->first] = it->second;
     }
@@ -135,6 +135,6 @@ int **Graph::get_matrix() {
   return matrix;
 }
 
-std::vector<std::pair<int, int>> Graph::get_adj_list(int i) const {
+std::vector<std::pair<unsigned, unsigned>> Graph::get_adj_list(unsigned i) const {
   return adj[i];
 }

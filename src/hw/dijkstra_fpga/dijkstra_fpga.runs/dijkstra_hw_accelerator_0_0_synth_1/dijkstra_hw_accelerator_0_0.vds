@@ -1,0 +1,913 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:10 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Mon Nov 27 12:41:48 2017
+# Process ID: 15221
+# Current directory: /mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.runs/dijkstra_hw_accelerator_0_0_synth_1
+# Command line: vivado -log dijkstra_hw_accelerator_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source dijkstra_hw_accelerator_0_0.tcl
+# Log file: /mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.runs/dijkstra_hw_accelerator_0_0_synth_1/dijkstra_hw_accelerator_0_0.vds
+# Journal file: /mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.runs/dijkstra_hw_accelerator_0_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source dijkstra_hw_accelerator_0_0.tcl -notrace
+Command: synth_design -top dijkstra_hw_accelerator_0_0 -part xc7z020clg484-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020-clg484'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020-clg484'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 15261 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1176.707 ; gain = 54.996 ; free physical = 372 ; free virtual = 12416
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'dijkstra_hw_accelerator_0_0' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ip/dijkstra_hw_accelerator_0_0/synth/dijkstra_hw_accelerator_0_0.vhd:82]
+	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S00_AXI_ADDR_WIDTH bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'accelerator_v1_0' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/hdl/accelerator_v1_0.vhd:5' bound to instance 'U0' of component 'accelerator_v1_0' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ip/dijkstra_hw_accelerator_0_0/synth/dijkstra_hw_accelerator_0_0.vhd:141]
+INFO: [Synth 8-638] synthesizing module 'accelerator_v1_0' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/hdl/accelerator_v1_0.vhd:49]
+	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S00_AXI_ADDR_WIDTH bound to: 20 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'accelerator_v1_0_S00_AXI' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/hdl/accelerator_v1_0_S00_AXI.vhd:13' bound to instance 'accelerator_v1_0_S00_AXI_inst' of component 'accelerator_v1_0_S00_AXI' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/hdl/accelerator_v1_0.vhd:85]
+INFO: [Synth 8-638] synthesizing module 'accelerator_v1_0_S00_AXI' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/hdl/accelerator_v1_0_S00_AXI.vhd:93]
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 20 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'wrapper' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/wrapper.vhd:24]
+INFO: [Synth 8-638] synthesizing module 'user_app' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/user_app.vhd:26]
+INFO: [Synth 8-3491] module 'memory_map' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/memory_map.vhd:18' bound to instance 'U_MMAP' of component 'memory_map' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/user_app.vhd:188]
+INFO: [Synth 8-638] synthesizing module 'memory_map' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/memory_map.vhd:44]
+INFO: [Synth 8-226] default block is never used [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/memory_map.vhd:129]
+INFO: [Synth 8-256] done synthesizing module 'memory_map' (1#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/memory_map.vhd:44]
+INFO: [Synth 8-638] synthesizing module 'ram_async_read' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/ram.vhd:66]
+	Parameter num_words bound to: 16 - type: integer 
+	Parameter word_width bound to: 16 - type: integer 
+	Parameter addr_width bound to: 4 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'ram_async_read' (2#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/ram.vhd:66]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'datapath' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:12' bound to instance 'U_DATAPATH' of component 'datapath' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/user_app.vhd:248]
+INFO: [Synth 8-638] synthesizing module 'datapath' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:30]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_bin' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:13' bound to instance 'U_COMP_BIN' of component 'comp_bin' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:109]
+INFO: [Synth 8-638] synthesizing module 'comp_bin' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:22]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:46]
+INFO: [Synth 8-638] synthesizing module 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:23]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'comp_min' (3#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:23]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:46]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:46]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:46]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:46]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:46]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:46]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:46]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:60]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:60]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:60]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:60]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:72]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:72]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'comp_min' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:12' bound to instance 'U_COMP_MIN' of component 'comp_min' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:83]
+INFO: [Synth 8-256] done synthesizing module 'comp_bin' (4#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_bin.vhd:22]
+	Parameter width bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'reg' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/reg.vhd:8' bound to instance 'U_REG_MIN_ADDR' of component 'reg' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:117]
+INFO: [Synth 8-638] synthesizing module '\reg ' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/reg.vhd:21]
+	Parameter width bound to: 4 - type: integer 
+INFO: [Synth 8-256] done synthesizing module '\reg ' (5#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/reg.vhd:21]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'reg' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/reg.vhd:8' bound to instance 'U_REG_MIN_DIST' of component 'reg' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:127]
+INFO: [Synth 8-638] synthesizing module 'reg__parameterized1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/reg.vhd:21]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'reg__parameterized1' (5#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/reg.vhd:21]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+INFO: [Synth 8-638] synthesizing module 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:23]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'add_pipe' (6#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:23]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'add_pipe' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/add_pipe.vhd:9' bound to instance 'U_ADD_PIPE' of component 'add_pipe' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:152]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'reg' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/reg.vhd:8' bound to instance 'U_REG_LT_BUF' of component 'reg' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:164]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+INFO: [Synth 8-638] synthesizing module 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:19]
+	Parameter width bound to: 16 - type: integer 
+WARNING: [Synth 8-614] signal 'd' is read in the process but is not in the sensitivity list [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'comp_lt' (7#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:19]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 16 - type: integer 
+INFO: [Synth 8-3491] module 'comp_lt' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_lt.vhd:9' bound to instance 'U_COMP_LT' of component 'comp_lt' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:175]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+INFO: [Synth 8-638] synthesizing module 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:18]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-226] default block is never used [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:22]
+INFO: [Synth 8-256] done synthesizing module 'mux_2_1' (8#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:18]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+	Parameter width bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mux_2_1' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/mux_2_1.vhd:9' bound to instance 'U_MUX_2_1' of component 'mux_2_1' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:189]
+INFO: [Synth 8-256] done synthesizing module 'datapath' (9#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/datapath.vhd:30]
+INFO: [Synth 8-3491] module 'ctrl' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/ctrl.vhd:12' bound to instance 'U_CTRL' of component 'ctrl' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/user_app.vhd:263]
+INFO: [Synth 8-638] synthesizing module 'ctrl' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/ctrl.vhd:28]
+WARNING: [Synth 8-6014] Unused sequential element lt_en_reg was removed.  [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/ctrl.vhd:61]
+INFO: [Synth 8-256] done synthesizing module 'ctrl' (10#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/ctrl.vhd:28]
+	Parameter num_words bound to: 16 - type: integer 
+	Parameter word_width bound to: 20 - type: integer 
+	Parameter addr_width bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'ram_conc' declared at '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/ram_conc.vhd:48' bound to instance 'U_MEM_OUT' of component 'ram_conc' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/user_app.vhd:280]
+INFO: [Synth 8-638] synthesizing module 'ram_conc' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/ram_conc.vhd:74]
+	Parameter num_words bound to: 16 - type: integer 
+	Parameter word_width bound to: 20 - type: integer 
+	Parameter addr_width bound to: 4 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'ram_conc' (11#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/ram_conc.vhd:74]
+INFO: [Synth 8-256] done synthesizing module 'user_app' (12#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/user_app.vhd:26]
+INFO: [Synth 8-256] done synthesizing module 'wrapper' (13#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/wrapper.vhd:24]
+WARNING: [Synth 8-6014] Unused sequential element axi_araddr_reg was removed.  [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/hdl/accelerator_v1_0_S00_AXI.vhd:249]
+INFO: [Synth 8-256] done synthesizing module 'accelerator_v1_0_S00_AXI' (14#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/hdl/accelerator_v1_0_S00_AXI.vhd:93]
+INFO: [Synth 8-256] done synthesizing module 'accelerator_v1_0' (15#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/hdl/accelerator_v1_0.vhd:49]
+INFO: [Synth 8-256] done synthesizing module 'dijkstra_hw_accelerator_0_0' (16#1) [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ip/dijkstra_hw_accelerator_0_0/synth/dijkstra_hw_accelerator_0_0.vhd:82]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[15][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[15][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[15][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[15][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[14][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[14][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[14][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[14][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[13][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[13][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[13][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[13][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[12][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[12][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[12][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[12][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[11][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[11][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[11][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[11][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[10][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[10][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[10][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[10][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[9][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[9][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[9][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[9][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[8][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[8][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[8][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[8][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[7][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[7][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[7][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[7][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[6][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[6][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[6][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[6][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[5][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[5][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[5][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[5][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[4][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[4][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[4][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[4][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[3][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[3][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[3][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[3][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[2][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[2][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[2][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[2][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[1][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[1][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[1][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[1][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[0][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[0][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[0][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[0][16]
+WARNING: [Synth 8-3331] design datapath has unconnected port valid_in
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[31]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[30]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[29]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[28]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[27]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[26]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[25]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[24]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[23]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[22]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[21]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[20]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[19]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[18]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[17]
+WARNING: [Synth 8-3331] design memory_map has unconnected port wr_data[16]
+WARNING: [Synth 8-3331] design accelerator_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[2]
+WARNING: [Synth 8-3331] design accelerator_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[1]
+WARNING: [Synth 8-3331] design accelerator_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[0]
+WARNING: [Synth 8-3331] design accelerator_v1_0_S00_AXI has unconnected port S_AXI_WSTRB[3]
+WARNING: [Synth 8-3331] design accelerator_v1_0_S00_AXI has unconnected port S_AXI_WSTRB[2]
+WARNING: [Synth 8-3331] design accelerator_v1_0_S00_AXI has unconnected port S_AXI_WSTRB[1]
+WARNING: [Synth 8-3331] design accelerator_v1_0_S00_AXI has unconnected port S_AXI_WSTRB[0]
+WARNING: [Synth 8-3331] design accelerator_v1_0_S00_AXI has unconnected port S_AXI_ARADDR[1]
+WARNING: [Synth 8-3331] design accelerator_v1_0_S00_AXI has unconnected port S_AXI_ARADDR[0]
+WARNING: [Synth 8-3331] design accelerator_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[2]
+WARNING: [Synth 8-3331] design accelerator_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[1]
+WARNING: [Synth 8-3331] design accelerator_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1218.207 ; gain = 96.496 ; free physical = 356 ; free virtual = 12404
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1218.207 ; gain = 96.496 ; free physical = 352 ; free virtual = 12402
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.06 . Memory (MB): peak = 1586.035 ; gain = 1.000 ; free physical = 202 ; free virtual = 12047
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1586.035 ; gain = 464.324 ; free physical = 273 ; free virtual = 12120
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1586.035 ; gain = 464.324 ; free physical = 273 ; free virtual = 12120
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1586.035 ; gain = 464.324 ; free physical = 267 ; free virtual = 12114
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "reg_size" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "reg_mem_in_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "reg_src" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ctrl'
+WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/ctrl.vhd:39]
+INFO: [Synth 8-5544] ROM "next_count" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_val" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "mem_out_en" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "m_en" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dp_en" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+WARNING: [Synth 8-327] inferring latch for variable 'output_reg' [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/comp_min.vhd:29]
+WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/ctrl.vhd:39]
+WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/ctrl.vhd:39]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+             s_wait_go_1 |                              000 |                              000
+                  s_init |                              001 |                              001
+             s_loop_cond |                              010 |                              010
+             s_wait_go_0 |                              011 |                              111
+               s_pop_min |                              100 |                              011
+           s_update_dist |                              101 |                              100
+             s_stall_one |                              110 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'ctrl'
+WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ipshared/33b5/src/ctrl.vhd:39]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1586.035 ; gain = 464.324 ; free physical = 246 ; free virtual = 12094
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 16    
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 2     
+	               20 Bit    Registers := 17    
+	               17 Bit    Registers := 16    
+	               16 Bit    Registers := 3     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 3     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input     20 Bit        Muxes := 108   
+	   2 Input     16 Bit        Muxes := 1     
+	   7 Input      5 Bit        Muxes := 1     
+	  10 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 54    
+	   5 Input      1 Bit        Muxes := 4     
+	   7 Input      1 Bit        Muxes := 8     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module memory_map 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 4     
+	   5 Input      1 Bit        Muxes := 4     
+Module comp_min 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     20 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 3     
+Module reg 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 1     
+Module reg__parameterized1 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
+Module add_pipe 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+Module mux_2_1 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     20 Bit        Muxes := 1     
+Module datapath 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+Module ctrl 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   7 Input      5 Bit        Muxes := 1     
+	  10 Input      3 Bit        Muxes := 1     
+	   7 Input      1 Bit        Muxes := 8     
+Module ram_conc 
+Detailed RTL Component Info : 
++---Registers : 
+	               20 Bit    Registers := 16    
++---Muxes : 
+	   2 Input     20 Bit        Muxes := 32    
+	   2 Input      1 Bit        Muxes := 1     
+Module accelerator_v1_0_S00_AXI 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+	               20 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[15][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[15][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[15][17]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[15][16]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[14][19]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[14][18]
+WARNING: [Synth 8-3331] design comp_bin has unconnected port mem_out_rd_bus[14][17]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[5].U_COMP_MIN/output_reg[16]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[5].U_COMP_MIN/output_reg[18]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[2].U_COMP_MIN/output_reg[16]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[2].U_COMP_MIN/output_reg[18]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[6].U_COMP_MIN/output_reg[16]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[6].U_COMP_MIN/output_reg[19]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[4].U_COMP_MIN/output_reg[16]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[4].U_COMP_MIN/output_reg[17]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[3].U_COMP_MIN/output_reg[16]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[3].U_COMP_MIN/output_reg[17]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[7].U_COMP_MIN/output_reg[16]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[7].U_COMP_MIN/output_reg[17]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[0].U_COMP_MIN/output_reg[16]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[0].U_COMP_MIN/output_reg[17]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[5].U_COMP_MIN/output_reg[17]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[5].U_COMP_MIN/output_reg[19]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[6].U_COMP_MIN/output_reg[17]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[6].U_COMP_MIN/output_reg[18]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[1].U_COMP_MIN/output_reg[17]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[1].U_COMP_MIN/output_reg[18]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[4].U_COMP_MIN/output_reg[17]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[4].U_COMP_MIN/output_reg[19]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[7].U_COMP_MIN/output_reg[17]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[7].U_COMP_MIN/output_reg[18]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[0].U_COMP_MIN/output_reg[17]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[0].U_COMP_MIN/output_reg[18]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[2].U_COMP_MIN/output_reg[18]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[2].U_COMP_MIN/output_reg[19]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[1].U_COMP_MIN/output_reg[18]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[1].U_COMP_MIN/output_reg[19]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[3].U_COMP_MIN/output_reg[18]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[3].U_COMP_MIN/output_reg[19]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[0].U_COMP_MIN/output_reg[18]' (LD) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_DATAPATH/U_COMP_BIN/U_LEV_ZERO[0].U_COMP_MIN/output_reg[19]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[5]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[6]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[7]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[8]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[9]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[10]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[11]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[12]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[13]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[14]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[15]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[16]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[17]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[18]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[19]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[20]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[21]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[22]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[23]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[24]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[25]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[26]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[27]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[28]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[29]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[30]' (FDCE) to 'U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31] )
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/axi_rresp_reg[0]' (FDRE) to 'U0/accelerator_v1_0_S00_AXI_inst/axi_rresp_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U0/accelerator_v1_0_S00_AXI_inst/axi_rresp_reg[1] )
+INFO: [Synth 8-3886] merging instance 'U0/accelerator_v1_0_S00_AXI_inst/axi_bresp_reg[0]' (FDRE) to 'U0/accelerator_v1_0_S00_AXI_inst/axi_bresp_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U0/accelerator_v1_0_S00_AXI_inst/axi_bresp_reg[1] )
+INFO: [Synth 8-3332] Sequential element (U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MMAP/reg_rd_data_reg[31]) is unused and will be removed from module dijkstra_hw_accelerator_0_0.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[19]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[18]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[17]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[16]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[15]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[14]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[13]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[12]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[11]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[10]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[9]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[8]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[7]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[6]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[5]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[4]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[3]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[2]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[1]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_COMP_MIN/output_reg[0]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[19]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[18]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[17]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[16]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[15]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[14]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[13]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[12]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[11]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[10]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[9]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[8]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[7]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[6]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[5]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[4]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[3]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[2]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[1]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[0].U_COMP_MIN/output_reg[0]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[19]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[18]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[17]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[16]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[15]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[14]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[13]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[12]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[11]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[10]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[9]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[8]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[7]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[6]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[5]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[4]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[3]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[2]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[1]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[1].U_COMP_MIN/output_reg[0]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[19]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[18]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[17]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[16]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[15]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[14]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[13]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[12]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[11]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[10]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[9]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[8]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[7]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[6]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[5]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[4]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[3]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[2]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[1]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[2].U_COMP_MIN/output_reg[0]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[19]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[18]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[17]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[16]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[15]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[14]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[13]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[12]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[11]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[10]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[9]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[8]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[7]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[6]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[5]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[4]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[3]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[2]) is unused and will be removed from module comp_bin.
+WARNING: [Synth 8-3332] Sequential element (U_LEV_ONE[3].U_COMP_MIN/output_reg[1]) is unused and will be removed from module comp_bin.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1586.035 ; gain = 464.324 ; free physical = 202 ; free virtual = 11969
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++----------------------------+-------------------------------------------------------------------------------------+-----------+----------------------+--------------+
+|Module Name                 | RTL Object                                                                          | Inference | Size (Depth x Width) | Primitives   | 
++----------------------------+-------------------------------------------------------------------------------------+-----------+----------------------+--------------+
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[0].U_RAM/memory_reg  | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[1].U_RAM/memory_reg  | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[2].U_RAM/memory_reg  | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[3].U_RAM/memory_reg  | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[4].U_RAM/memory_reg  | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[5].U_RAM/memory_reg  | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[6].U_RAM/memory_reg  | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[7].U_RAM/memory_reg  | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[8].U_RAM/memory_reg  | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[9].U_RAM/memory_reg  | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[10].U_RAM/memory_reg | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[11].U_RAM/memory_reg | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[12].U_RAM/memory_reg | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[13].U_RAM/memory_reg | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[14].U_RAM/memory_reg | Implied   | 16 x 16              | RAM32M x 3   | 
+|dijkstra_hw_accelerator_0_0 | U0/accelerator_v1_0_S00_AXI_inst/U_WRAPPER/U_USER_APP/U_MEM_IN[15].U_RAM/memory_reg | Implied   | 16 x 16              | RAM32M x 3   | 
++----------------------------+-------------------------------------------------------------------------------------+-----------+----------------------+--------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1586.035 ; gain = 464.324 ; free physical = 549 ; free virtual = 12316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1586.035 ; gain = 464.324 ; free physical = 537 ; free virtual = 12305
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1610.059 ; gain = 488.348 ; free physical = 522 ; free virtual = 12289
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1610.059 ; gain = 488.348 ; free physical = 506 ; free virtual = 12273
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1610.059 ; gain = 488.348 ; free physical = 506 ; free virtual = 12273
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1610.059 ; gain = 488.348 ; free physical = 500 ; free virtual = 12268
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1610.059 ; gain = 488.348 ; free physical = 499 ; free virtual = 12267
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1610.059 ; gain = 488.348 ; free physical = 497 ; free virtual = 12265
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1610.059 ; gain = 488.348 ; free physical = 497 ; free virtual = 12265
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |   190|
+|2     |LUT1   |    17|
+|3     |LUT2   |   276|
+|4     |LUT3   |    99|
+|5     |LUT4   |   542|
+|6     |LUT5   |   469|
+|7     |LUT6   |   239|
+|8     |MUXF7  |    27|
+|9     |MUXF8  |     1|
+|10    |RAM32M |    48|
+|11    |FDCE   |   674|
+|12    |FDRE   |    43|
++------+-------+------+
+
+Report Instance Areas: 
++------+-----------------------------------------+-------------------------+------+
+|      |Instance                                 |Module                   |Cells |
++------+-----------------------------------------+-------------------------+------+
+|1     |top                                      |                         |  2625|
+|2     |  U0                                     |accelerator_v1_0         |  2625|
+|3     |    accelerator_v1_0_S00_AXI_inst        |accelerator_v1_0_S00_AXI |  2625|
+|4     |      U_WRAPPER                          |wrapper                  |  2576|
+|5     |        U_USER_APP                       |user_app                 |  2576|
+|6     |          U_CTRL                         |ctrl                     |    23|
+|7     |          U_DATAPATH                     |datapath                 |   881|
+|8     |            \U_ADD_BUF[0].U_ADD_PIPE     |add_pipe                 |    42|
+|9     |            \U_ADD_BUF[10].U_ADD_PIPE    |add_pipe_15              |    42|
+|10    |            \U_ADD_BUF[11].U_ADD_PIPE    |add_pipe_16              |    42|
+|11    |            \U_ADD_BUF[12].U_ADD_PIPE    |add_pipe_17              |    42|
+|12    |            \U_ADD_BUF[13].U_ADD_PIPE    |add_pipe_18              |    43|
+|13    |            \U_ADD_BUF[14].U_ADD_PIPE    |add_pipe_19              |    42|
+|14    |            \U_ADD_BUF[15].U_ADD_PIPE    |add_pipe_20              |    42|
+|15    |            \U_ADD_BUF[1].U_ADD_PIPE     |add_pipe_21              |    42|
+|16    |            \U_ADD_BUF[2].U_ADD_PIPE     |add_pipe_22              |    42|
+|17    |            \U_ADD_BUF[3].U_ADD_PIPE     |add_pipe_23              |    42|
+|18    |            \U_ADD_BUF[4].U_ADD_PIPE     |add_pipe_24              |    42|
+|19    |            \U_ADD_BUF[5].U_ADD_PIPE     |add_pipe_25              |    42|
+|20    |            \U_ADD_BUF[6].U_ADD_PIPE     |add_pipe_26              |    42|
+|21    |            \U_ADD_BUF[7].U_ADD_PIPE     |add_pipe_27              |    42|
+|22    |            \U_ADD_BUF[8].U_ADD_PIPE     |add_pipe_28              |    42|
+|23    |            \U_ADD_BUF[9].U_ADD_PIPE     |add_pipe_29              |    42|
+|24    |            U_COMP_BIN                   |comp_bin                 |    30|
+|25    |              U_COMP_MIN                 |comp_min                 |     2|
+|26    |              \U_LEV_ONE[0].U_COMP_MIN   |comp_min_31              |     2|
+|27    |              \U_LEV_ONE[1].U_COMP_MIN   |comp_min_32              |     2|
+|28    |              \U_LEV_ONE[2].U_COMP_MIN   |comp_min_33              |     2|
+|29    |              \U_LEV_ONE[3].U_COMP_MIN   |comp_min_34              |     2|
+|30    |              \U_LEV_TWO[0].U_COMP_MIN   |comp_min_35              |     2|
+|31    |              \U_LEV_TWO[1].U_COMP_MIN   |comp_min_36              |     2|
+|32    |              \U_LEV_ZERO[0].U_COMP_MIN  |comp_min_37              |     2|
+|33    |              \U_LEV_ZERO[1].U_COMP_MIN  |comp_min_38              |     2|
+|34    |              \U_LEV_ZERO[2].U_COMP_MIN  |comp_min_39              |     2|
+|35    |              \U_LEV_ZERO[3].U_COMP_MIN  |comp_min_40              |     2|
+|36    |              \U_LEV_ZERO[4].U_COMP_MIN  |comp_min_41              |     2|
+|37    |              \U_LEV_ZERO[5].U_COMP_MIN  |comp_min_42              |     2|
+|38    |              \U_LEV_ZERO[6].U_COMP_MIN  |comp_min_43              |     2|
+|39    |              \U_LEV_ZERO[7].U_COMP_MIN  |comp_min_44              |     2|
+|40    |            U_REG_LT_BUF                 |reg__parameterized1      |    96|
+|41    |            U_REG_MIN_ADDR               |\reg                     |    30|
+|42    |            U_REG_MIN_DIST               |reg__parameterized1_30   |    16|
+|43    |          \U_MEM_IN[0].U_RAM             |ram_async_read           |    24|
+|44    |          \U_MEM_IN[10].U_RAM            |ram_async_read_0         |    24|
+|45    |          \U_MEM_IN[11].U_RAM            |ram_async_read_1         |    24|
+|46    |          \U_MEM_IN[12].U_RAM            |ram_async_read_2         |    28|
+|47    |          \U_MEM_IN[13].U_RAM            |ram_async_read_3         |    24|
+|48    |          \U_MEM_IN[14].U_RAM            |ram_async_read_4         |    24|
+|49    |          \U_MEM_IN[15].U_RAM            |ram_async_read_5         |    24|
+|50    |          \U_MEM_IN[1].U_RAM             |ram_async_read_6         |    24|
+|51    |          \U_MEM_IN[2].U_RAM             |ram_async_read_7         |    24|
+|52    |          \U_MEM_IN[3].U_RAM             |ram_async_read_8         |    24|
+|53    |          \U_MEM_IN[4].U_RAM             |ram_async_read_9         |    24|
+|54    |          \U_MEM_IN[5].U_RAM             |ram_async_read_10        |    24|
+|55    |          \U_MEM_IN[6].U_RAM             |ram_async_read_11        |    24|
+|56    |          \U_MEM_IN[7].U_RAM             |ram_async_read_12        |    24|
+|57    |          \U_MEM_IN[8].U_RAM             |ram_async_read_13        |    24|
+|58    |          \U_MEM_IN[9].U_RAM             |ram_async_read_14        |    24|
+|59    |          U_MEM_OUT                      |ram_conc                 |  1110|
+|60    |          U_MMAP                         |memory_map               |    51|
++------+-----------------------------------------+-------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1610.059 ; gain = 488.348 ; free physical = 497 ; free virtual = 12264
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 238 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 1610.059 ; gain = 120.520 ; free physical = 555 ; free virtual = 12323
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1610.066 ; gain = 488.348 ; free physical = 555 ; free virtual = 12323
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 238 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 48 instances were transformed.
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 48 instances
+
+181 Infos, 207 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1610.066 ; gain = 500.941 ; free physical = 473 ; free virtual = 12240
+INFO: [Common 17-1381] The checkpoint '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.runs/dijkstra_hw_accelerator_0_0_synth_1/dijkstra_hw_accelerator_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP /mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.srcs/sources_1/bd/dijkstra_hw/ip/dijkstra_hw_accelerator_0_0/dijkstra_hw_accelerator_0_0.xci
+INFO: [Coretcl 2-1174] Renamed 59 cell refs.
+INFO: [Common 17-1381] The checkpoint '/mnt/windows/Users/ricky/Seafile/Library/School/F17/EEL4720/prj/dijkstra_fpga/src/hw/dijkstra_fpga/dijkstra_fpga.runs/dijkstra_hw_accelerator_0_0_synth_1/dijkstra_hw_accelerator_0_0.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.10 . Memory (MB): peak = 1634.070 ; gain = 0.000 ; free physical = 401 ; free virtual = 12185
+INFO: [Common 17-206] Exiting Vivado at Mon Nov 27 12:42:43 2017...

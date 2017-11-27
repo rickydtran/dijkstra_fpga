@@ -10,9 +10,9 @@
 #include "dijkstra.h"
 
 TEST_CASE("dijkstra base test", "[base]") {
-  int size = 9;
+  unsigned size = 9;
 
-  int dist_key[9] = {0, 4, 12, 19, 21, 11, 9, 8, 14};
+  unsigned dist_key[9] = {0, 4, 12, 19, 21, 11, 9, 8, 14};
 
   Graph g(size);
   g.add_edge(0, 1, 4);
@@ -30,21 +30,21 @@ TEST_CASE("dijkstra base test", "[base]") {
   g.add_edge(6, 8, 6);
   g.add_edge(7, 8, 7);
 
-  int **input = g.get_matrix();
-  int *dist = new int[size];
-  int *prev = new int[size];
+  unsigned **input = g.get_matrix();
+  unsigned *dist = new unsigned[size];
+  unsigned *prev = new unsigned[size];
 
   dijkstra_sw_base(input, 0, size, dist, prev);
 
-  for (int i = 0; i < size; i++) {
+  for (unsigned i = 0; i < size; i++) {
     REQUIRE(dist[i] == dist_key[i]);
   }
 }
 
 TEST_CASE("dijkstra bin minheap test", "[bin_heap]") {
-  int size = 9;
+  unsigned size = 9;
 
-  int dist_key[9] = {0, 4, 12, 19, 21, 11, 9, 8, 14};
+  unsigned dist_key[9] = {0, 4, 12, 19, 21, 11, 9, 8, 14};
 
   Graph g(9);
 
@@ -63,20 +63,20 @@ TEST_CASE("dijkstra bin minheap test", "[bin_heap]") {
   g.add_edge(6, 8, 6);
   g.add_edge(7, 8, 7);
 
-  int *dist = new int[size];
-  int *prev = new int[size];
+  unsigned *dist = new unsigned[size];
+  unsigned *prev = new unsigned[size];
 
   dijkstra_sw_bin(&g, 0, dist, prev);
 
-  for (int i = 0; i < size; i++) {
+  for (unsigned i = 0; i < size; i++) {
     REQUIRE(dist[i] == dist_key[i]);
   }
 }
 
 TEST_CASE("dijkstra fib minheap test", "[fib_heap]") {
-  int size = 9;
+  unsigned size = 9;
 
-  int dist_key[9] = {0, 4, 12, 19, 21, 11, 9, 8, 14};
+  unsigned dist_key[9] = {0, 4, 12, 19, 21, 11, 9, 8, 14};
 
   Graph g(9);
 
@@ -95,37 +95,37 @@ TEST_CASE("dijkstra fib minheap test", "[fib_heap]") {
   g.add_edge(6, 8, 6);
   g.add_edge(7, 8, 7);
 
-  int *dist = new int[size];
-  int *prev = new int[size];
+  unsigned *dist = new unsigned[size];
+  unsigned *prev = new unsigned[size];
 
   dijkstra_sw_fib(&g, 0, dist, prev);
 
-  for (int i = 0; i < size; i++) {
+  for (unsigned i = 0; i < size; i++) {
     REQUIRE(dist[i] == dist_key[i]);
   }
 }
 
 TEST_CASE("data gen w/ dijk", "[data_dijk]") {
-  for (int i = 10; i < 256; i++) {
-    int size = i;
+  for (unsigned i = 10; i < 256; i++) {
+    unsigned size = i;
     Graph g(size);
-    int seed = 194594329;
+    unsigned seed = 194594329;
     double p;
 
     p = 0.45;
     g.create_random_graph(seed, p, 255);
 
-    int **input = g.get_matrix();
-    int *dist_base = new int[size];
-    int *dist_bin = new int[size];
+    unsigned **input = g.get_matrix();
+    unsigned *dist_base = new unsigned[size];
+    unsigned *dist_bin = new unsigned[size];
 
-    int *prev_base = new int[size];
-    int *prev_bin = new int[size];
+    unsigned *prev_base = new unsigned[size];
+    unsigned *prev_bin = new unsigned[size];
 
     dijkstra_sw_base(input, 0, size, dist_base, prev_base);
     dijkstra_sw_bin(&g, 0, dist_bin, prev_bin);
 
-    for (int i = 0; i < size; i++) {
+    for (unsigned i = 0; i < size; i++) {
       REQUIRE(dist_base[i] == dist_bin[i]);
       // REQUIRE(prev_base[i] == prev_bin[i]);
     }

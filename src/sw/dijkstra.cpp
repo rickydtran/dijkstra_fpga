@@ -12,28 +12,28 @@
 #include "MinHeap.h"
 #include "fiboqueue.hpp"
 
-void print_path(int prev[], int dst) {
-  if (prev[dst] == -1) {
+void print_path(unsigned prev[], unsigned dst, unsigned src) {
+  if (dst == src) {
     std::cout << dst << " ";
     return;
   }
-  print_path(prev, prev[dst]);
+  print_path(prev, prev[dst], src);
   std::cout << dst << " ";
 }
 
-void print_solution(int dist[], int prev[], int src, int size) {
+void print_solution(unsigned dist[], unsigned prev[], unsigned src, unsigned size) {
   std::cout << "Vertex      Distance      Path" << std::endl;
-  for (int i = 0; i < size; i++) {
+  for (unsigned i = 0; i < size; i++) {
     std::cout << src << " -> " << i << "\t\t" << dist[i] << "\t  ";
-    print_path(prev, i);
+    print_path(prev, i, src);
     std::cout << std::endl;
   }
 }
 
-int min_distance(int dist[], bool done[], int size) {
-  int min = INT_MAX;
-  int min_index = -1;
-  for (int i = 0; i < size; i++) {
+unsigned min_distance(unsigned dist[], bool done[], unsigned size) {
+  unsigned min = UINT_MAX;
+  unsigned min_index = -1;
+  for (unsigned i = 0; i < size; i++) {
     if (done[i] == false && dist[i] < min) {
       min = dist[i], min_index = i;
     }
@@ -41,42 +41,52 @@ int min_distance(int dist[], bool done[], int size) {
   return min_index;
 }
 
-void dijkstra_sw_base(int **graph, int src, int size, int *dist, int *prev) {
+void dijkstra_sw_base(unsigned **graph, unsigned src, unsigned size, unsigned *dist, unsigned *prev) {
   bool done[size];
-  for (int i = 0; i < size; i++) {
-    dist[i] = INT_MAX;
+  for (unsigned i = 0; i < size; i++) {
+    dist[i] = UINT_MAX;
     done[i] = false;
   }
   dist[src] = 0;
   prev[src] = -1;
-  for (int i = 0; i < size; i++) {
-    int u = min_distance(dist, done, size);
+  for (unsigned i = 0; i < size; i++) {
+    unsigned u = min_distance(dist, done, size);
+    // std::cout << u << std::endl;
     done[u] = true;
-    for (int v = 0; v < size; v++) {
+    for (unsigned v = 0; v < size; v++) {
       if ((graph[u][v]) && (dist[v] > dist[u] + graph[u][v])) {
         prev[v] = u;
         dist[v] = dist[u] + graph[u][v];
       }
     }
+    // for (unsigned v = 0; v < size; v++) {
+    //   if(dist[v] == 2147483647) {
+    //     std::cout << "INF" << ':' << done[v] << ' ';
+    //   }
+    //   else {
+    //     std::cout << dist[v] << ':' << done[v] << ' ';
+    //   }
+    // }
+    // std::cout << std::endl;
   }
 }
 
-void dijkstra_sw_bin(const Graph *g, int src, int *dist, int *prev) {
+void dijkstra_sw_bin(const Graph *g, unsigned src, unsigned *dist, unsigned *prev) {
   MinHeap h((*g).size());
   dist[src] = 0;
   prev[src] = -1;
   h.insertKey(src, dist[src]);
-  for (int i = 1; i < (*g).size(); i++) {
-    dist[i] = INT_MAX;
+  for (unsigned i = 1; i < (*g).size(); i++) {
+    dist[i] = UINT_MAX;
     h.insertKey(i, dist[i]);
   }
   while (!h.isEmpty()) {
-    std::pair<int, int> p = h.extractMin();
-    int u = p.first;
-    std::vector<std::pair<int, int>> adj = (*g).get_adj_list(u);
+    std::pair<unsigned, unsigned> p = h.extractMin();
+    unsigned u = p.first;
+    std::vector<std::pair<unsigned, unsigned>> adj = (*g).get_adj_list(u);
     for (auto it = adj.begin(); it != adj.end(); it++) {
-      int v = it->first;
-      int w = it->second;
+      unsigned v = it->first;
+      unsigned w = it->second;
       if (dist[v] > dist[u] + w) {
         prev[v] = u;
         dist[v] = dist[u] + w;
@@ -86,22 +96,22 @@ void dijkstra_sw_bin(const Graph *g, int src, int *dist, int *prev) {
   }
 }
 
-void dijkstra_sw_fib(const Graph *g, int src, int *dist, int *prev) {
-  FibQueue<int, int> fq;
+void dijkstra_sw_fib(const Graph *g, unsigned src, unsigned *dist, unsigned *prev) {
+  FibQueue<unsigned, unsigned> fq;
   dist[src] = 0;
   prev[src] = -1;
   fq.push(dist[src], src);
-  for (int i = 1; i < (*g).size(); i++) {
-    dist[i] = INT_MAX;
+  for (unsigned i = 1; i < (*g).size(); i++) {
+    dist[i] = UINT_MAX;
     fq.push(dist[i], i);
   }
   while (!fq.isEmpty()) {
     auto n = fq.pop();
-    int u = n.data();
-    std::vector<std::pair<int, int>> adj = (*g).get_adj_list(u);
+    unsigned u = n.data();
+    std::vector<std::pair<unsigned, unsigned>> adj = (*g).get_adj_list(u);
     for (auto it = adj.begin(); it != adj.end(); it++) {
-      int v = it->first;
-      int w = it->second;
+      unsigned v = it->first;
+      unsigned w = it->second;
       if (dist[v] > dist[u] + w) {
         prev[v] = u;
         dist[v] = dist[u] + w;

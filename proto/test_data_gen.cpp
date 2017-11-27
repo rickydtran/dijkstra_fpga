@@ -22,10 +22,10 @@ int main(int argc, char **argv) {
  g.create_random_graph(seed, p, max_wt);
  int **input = g.get_matrix();
  std::cout << '(';
- for(int i = 0; i < size; i++) {
+ for(int i = size - 1; i >= 0; i--) {
   std::cout << '(';
-  for(int j = 0; j < size; j++) {
-    if(j == (size - 1)) {
+  for(int j = size - 1; j >= 0; j--) {
+    if(j == 0) {
       std::cout << std::setw(5) << input[i][j] << "),";
     }
     else {

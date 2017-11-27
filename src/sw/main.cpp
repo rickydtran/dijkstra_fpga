@@ -13,18 +13,18 @@
 #include "Timer.h"
 #include "dijkstra.h"
 
-// #define PRINT_PATH
-#define ADDR_WIDTH 10
-#define WORD_WIDTH 8
-#define MAX_SIZE (1 << ADDR_WIDTH)
+#define PRINT_PATH
+#define ADDR_WIDTH 4
+#define WORD_WIDTH 16
+#define MAX_SIZE   (1 << ADDR_WIDTH)
 #define MAX_WEIGHT (1 << WORD_WIDTH)
-#define MEM_IN_ADDR 0
+#define MEM_IN_ADDR  0
 #define MEM_OUT_ADDR 0
-#define GO_ADDR ((1 << MMAP_ADDR_WIDTH) - 5)
-#define SIZE_ADDR ((1 << MMAP_ADDR_WIDTH) - 4)
+#define GO_ADDR    ((1 << MMAP_ADDR_WIDTH) - 5)
+#define SIZE_ADDR  ((1 << MMAP_ADDR_WIDTH) - 4)
 #define MEM_IN_SEL ((1 << MMAP_ADDR_WIDTH) - 3)
-#define SRC_ADDR ((1 << MMAP_ADDR_WIDTH) - 2)
-#define DONE_ADDR ((1 << MMAP_ADDR_WIDTH) - 1)
+#define SRC_ADDR   ((1 << MMAP_ADDR_WIDTH) - 2)
+#define DONE_ADDR  ((1 << MMAP_ADDR_WIDTH) - 1)
 
 int main(int argc, char **argv) {
   if (argc != 5) {  // Update to 6 when hw done
@@ -34,29 +34,30 @@ int main(int argc, char **argv) {
     return -1;
   }
 
-  // std::vector<float> clocks(Board::NUM_FPGA_CLOCKS);
-  // clocks[0] = 100.0;
-  // clocks[1] = 0.0;
-  // clocks[2] = 0.0;
-  // clocks[3] = 0.0;
+  std::vector<float> clocks(Board::NUM_FPGA_CLOCKS);
+  clocks[0] = 100.0;
+  clocks[1] = 0.0;
+  clocks[2] = 0.0;
+  clocks[3] = 0.0;
 
-  // Board *board;
-  // try {
-  //   board = new Board(argv[1], clocks);
-  // } catch (...) {
-  //   exit(-1);
-  // }
+  Board *board;
+  try {
+    board = new Board(argv[1], clocks);
+  } catch (...) {
+    exit(-1);
+  }
 
-  int runs = atoi(argv[1]);
+  unsigned runs = atoi(argv[1]);
   assert(runs > 0);
-  int size = atoi(argv[2]);
+  unsigned size = atoi(argv[2]);
   assert(size <= MAX_SIZE);
   double p = atof(argv[3]);
+  unsigned src = 0;
   assert(std::islessequal(p, 0.9) && !std::islessequal(p, 0.0));
-  int max_wt = atoi(argv[4]);
+  unsigned max_wt = atoi(argv[4]);
   assert(max_wt < MAX_WEIGHT);
 
-  // unsigned go, done;
+  unsigned go, done;
 
   Graph g(size);
   unsigned seed = 194594329;
@@ -81,80 +82,91 @@ int main(int argc, char **argv) {
 
   g.create_random_graph(seed, p, max_wt);
 
-  int **input = g.get_matrix();
+  unsigned **input = g.get_matrix();
 
-  int *sw_dist_base, *sw_dist_bin, *sw_dist_fib, *hw_dist;
-  int *sw_prev_base, *sw_prev_bin, *sw_prev_fib, *hw_prev;
+  unsigned *sw_dist_base, *sw_dist_bin, *sw_dist_fib, *hw_dist;
+  unsigned *sw_prev_base, *sw_prev_bin, *sw_prev_fib, *hw_prev;
+  unsigned *hw_output;
   Timer sw_base_time, sw_bin_time, sw_fib_time, hw_time, read_time, write_time,
       wait_time;
 
-  sw_dist_base = (int *)malloc(size * sizeof(int));
-  sw_dist_bin = (int *)malloc(size * sizeof(int));
-  sw_dist_fib = (int *)malloc(size * sizeof(int));
-  hw_dist = (int *)malloc(size * sizeof(int));
+  sw_dist_base = (unsigned *)malloc(size * sizeof(unsigned));
+  sw_dist_bin = (unsigned *)malloc(size * sizeof(unsigned));
+  sw_dist_fib = (unsigned *)malloc(size * sizeof(unsigned));
+  hw_dist = (unsigned *)malloc(size * sizeof(unsigned));
 
-  sw_prev_base = (int *)malloc(size * sizeof(int));
-  sw_prev_bin = (int *)malloc(size * sizeof(int));
-  sw_prev_fib = (int *)malloc(size * sizeof(int));
-  hw_prev = (int *)malloc(size * sizeof(int));
+  hw_output = (unsigned *)malloc(size * sizeof(unsigned));
+
+  sw_prev_base = (unsigned *)malloc(size * sizeof(unsigned));
+  sw_prev_bin = (unsigned *)malloc(size * sizeof(unsigned));
+  sw_prev_fib = (unsigned *)malloc(size * sizeof(unsigned));
+  hw_prev = (unsigned *)malloc(size * sizeof(unsigned));
 
   std::cout << "Executing Each Benchmark For " << runs << " Runs" << std::endl;
-  for (int i = 0; i < runs; i++) {
+  for (unsigned i = 0; i < runs; i++) {
     sw_base_time.start();
-    dijkstra_sw_base(input, 0, size, sw_dist_base, sw_prev_base);
+    dijkstra_sw_base(input, src, size, sw_dist_base, sw_prev_base);
     sw_base_time.stop();
 #ifdef PRINT_PATH
-    print_solution(sw_dist_base, sw_prev_base, 0, size);
+    print_solution(sw_dist_base, sw_prev_base, src, size);
 #endif
 
     sw_bin_time.start();
-    dijkstra_sw_bin(&g, 0, sw_dist_bin, sw_prev_bin);
+    dijkstra_sw_bin(&g, src, sw_dist_bin, sw_prev_bin);
     sw_bin_time.stop();
 #ifdef PRINT_PATH
-    print_solution(sw_dist_bin, sw_prev_bin, 0, size);
+    print_solution(sw_dist_bin, sw_prev_bin, src, size);
 #endif
 
     sw_fib_time.start();
-    dijkstra_sw_fib(&g, 0, sw_dist_fib, sw_prev_fib);
+    dijkstra_sw_fib(&g, src, sw_dist_fib, sw_prev_fib);
     sw_fib_time.stop();
 #ifdef PRINT_PATH
-    print_solution(sw_dist_fib, sw_prev_fib, 0, size);
+    print_solution(sw_dist_fib, sw_prev_fib, src, size);
 #endif
     /**
       BEGIN FPGA STUFF
     **/
     // transfer input array and size to FPGA
-    // hw_time.start();
-    // write_time.start();
-    // // board->write(input, MEM_IN_ADDR, size);
-    // // board->write(&size, SIZE_ADDR, 1);
-    // for(int i = 0; i < size; i++) {
-    //   board->write(&i, MEM_IN_SEL, 1)
-    //   board->write(input[i], MEM_IN_ADDR, size);
-    // }
-    // write_time.stop();
+    hw_time.start();
+    write_time.start();
+    // board->write(input, MEM_IN_ADDR, size);
+    for(unsigned j = 0; j < size; j++) {
+      board->write(&j, MEM_IN_SEL, 1);
+      board->write(input[j], MEM_IN_ADDR, size);
+    }
+    write_time.stop();
 
-    // // assert go. Note that the memory map automatically sets go back to 1 to
-    // // avoid an additional transfer.
-    // go = 1;
-    // board->write(&go, GO_ADDR, 1);
+    unsigned src = 0;
+    board->write(&size, SIZE_ADDR, 1);
+    board->write(&src, SRC_ADDR, 1);
 
-    // // wait for the board to assert done
-    // wait_time.start();
-    // done = 0;
-    // while (!done) {
-    //   board->read(&done, DONE_ADDR, 1);
-    // }
-    // wait_time.stop();
+    // assert go. Note that the memory map automatically sets go back to 1 to
+    // avoid an additional transfer.
+    go = 1;
+    board->write(&go, GO_ADDR, 1);
 
-    // // read the outputs back from the FPGA
-    // read_time.start();
-    // board->read(hwOutput, MEM_OUT_ADDR, size);
-    // read_time.stop();
-    // hw_time.stop();
-    // #ifdef
-    //     print_solution(hw_dist, hw_prev, 0, size);
-    // #endif
+    // wait for the board to assert done
+    wait_time.start();
+    done = 0;
+    while (!done) {
+      board->read(&done, DONE_ADDR, 1);
+    }
+    wait_time.stop();
+
+    // read the outputs back from the FPGA
+    read_time.start();
+    board->read(hw_output, MEM_OUT_ADDR, size);
+    read_time.stop();
+    hw_time.stop();
+#ifdef PRINT_PATH
+      print_solution(hw_dist, hw_prev, 0, size);
+#endif
+  }
+
+  for(unsigned i = 0; i < size; i++) {
+    hw_prev[i] = hw_output[i] & 0xF0;
+    hw_dist[i] = hw_output[i] & 0x0F; 
   }
 
   double transfer_time = (write_time.elapsedTime() + read_time.elapsedTime());
@@ -210,14 +222,14 @@ int main(int argc, char **argv) {
             << (sw_fib_time.elapsedTime() / runs) / hw_time_no_transfer
             << std::endl;
 
-  int derr_bin = 0;
-  int perr_bin = 0;
-  int derr_fib = 0;
-  int perr_fib = 0;
-  int derr_hw = 0;
-  int perr_hw = 0;
+  unsigned derr_bin = 0;
+  unsigned perr_bin = 0;
+  unsigned derr_fib = 0;
+  unsigned perr_fib = 0;
+  unsigned derr_hw = 0;
+  unsigned perr_hw = 0;
 
-  for (int i = 0; i < size; i++) {
+  for (unsigned i = 0; i < size; i++) {
     if (sw_dist_bin[i] != sw_dist_base[i]) {
       derr_bin++;
     }
@@ -225,7 +237,7 @@ int main(int argc, char **argv) {
       perr_bin++;
     }
   }
-  for (int i = 0; i < size; i++) {
+  for (unsigned i = 0; i < size; i++) {
     if (sw_dist_fib[i] != sw_dist_base[i]) {
       derr_fib++;
     }
@@ -233,7 +245,7 @@ int main(int argc, char **argv) {
       perr_fib++;
     }
   }
-  for (int i = 0; i < size; i++) {
+  for (unsigned i = 0; i < size; i++) {
     if (hw_dist[i] != sw_dist_base[i]) {
       derr_hw++;
     }

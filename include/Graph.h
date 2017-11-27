@@ -12,21 +12,21 @@
 
 class Graph {
  public:
-  Graph(int V);
+  Graph(unsigned V);
   ~Graph();
-  int size() const;
-  int num_of_edges();
-  void add_edge(int u, int v, int wt);
-  void create_random_graph(int seed, double p, int max_wt);
-  void create_spanning_tree(std::set<std::pair<int, int>> &c, int seed);
-  int get_weight(int i, int j) const;
+  unsigned size() const;
+  unsigned num_of_edges();
+  void add_edge(unsigned u, unsigned v, unsigned wt);
+  void create_random_graph(unsigned seed, double p, unsigned max_wt);
+  void create_spanning_tree(std::set<std::pair<unsigned, unsigned>> &c, unsigned seed);
+  unsigned get_weight(unsigned i, unsigned j) const;
   void print_graph();
-  int **get_matrix();
-  std::vector<std::pair<int, int>> get_adj_list(int i) const;
+  unsigned **get_matrix();
+  std::vector<std::pair<unsigned, unsigned>> get_adj_list(unsigned i) const;
 
  private:
-  int V;
-  std::vector<std::pair<int, int>> *adj;
+  unsigned V;
+  std::vector<std::pair<unsigned, unsigned>> *adj;
 };
 
 #endif
