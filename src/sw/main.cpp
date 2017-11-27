@@ -27,7 +27,7 @@
 #define DONE_ADDR  ((1 << MMAP_ADDR_WIDTH) - 1)
 
 int main(int argc, char **argv) {
-  if (argc != 5) {  // Update to 6 when hw done
+  if (argc != 6) {  // Update to 6 when hw done
     std::cerr << "Usage: " << argv[0]
               << " <runs> <vertices> <cfactor> <mweight> <bitfile>"
               << std::endl;
@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
 
   Board *board;
   try {
-    board = new Board(argv[1], clocks);
+    board = new Board(argv[5], clocks);
   } catch (...) {
     exit(-1);
   }
@@ -52,10 +52,11 @@ int main(int argc, char **argv) {
   unsigned size = atoi(argv[2]);
   assert(size <= MAX_SIZE);
   double p = atof(argv[3]);
-  unsigned src = 0;
   assert(std::islessequal(p, 0.9) && !std::islessequal(p, 0.0));
   unsigned max_wt = atoi(argv[4]);
   assert(max_wt < MAX_WEIGHT);
+
+  unsigned src = 0;
 
   unsigned go, done;
 
