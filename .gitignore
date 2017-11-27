@@ -10,6 +10,7 @@
 bin/
 src/hw/sim/xsim.dir
 src/hw/sim/.Xil
+src/hw/dijkstra_fpga
 .wdb
 .btree
 .str
