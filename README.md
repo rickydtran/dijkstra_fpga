@@ -22,7 +22,7 @@
 * ~~Create SW Implementation of Dijkstra's for adj matrix~~
 * ~~Create SW Implementation of Dijkstra's for adj list and heap(pqueue)~~
 * ~~Port fibbanacci heap into wrapper to use with adj list~~
-* Brainstorm HW implementation and Optimizations
+* ~~Brainstorm HW implementation and Optimizations~~
 * Create HW Implmenetation of Dijkstra's
 * ~~Do performance metrics of SW Implmentation~~
 * Do performance metrics of HW Implemenation
