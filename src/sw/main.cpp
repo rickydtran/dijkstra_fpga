@@ -64,16 +64,16 @@ int main(int argc, char **argv) {
 
   std::cout << std::endl;
 
-  std::cout << "    ____  ____    ____ _________________  ___ " << std::endl;
+  std::cout << "    ____  ____    ____ _________________  ___ "   << std::endl;
   std::cout << "   / __ \\/  _/   / / //_/ ___/_  __/ __ \\/   |" << std::endl;
   std::cout << "  / / / // /__  / / ,<  \\__ \\ / / / /_/ / /| |" << std::endl;
-  std::cout << " / /_/ // // /_/ / /| |___/ // / / _, _/ ___ |" << std::endl;
-  std::cout << "/_____/___/\\____/_/ |_/____//_/ /_/ |_/_/  |_|" << std::endl;
-  std::cout << "                        __________  _________ " << std::endl;
-  std::cout << "                       / ____/ __ \\/ ____/   |" << std::endl;
-  std::cout << "                      / /_  / /_/ / / __/ /| |" << std::endl;
-  std::cout << "                     / __/ / ____/ /_/ / ___ |" << std::endl;
-  std::cout << "                    /_/   /_/    \\____/_/  |_|" << std::endl;
+  std::cout << " / /_/ // // /_/ / /| |___/ // / / _, _/ ___ |"   << std::endl;
+  std::cout << "/_____/___/\\____/_/ |_/____//_/ /_/ |_/_/  |_|"  << std::endl;
+  std::cout << "                        __________  _________ "   << std::endl;
+  std::cout << "                       / ____/ __ \\/ ____/   |"  << std::endl;
+  std::cout << "                      / /_  / /_/ / / __/ /| |"   << std::endl;
+  std::cout << "                     / __/ / ____/ /_/ / ___ |"   << std::endl;
+  std::cout << "                    /_/   /_/    \\____/_/  |_|"  << std::endl;
 
   std::cout << "Beginning Benchmarks..." << std::endl;
   std::cout << "Generating Data..." << std::endl;
@@ -91,16 +91,16 @@ int main(int argc, char **argv) {
       wait_time;
 
   sw_dist_base = (unsigned *)malloc(size * sizeof(unsigned));
-  sw_dist_bin = (unsigned *)malloc(size * sizeof(unsigned));
-  sw_dist_fib = (unsigned *)malloc(size * sizeof(unsigned));
-  hw_dist = (unsigned *)malloc(size * sizeof(unsigned));
+  sw_dist_bin  = (unsigned *)malloc(size * sizeof(unsigned));
+  sw_dist_fib  = (unsigned *)malloc(size * sizeof(unsigned));
+  hw_dist      = (unsigned *)malloc(size * sizeof(unsigned));
 
-  hw_output = (unsigned *)malloc(size * sizeof(unsigned));
+  hw_output =    (unsigned *)malloc(size * sizeof(unsigned));
 
   sw_prev_base = (unsigned *)malloc(size * sizeof(unsigned));
-  sw_prev_bin = (unsigned *)malloc(size * sizeof(unsigned));
-  sw_prev_fib = (unsigned *)malloc(size * sizeof(unsigned));
-  hw_prev = (unsigned *)malloc(size * sizeof(unsigned));
+  sw_prev_bin =  (unsigned *)malloc(size * sizeof(unsigned));
+  sw_prev_fib =  (unsigned *)malloc(size * sizeof(unsigned));
+  hw_prev =      (unsigned *)malloc(size * sizeof(unsigned));
 
   std::cout << "Executing Each Benchmark For " << runs << " Runs" << std::endl;
   for (unsigned i = 0; i < runs; i++) {
@@ -254,13 +254,6 @@ int main(int argc, char **argv) {
     }
   }
 
-  // std::cout << "Error Count: " << derr_bin << std::endl;
-  // std::cout << "Error Count: " << perr_bin << std::endl;
-  // std::cout << "Error Count: " << derr_fib << std::endl;
-  // std::cout << "Error Count: " << perr_fib << std::endl;
-  // std::cout << "Error Count: " << derr_hw  << std::endl;
-  // std::cout << "Error Count: " << perr_hw  << std::endl;
-
   const double err_margin = 0.2;  // Could be more than one path with same
                                   // distance. Allow 2% Error Margin
   std::cout << "=================CHECK WORK===================" << std::endl;
@@ -307,7 +300,7 @@ int main(int argc, char **argv) {
   free(sw_prev_fib);
   free(hw_prev);
 
-  // delete board;
+  delete board;
 
   return 0;
 }
