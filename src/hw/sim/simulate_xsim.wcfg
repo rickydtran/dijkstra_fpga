@@ -12,17 +12,34 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="3030400000fs"></ZoomStartTime>
-      <ZoomEndTime time="3767400001fs"></ZoomEndTime>
-      <Cursor1Time time="3243400000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="11270000001fs"></ZoomEndTime>
+      <Cursor1Time time="3975000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="131"></NameColumnWidth>
+      <NameColumnWidth column_width="103"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="111" />
+   <WVObjectSize size="110" />
    <wave_markers>
-      <marker label="" time="3005000000" />
+      <marker label="" time="3005833000" />
+      <marker label="" time="3045000000" />
+      <marker label="" time="3085000000" />
+      <marker label="" time="3125000000" />
+      <marker label="" time="3165000000" />
+      <marker label="" time="3205000000" />
+      <marker label="" time="3245000000" />
+      <marker label="" time="3285000000" />
+      <marker label="" time="3325000000" />
+      <marker label="" time="3365000000" />
+      <marker label="" time="3405000000" />
+      <marker label="" time="3445000000" />
+      <marker label="" time="3485000000" />
+      <marker label="" time="3525000000" />
+      <marker label="" time="3565000000" />
+      <marker label="" time="3605000000" />
+      <marker label="" time="215000000" />
+      <marker label="" time="3975000000" />
    </wave_markers>
    <wvobject type="group" fp_name="group1317">
       <obj_property name="label">MEM_MAP</obj_property>
@@ -387,10 +404,13 @@
       <obj_property name="ElementShortName">lt_out[15:0]</obj_property>
       <obj_property name="ObjectShortName">lt_out[15:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/done_arr">
-      <obj_property name="ElementShortName">done_arr[15:0]</obj_property>
-      <obj_property name="ObjectShortName">done_arr[15:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/done_in">
+      <obj_property name="ElementShortName">done_in[15:0]</obj_property>
+      <obj_property name="ObjectShortName">done_in[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/done_out">
+      <obj_property name="ElementShortName">done_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">done_out[15:0]</obj_property>
    </wvobject>
    <wvobject type="other" fp_name="/user_app_tb/UUT/U_DATAPATH/width">
       <obj_property name="ElementShortName">width</obj_property>
@@ -544,7 +564,6 @@
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_CTRL/size">
       <obj_property name="ElementShortName">size[4:0]</obj_property>
       <obj_property name="ObjectShortName">size[4:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/U_CTRL/done">
       <obj_property name="ElementShortName">done</obj_property>
@@ -554,6 +573,10 @@
       <obj_property name="ElementShortName">dp_en</obj_property>
       <obj_property name="ObjectShortName">dp_en</obj_property>
    </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/U_CTRL/m_en">
+      <obj_property name="ElementShortName">m_en</obj_property>
+      <obj_property name="ObjectShortName">m_en</obj_property>
+   </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/U_CTRL/mem_out_en">
       <obj_property name="ElementShortName">mem_out_en</obj_property>
       <obj_property name="ObjectShortName">mem_out_en</obj_property>
@@ -561,6 +584,14 @@
    <wvobject type="logic" fp_name="/user_app_tb/UUT/U_CTRL/valid_out">
       <obj_property name="ElementShortName">valid_out</obj_property>
       <obj_property name="ObjectShortName">valid_out</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/U_CTRL/lt_en">
+      <obj_property name="ElementShortName">lt_en</obj_property>
+      <obj_property name="ObjectShortName">lt_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/U_CTRL/rst_d">
+      <obj_property name="ElementShortName">rst_d</obj_property>
+      <obj_property name="ObjectShortName">rst_d</obj_property>
    </wvobject>
    <wvobject type="other" fp_name="/user_app_tb/UUT/U_CTRL/state">
       <obj_property name="ElementShortName">state</obj_property>
@@ -582,38 +613,16 @@
       <obj_property name="ElementShortName">val</obj_property>
       <obj_property name="ObjectShortName">val</obj_property>
    </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/U_CTRL/next_val">
+      <obj_property name="ElementShortName">next_val</obj_property>
+      <obj_property name="ObjectShortName">next_val</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_CTRL/count">
       <obj_property name="ElementShortName">count[4:0]</obj_property>
       <obj_property name="ObjectShortName">count[4:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_CTRL/next_count">
       <obj_property name="ElementShortName">next_count[4:0]</obj_property>
       <obj_property name="ObjectShortName">next_count[4:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/user_app_tb/UUT/U_DATAPATH/U_COMP_BIN/\U_LEV_ZERO(7)\/U_COMP_MIN/bool1">
-      <obj_property name="ElementShortName">bool1</obj_property>
-      <obj_property name="ObjectShortName">bool1</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/user_app_tb/UUT/U_DATAPATH/U_COMP_BIN/\U_LEV_ZERO(7)\/U_COMP_MIN/bool2">
-      <obj_property name="ElementShortName">bool2</obj_property>
-      <obj_property name="ObjectShortName">bool2</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/U_COMP_BIN/\U_LEV_ZERO(7)\/U_COMP_MIN/input1">
-      <obj_property name="ElementShortName">input1[19:0]</obj_property>
-      <obj_property name="ObjectShortName">input1[19:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/U_COMP_BIN/\U_LEV_ZERO(7)\/U_COMP_MIN/input2">
-      <obj_property name="ElementShortName">input2[19:0]</obj_property>
-      <obj_property name="ObjectShortName">input2[19:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/U_COMP_BIN/\U_LEV_ZERO(7)\/U_COMP_MIN/output">
-      <obj_property name="ElementShortName">output[19:0]</obj_property>
-      <obj_property name="ObjectShortName">output[19:0]</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/user_app_tb/UUT/U_DATAPATH/U_COMP_BIN/\U_LEV_ZERO(7)\/U_COMP_MIN/width">
-      <obj_property name="ElementShortName">width</obj_property>
-      <obj_property name="ObjectShortName">width</obj_property>
    </wvobject>
 </wave_config>

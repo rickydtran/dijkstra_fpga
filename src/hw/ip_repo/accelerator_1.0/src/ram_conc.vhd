@@ -74,7 +74,7 @@ end entity;
 architecture ASYNC_READ of ram_conc is
 
   --type memory_type is array (natural range <>) of std_logic_vector(word_width-1 downto 0);
-  constant dijk_mem_init : std_logic_vector(C_MEM_OUT_WIDTH-1 downto 0) := std_logic_vector((to_unsigned(0, C_MEM_ADDR_WIDTH)) & (to_unsigned(2**C_MEM_IN_WIDTH-1, C_MEM_IN_WIDTH)));
+  constant dijk_mem_init : std_logic_vector(C_MEM_OUT_WIDTH-1 downto 0) := std_logic_vector((to_unsigned(0, C_MEM_ADDR_WIDTH)) & (to_unsigned(2**C_DATA_WIDTH-1, C_DATA_WIDTH)));
   signal memory : data_bus_mem_out(num_words-1 downto 0);
   
 begin

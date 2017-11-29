@@ -1,11 +1,6 @@
--- Greg Stitt
+-- Ricky Tran
 -- University of Florida
--- EEL 5721/4720 Reconfigurable Computing
---
--- File: user_app_tb.vhd
---
--- Description: This file implements a testbench for the simple pipeline
--- when running on the ZedBoard. 
+-- user_app_tb.vhd
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -17,78 +12,30 @@ use work.user_pkg.all;
 entity user_app_tb is
 end user_app_tb;
 
-architecture behavior of user_app_tb is
+architecture tb of user_app_tb is
 
-  type t_2d_a is array(15 downto 0, 15 downto 0) of integer range 0 to 255;
-  constant input_key : t_2d_a := 
-  --((    0,   129,   160,   218,   220,    73,    38,    55,    28,   120,   148,   193,   112,     0,   217,    35),
-  --(  129,     0,   150,     0,   134,    13,   179,     0,    94,   238,    41,   165,    77,   247,     0,    86),
-  --(  160,   150,     0,   175,     0,   154,   106,   253,   251,     0,     0,   178,     9,    86,   188,    70),
-  --(  218,     0,   175,     0,   196,    56,   231,   127,    66,   240,     6,   248,   198,   244,   255,   244),
-  --(  220,   134,     0,   196,     0,    23,     0,   127,     0,     0,   245,   101,   255,   126,     0,   241),
-  --(   73,    13,   154,    56,    23,     0,   116,   127,     0,    48,   197,    72,    51,     0,   205,   102),
-  --(   38,   179,   106,   231,     0,   116,     0,    58,   182,     0,   193,    35,   158,   131,   249,    90),
-  --(   55,     0,   253,   127,   127,   127,    58,     0,   166,   139,   239,    16,   239,   227,   132,   129),
-  --(   28,    94,   251,    66,     0,     0,   182,   166,     0,     0,   152,   227,   226,   245,   201,   165),
-  --(  120,   238,     0,   240,     0,    48,     0,   139,     0,     0,   185,   236,   119,   144,     0,     0),
-  --(  148,    41,     0,     6,   245,   197,   193,   239,   152,   185,     0,   125,   190,    57,   214,   229),
-  --(  193,   165,   178,   248,   101,    72,    35,    16,   227,   236,   125,     0,    55,   210,    31,     0),
-  --(  112,    77,     9,   198,   255,    51,   158,   239,   226,   119,   190,    55,     0,    71,   169,   147),
-  --(    0,   247,    86,   244,   126,     0,   131,   227,   245,   144,    57,   210,    71,     0,    11,    64),
-  --(  217,     0,   188,   255,     0,   205,   249,   132,   201,     0,   214,    31,   169,    11,     0,   232),
-  --(   35,    86,    70,   244,   241,   102,    90,   129,   165,     0,   229,     0,   147,    64,   232,     0));
-
-  --((   35,    86,    70,   244,   241,   102,    90,   129,   165,     0,   229,     0,   147,    64,   232,     0),
-  --(  217,     0,   188,   255,     0,   205,   249,   132,   201,     0,   214,    31,   169,    11,     0,   232),
-  --(    0,   247,    86,   244,   126,     0,   131,   227,   245,   144,    57,   210,    71,     0,    11,    64),
-  --(  112,    77,     9,   198,   255,    51,   158,   239,   226,   119,   190,    55,     0,    71,   169,   147),
-  --(  193,   165,   178,   248,   101,    72,    35,    16,   227,   236,   125,     0,    55,   210,    31,     0),
-  --(  148,    41,     0,     6,   245,   197,   193,   239,   152,   185,     0,   125,   190,    57,   214,   229),
-  --(  120,   238,     0,   240,     0,    48,     0,   139,     0,     0,   185,   236,   119,   144,     0,     0),
-  --(   28,    94,   251,    66,     0,     0,   182,   166,     0,     0,   152,   227,   226,   245,   201,   165),
-  --(   55,     0,   253,   127,   127,   127,    58,     0,   166,   139,   239,    16,   239,   227,   132,   129),
-  --(   38,   179,   106,   231,     0,   116,     0,    58,   182,     0,   193,    35,   158,   131,   249,    90),
-  --(   73,    13,   154,    56,    23,     0,   116,   127,     0,    48,   197,    72,    51,     0,   205,   102),
-  --(  220,   134,     0,   196,     0,    23,     0,   127,     0,     0,   245,   101,   255,   126,     0,   241),
-  --(  218,     0,   175,     0,   196,    56,   231,   127,    66,   240,     6,   248,   198,   244,   255,   244),
-  --(  160,   150,     0,   175,     0,   154,   106,   253,   251,     0,     0,   178,     9,    86,   188,    70),
-  --(  129,     0,   150,     0,   134,    13,   179,     0,    94,   238,    41,   165,    77,   247,     0,    86),
-  --(    0,   129,   160,   218,   220,    73,    38,    55,    28,   120,   148,   193,   112,     0,   217,    35));
-
---((    0,   232,    64,   147,     0,   229,     0,   165,   129,    90,   102,   241,   244,    70,    86,    35),
---(  232,     0,    11,   169,    31,   214,     0,   201,   132,   249,   205,     0,   255,   188,     0,   217),
---(   64,    11,     0,    71,   210,    57,   144,   245,   227,   131,     0,   126,   244,    86,   247,     0),
---(  147,   169,    71,     0,    55,   190,   119,   226,   239,   158,    51,   255,   198,     9,    77,   112),
---(    0,    31,   210,    55,     0,   125,   236,   227,    16,    35,    72,   101,   248,   178,   165,   193),
---(  229,   214,    57,   190,   125,     0,   185,   152,   239,   193,   197,   245,     6,     0,    41,   148),
---(    0,     0,   144,   119,   236,   185,     0,     0,   139,     0,    48,     0,   240,     0,   238,   120),
---(  165,   201,   245,   226,   227,   152,     0,     0,   166,   182,     0,     0,    66,   251,    94,    28),
---(  129,   132,   227,   239,    16,   239,   139,   166,     0,    58,   127,   127,   127,   253,     0,    55),
---(   90,   249,   131,   158,    35,   193,     0,   182,    58,     0,   116,     0,   231,   106,   179,    38),
---(  102,   205,     0,    51,    72,   197,    48,     0,   127,   116,     0,    23,    56,   154,    13,    73),
---(  241,     0,   126,   255,   101,   245,     0,     0,   127,     0,    23,     0,   196,     0,   134,   220),
---(  244,   255,   244,   198,   248,     6,   240,    66,   127,   231,    56,   196,     0,   175,     0,   218),
---(   70,   188,    86,     9,   178,     0,     0,   251,   253,   106,   154,     0,   175,     0,   150,   160),
---(   86,     0,   247,    77,   165,    41,   238,    94,     0,   179,    13,   134,     0,   150,     0,   129),
---(   35,   217,     0,   112,   193,   148,   120,    28,    55,    38,    73,   220,   218,   160,   129,     0));
-
-((    0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,    63,     0,     0,     0),
-(    0,     0,   119,    99,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0),
-(    0,   119,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0),
-(    0,    99,     0,     0,     0,     0,     0,     0,    98,     0,     0,     0,     0,     0,    41,     0),
-(    0,     0,     0,     0,     0,     0,     0,     0,     0,    35,     0,     0,     0,     0,     0,     0),
-(    0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     4,   167,     0,     0,     0),
-(    0,     0,     0,     0,     0,     0,     0,     0,   177,     0,     0,     0,   109,     0,     0,     0),
-(    0,     0,     0,     0,     0,     0,     0,     0,     0,   128,     0,     0,     0,     0,     0,     0),
-(    0,     0,     0,    98,     0,     0,   177,     0,     0,     2,     0,     0,     0,     0,     0,   151),
-(    0,     0,     0,     0,    35,     0,     0,   128,     2,     0,     0,     0,     0,   124,     0,     0),
-(    0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,    50,     0,     0,     0),
-(    0,     0,     0,     0,     0,     4,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0),
-(   63,     0,     0,     0,     0,   167,   109,     0,     0,     0,    50,     0,     0,     0,     0,     0),
-(    0,     0,     0,     0,     0,     0,     0,     0,     0,   124,     0,     0,     0,     0,     0,     0),
-(    0,     0,     0,    41,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0),
-(    0,     0,     0,     0,     0,     0,     0,     0,   151,     0,     0,     0,     0,     0,     0,     0));
-
+  type t_2d_a is array(0 to 15, 0 to 15) of integer range 0 to 255;
+  constant input_key : t_2d_a :=
+  ((    0,   156,   147,   169,     4,    35,   173,   124,   242,   165,   237,     6,   171,     0,   237,   116),
+   (  156,     0,    18,   196,   235,   146,   140,   231,   161,   100,   247,   225,   224,   130,     0,   127),
+   (  147,    18,     0,    21,     0,   181,    35,    92,    14,   142,    12,    60,   234,    36,   191,    17),
+   (  169,   196,    21,     0,   134,   170,   176,   114,    64,   144,   187,   131,   211,   133,   128,   250),
+   (    4,   235,     0,   134,     0,   235,     9,     5,   160,     0,     9,    35,    91,   168,     0,   174),
+   (   35,   146,   181,   170,   235,     0,    54,   178,    35,   120,   119,    95,   178,   182,   202,   207),
+   (  173,   140,    35,   176,     9,    54,     0,   227,   169,   183,   224,   130,   229,   108,   132,   138),
+   (  124,   231,    92,   114,     5,   178,   227,     0,   195,    24,    86,   155,   181,   226,   224,   227),
+   (  242,   161,    14,    64,   160,    35,   169,   195,     0,   246,   243,    40,   241,   172,   169,     6),
+   (  165,   100,   142,   144,     0,   120,   183,    24,   246,     0,    51,   246,    81,   246,    13,   113),
+   (  237,   247,    12,   187,     9,   119,   224,    86,   243,    51,     0,   127,    71,    90,   206,   125),
+   (    6,   225,    60,   131,    35,    95,   130,   155,    40,   246,   127,     0,   135,   244,   132,   245),
+   (  171,   224,   234,   211,    91,   178,   229,   181,   241,    81,    71,   135,     0,   138,   233,   223),
+   (    0,   130,    36,   133,   168,   182,   108,   226,   172,   246,    90,   244,   138,     0,    76,   160),
+   (  237,     0,   191,   128,     0,   202,   132,   224,   169,    13,   206,   132,   233,    76,     0,   143),
+   (  116,   127,    17,   250,   174,   207,   138,   227,     6,   113,   125,   245,   223,   160,   143,     0));
+   
+  type key is array(0 to 15) of integer;
+  constant answer_key : key :=
+  ( 0, 131115, 655385, 131118, 4, 35, 262157, 262153, 131111, 458785, 262157, 6, 655444, 131133, 589870, 131114 );
 
   constant TEST_SIZE : integer := 16;
   constant MAX_CYCLES : integer  := TEST_SIZE*4;
@@ -125,32 +72,20 @@ begin
   -- process to test different inputs
   process
 
-    -- function to check if the outputs is correct
-    --function checkOutput (
-    --  i : integer)
-    --  return integer is
-
-    --begin
-    --  return ((i*4) mod 256)*((i*4+1) mod 256) + ((i*4+2) mod 256)*((i*4+3) mod 256);
-    --end checkOutput;
-
     procedure clearMMAP is
     begin
       mmap_rd_en <= '0';
       mmap_wr_en <= '0';
     end clearMMAP;
 
-    variable errors       : integer := 0;
-    --variable total_points : real    := 50.0;
-    --variable min_grade    : real    := total_points*0.25;
-    --variable grade        : real;
+    variable errors : integer := 0;
 
     variable result : std_logic_vector(C_MMAP_DATA_WIDTH-1 downto 0);
     variable done   : std_logic;
     variable count  : integer;
 
   begin
-
+    report "============================SIMULATION START============================" severity note;
     -- reset circuit  
     rst <= '1';
     clearMMAP;
@@ -161,16 +96,88 @@ begin
     wait until clk'event and clk = '1';
 
     -- write contents to input ram, which starts at addr 0
-    --for i in 0 to TEST_SIZE-1 loop
-      --mmap_wr_addr <= std_logic_vector(to_unsigned(i, C_MMAP_ADDR_WIDTH));
-      --mmap_wr_en   <= '1';
-      --mmap_wr_data <= std_logic_vector(to_unsigned((i*4) mod 256, 8) &
-      --                 to_unsigned((i*4+1) mod 256, 8) &
-      --                 to_unsigned((i*4+2) mod 256, 8) &
-      --                 to_unsigned((i*4+3) mod 256, 8));
-      --wait until clk'event and clk = '1';
-      --clearMMAP;
-    --end loop;
+    for i in 0 to TEST_SIZE-1 loop
+      mmap_wr_addr <= C_MEM_IN_SEL_ADDR;
+      mmap_wr_en   <= '1';
+      mmap_wr_data <= std_logic_vector(to_unsigned(i, C_MMAP_DATA_WIDTH));
+      wait until clk'event and clk = '1';
+      clearMMAP;
+      for j in 0 to TEST_SIZE-1 loop
+        mmap_wr_addr <= std_logic_vector(to_unsigned(j, C_MMAP_ADDR_WIDTH));
+        mmap_wr_en   <= '1';
+        mmap_wr_data <= std_logic_vector(to_unsigned(input_key(i, j), 32));
+        wait until clk'event and clk = '1';
+        clearMMAP;
+      end loop;      
+    end loop;
+
+    -- send size
+    mmap_wr_addr <= C_SIZE_ADDR;
+    mmap_wr_en   <= '1';
+    mmap_wr_data <= std_logic_vector(to_unsigned(TEST_SIZE, C_MMAP_DATA_WIDTH));
+    wait until clk'event and clk = '1';
+    clearMMAP;
+
+    -- send src
+    mmap_wr_addr <= C_SRC_ADDR;
+    mmap_wr_en   <= '1';
+    mmap_wr_data <= std_logic_vector(to_unsigned(0, C_MMAP_DATA_WIDTH));
+    wait until clk'event and clk = '1';
+    clearMMAP;
+
+    ---- send go = 1 over memory map
+    mmap_wr_addr <= C_GO_ADDR;
+    mmap_wr_en   <= '1';
+    mmap_wr_data <= std_logic_vector(to_unsigned(1, C_MMAP_DATA_WIDTH));
+    wait until clk'event and clk = '1';
+    clearMMAP;
+    
+    done  := '0';
+    count := 0;
+
+    -- read the done signal every cycle to see if the circuit has
+    -- completed.
+    --
+    -- equivalent to wait until (done = '1') for TIMEOUT;      
+    while done = '0' and count < MAX_CYCLES loop
+
+      mmap_rd_addr <= C_DONE_ADDR;
+      mmap_rd_en   <= '1';
+      wait until clk'event and clk = '1';
+      clearMMAP;
+      -- give entity one cycle to respond
+      wait until clk'event and clk = '1';
+      done         := mmap_rd_data(0);
+      count        := count + 1;
+    end loop;
+
+    if (done /= '1') then
+      errors := errors + 1;
+      report "Done signal not asserted before timeout.";
+    end if;
+
+    -- read outputs from output memory
+    for i in 0 to TEST_SIZE-1 loop
+      mmap_rd_addr   <= std_logic_vector(to_unsigned(i, C_MMAP_ADDR_WIDTH));
+      mmap_rd_en     <= '1';            
+      wait until clk'event and clk = '1';
+      clearMMAP;
+      -- give entity one cycle to respond
+      wait until clk'event and clk = '1';
+      result := mmap_rd_data;
+
+      if (unsigned(result) /= answer_key(i)) then
+        errors := errors + 1;
+        report "Result for " & integer'image(i) &
+          " is incorrect. The output is " &
+          integer'image(to_integer(unsigned(result))) &
+          " but should be " & integer'image(answer_key(i));
+      end if;
+    end loop;  -- i
+
+    for i in 0 to 255 loop
+      wait until rising_edge(clk);
+    end loop;
 
     for i in 0 to TEST_SIZE-1 loop
     ---- send go = 1 over memory map
@@ -247,27 +254,20 @@ begin
       wait until clk'event and clk = '1';
       result := mmap_rd_data;
 
-      --if (unsigned(result) /= checkOutput(i)) then
-      --  errors := errors + 1;
-      --  report "Result for " & integer'image(i) &
-      --    " is incorrect. The output is " &
-      --    integer'image(to_integer(unsigned(result))) &
-      --    " but should be " & integer'image(checkOutput(i));
-      --end if;
+      if (unsigned(result) /= answer_key(i)) then
+        errors := errors + 1;
+        report "Result for " & integer'image(i) &
+          " is incorrect. The output is " &
+          integer'image(to_integer(unsigned(result))) &
+          " but should be " & integer'image(answer_key(i));
+      end if;
     end loop;  -- i
 
     report "SIMULATION FINISHED!!!";
-
-    --grade := total_points-(real(errors)*total_points*0.05);
-    --if grade < min_grade then
-    --  grade := min_grade;
-    --end if;
-
-    --report "TOTAL ERRORS : " & integer'image(errors);
-    --report "GRADE = " & integer'image(integer(grade)) & " out of " &
-    --  integer'image(integer(total_points));
+    report "TOTAL ERRORS : " & integer'image(errors);
+    report "=============================SIMULATION END=============================" severity note;
     sim_done <= '1';
     wait;
 
   end process;
-end behavior;
+end tb;

@@ -44,7 +44,6 @@ architecture default of user_app is
     mem_in_wr_data  : out std_logic_vector(C_MEM_IN_WIDTH-1 downto 0);
     mem_in_wr_addr  : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
     mem_in_wr_en    : out std_logic;
-    --mem_in_wr_en    : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
     mem_in_sel      : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
     mem_out_rd_data : in  std_logic_vector(C_MEM_OUT_WIDTH-1 downto 0);
     mem_out_rd_addr : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0)
@@ -76,15 +75,14 @@ architecture default of user_app is
       addr_width : positive
       );
     port (
-      clk     : in  std_logic;
-      rst     : in  std_logic;
+      clk      : in  std_logic;
+      rst      : in  std_logic;
       -- write port
-      wen     : in  std_logic;
-      waddr   : in  std_logic_vector(addr_width-1 downto 0);
-      wdata   : in  std_logic_vector(word_width-1 downto 0);
-      dat_val : in  std_logic;
-      data_in : in  data_bus_mem_out(num_words-1 downto 0);
-
+      wen      : in  std_logic;
+      waddr    : in  std_logic_vector(addr_width-1 downto 0);
+      wdata    : in  std_logic_vector(word_width-1 downto 0);
+      dat_val  : in  std_logic;
+      data_in  : in  data_bus_mem_out(num_words-1 downto 0);
       -- read port
       raddr    : in  std_logic_vector(addr_width-1 downto 0);
       rdata    : out std_logic_vector(word_width-1 downto 0);
@@ -107,20 +105,21 @@ architecture default of user_app is
 
   component datapath
     generic (width : positive);
-    port (
-      clk  : in  std_logic;
-      rst  : in  std_logic;
-      en   : in  std_logic;
-      m_en : in  std_logic;
+      port (
+        clk            : in  std_logic;
+        rst            : in  std_logic;
+        en             : in  std_logic;
+        m_en           : in  std_logic;
 
-      mem_in_rd_addr : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
-      mem_in_rd_data : in  data_bus_type(2**C_MEM_ADDR_WIDTH-1 downto 0);
+        rst_d          : in  std_logic;
+        lt_en          : in  std_logic;
+        valid_in       : in  std_logic;
 
-      mem_out_wr_bus : out  data_bus_mem_out(2**C_MEM_ADDR_WIDTH-1 downto 0);
-      mem_out_rd_bus : in  data_bus_mem_out(2**C_MEM_ADDR_WIDTH-1 downto 0);
-      valid_in : in std_logic;
-      lt_en    : in std_logic
-    );
+        mem_in_rd_data : in  data_bus_type(2**C_MEM_ADDR_WIDTH-1 downto 0);
+        mem_out_rd_bus : in  data_bus_mem_out(2**C_MEM_ADDR_WIDTH-1 downto 0);
+        mem_in_rd_addr : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
+        mem_out_wr_bus : out data_bus_mem_out(2**C_MEM_ADDR_WIDTH-1 downto 0)
+      );
   end component;
 
   component ctrl
@@ -135,25 +134,26 @@ architecture default of user_app is
       m_en         : out std_logic;
       mem_out_en   : out std_logic;
       valid_out    : out std_logic;
-      lt_en        : out std_logic
+      lt_en        : out std_logic;
+      rst_d        : out std_logic
     );
   end component;
 
   constant ZERO : std_logic_vector(C_MEM_OUT_WIDTH-1 downto 0) := std_logic_vector(to_unsigned(0, C_MEM_OUT_WIDTH));
 
-  signal go   : std_logic;
-  signal size : std_logic_vector(C_MEM_ADDR_WIDTH downto 0);
-  signal done : std_logic;
-  signal src  : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
+  signal go                    : std_logic;
+  signal size                  : std_logic_vector(C_MEM_ADDR_WIDTH downto 0);
+  signal done                  : std_logic;
+  signal src                   : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
 
-  signal mem_in_wr_data       : std_logic_vector(C_MEM_IN_WIDTH-1 downto 0);
-  signal mem_in_wr_addr       : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
+  signal mem_in_wr_data        : std_logic_vector(C_MEM_IN_WIDTH-1 downto 0);
+  signal mem_in_wr_addr        : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
   --signal mem_in_rd_data       : std_logic_vector(C_MEM_IN_WIDTH-1 downto 0);
-  signal mem_in_rd_data       : data_bus_type(2**C_MEM_ADDR_WIDTH-1 downto 0) := (others => (others => '0'));
+  signal mem_in_rd_data        : data_bus_type(2**C_MEM_ADDR_WIDTH-1 downto 0) := (others => (others => '0'));
 
-  signal mem_in_rd_addr       : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
-  signal mem_in_wr_en         : std_logic;
-  signal mem_in_wr_en_arr     : std_logic_vector(2**C_MEM_ADDR_WIDTH - 1 downto 0);
+  signal mem_in_rd_addr        : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
+  signal mem_in_wr_en          : std_logic;
+  signal mem_in_wr_en_arr      : std_logic_vector(2**C_MEM_ADDR_WIDTH - 1 downto 0);
   --signal mem_in_rd_addr_valid : std_logic;
 
   --signal mem_out_wr_data       : std_logic_vector(C_MEM_OUT_WIDTH-1 downto 0);
@@ -162,15 +162,15 @@ architecture default of user_app is
   signal mem_out_rd_addr       : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
   signal mem_out_wr_en         : std_logic;
   signal mem_out_wr_data_valid : std_logic;
-  --signal mem_out_done          : std_logic;
 
   signal s_mem_out_wr_bus      : data_bus_mem_out(2**C_MEM_ADDR_WIDTH-1 downto 0);
   signal s_mem_out_rd_bus      : data_bus_mem_out(2**C_MEM_ADDR_WIDTH-1 downto 0);
 
-  signal mem_in_sel : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
-  signal dp_en, m_en : std_logic;
-  signal valid_out : std_logic;
-  signal lt_en : std_logic;
+  signal mem_in_sel            : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
+  signal dp_en, m_en           : std_logic;
+  signal valid_out             : std_logic;
+  signal lt_en                 : std_logic;
+  signal rst_d                 : std_logic;
 
 begin
 
@@ -184,7 +184,6 @@ begin
     end if;
   end process;
 
-  ------------------------------------------------------------------------------
   U_MMAP : memory_map
     port map (
       clk     => clk,
@@ -195,13 +194,11 @@ begin
       rd_en   => mmap_rd_en,
       rd_addr => mmap_rd_addr,
       rd_data => mmap_rd_data,
-  
     -- TODO: connect to appropriate logic
       go              => go,         
       size            => size,
       src             => src,      
       done            => done,       
-    
     -- already connected to block RAMs
     -- the memory` map functionality writes to the input ram
     -- and reads from the output ram
@@ -212,22 +209,6 @@ begin
       mem_out_rd_data => mem_out_rd_data,
       mem_out_rd_addr => mem_out_rd_addr
       );
-
-  ------------------------------------------------------------------------------
-
-
-  ------------------------------------------------------------------------------
-  -- input memory
-  -- written to by memory map
-  -- read from by controller+datapath
-  ------------------------------------------------------------------------------
-
-  --U_MEM_IN_SEL : entity work.
-  
-  ------------------------------------------------------------------------------
-  -- input memory
-  -- written to by memory map
-  -- read from by controller+datapath
 
   U_MEM_IN : for i in 0 to 2**C_MEM_ADDR_WIDTH-1 generate
     U_RAM : entity work.ram(ASYNC_READ)
@@ -241,41 +222,8 @@ begin
         waddr => mem_in_wr_addr,
         wdata => mem_in_wr_data,
         raddr => mem_in_rd_addr,  -- TODO: connect to input address generator
-        rdata => mem_in_rd_data(i)); -- TODO: connect to pipeline input
+        rdata => mem_in_rd_data(i)(C_MEM_IN_WIDTH-1 downto 0)); -- TODO: connect to pipeline input
   end generate U_MEM_IN;
-  ------------------------------------------------------------------------------
-
-  U_DATAPATH : datapath
-    generic map (C_MEM_IN_WIDTH)
-    port map (
-      clk  => clk,
-      rst  => rst,
-      en   => dp_en,
-      m_en => m_en,
-      mem_in_rd_addr  => mem_in_rd_addr,
-      mem_in_rd_data  => mem_in_rd_data,
-      mem_out_wr_bus  => s_mem_out_wr_bus,
-      mem_out_rd_bus  => s_mem_out_rd_bus,
-      valid_in        => valid_out,
-      lt_en           => lt_en);
-  ------------------------------------------------------------------------------
-
-  U_CTRL : ctrl
-    port map (
-      clk          => clk,
-      rst          => rst,
-      go           => go,
-      size         => size,
-      done         => done,
-      dp_en        => dp_en,
-      m_en         => m_en,
-      mem_out_en   => mem_out_wr_en,
-      valid_out    => valid_out,
-      lt_en        => lt_en);
-
-  -- output memory
-  -- written to by controller+datapath
-  -- read from by memory map
 
   U_MEM_OUT : ram_conc
     generic map (
@@ -294,41 +242,37 @@ begin
       rdata    => mem_out_rd_data,
       data_out => s_mem_out_rd_bus);
 
-  --U_MEM_DIST : ram_dist
-  --  generic map (
-  --    num_words  => 2**C_MEM_ADDR_WIDTH,
-  --    word_width => C_MEM_OUT_WIDTH,
-  --    addr_width => C_MEM_ADDR_WIDTH)
-  --  port map (
-  --    clk      => clk,
-  --    wen      => mem_out_dist_wr_en,
-  --    waddr    => mem_out_dist_wr_addr,  -- TODO: connect to output address generator
-  --    wdata    => mem_out_dist_wr_data,  -- TODO: connect to pipeline output
-  --    data_in  => s_mem_out_dist_wr,
-  --    raddr    => mem_out_dist_rd_addr,
-  --    rdata    => mem_out_dist_rd_data,
-  --    data_out => s_mem_out_dist_rd);
-
-  --U_MEM_PREV : ram_prev
-  --  generic map (
-  --    num_words  => 2**C_MEM_ADDR_WIDTH,
-  --    word_width => C_MEM_ADDR_WIDTH,
-  --    addr_width => C_MEM_ADDR_WIDTH)
-  --  port map (
-  --    clk      => clk,
-  --    wen      => mem_out_prev_wr_en,
-  --    waddr    => mem_out_prev_wr_addr,  -- TODO: connect to output address generator
-  --    wdata    => mem_out_prev_wr_data,  -- TODO: connect to pipeline output
-  --    data_in  => s_mem_out_prev_wr,
-  --    raddr    => mem_out_prev_rd_addr,
-  --    rdata    => mem_out_prev_rd_data,
-  --    data_out => s_mem_out_prev_rd);
+  U_DATAPATH : datapath
+    generic map (C_DATA_WIDTH)
+    port map (
+      clk             => clk,
+      rst             => rst,
+      en              => dp_en,
+      m_en            => m_en,
+      mem_in_rd_addr  => mem_in_rd_addr,
+      mem_in_rd_data  => mem_in_rd_data,
+      mem_out_wr_bus  => s_mem_out_wr_bus,
+      mem_out_rd_bus  => s_mem_out_rd_bus,
+      valid_in        => valid_out,
+      lt_en           => lt_en,
+      rst_d           => rst_d);
   ------------------------------------------------------------------------------
-  
-  
-  -- TODO: instatiate controllerm datapath/pipeline, address generators, 
-  -- and any other necessary logic
-  mem_out_wr_addr <= src;
+
+  U_CTRL : ctrl
+    port map (
+      clk          => clk,
+      rst          => rst,
+      go           => go,
+      size         => size,
+      done         => done,
+      dp_en        => dp_en,
+      m_en         => m_en,
+      mem_out_en   => mem_out_wr_en,
+      valid_out    => valid_out,
+      lt_en        => lt_en,
+      rst_d        => rst_d);
+
+  mem_out_wr_addr       <= src;
   mem_out_wr_data_valid <= valid_out;
     
 end default;

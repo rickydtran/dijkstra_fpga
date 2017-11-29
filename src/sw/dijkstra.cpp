@@ -48,10 +48,8 @@ void dijkstra_sw_base(unsigned **graph, unsigned src, unsigned size, unsigned *d
     done[i] = false;
   }
   dist[src] = 0;
-  prev[src] = -1;
   for (unsigned i = 0; i < size; i++) {
     unsigned u = min_distance(dist, done, size);
-    // std::cout << u << std::endl;
     done[u] = true;
     for (unsigned v = 0; v < size; v++) {
       if ((graph[u][v]) && (dist[v] > dist[u] + graph[u][v])) {
@@ -59,27 +57,17 @@ void dijkstra_sw_base(unsigned **graph, unsigned src, unsigned size, unsigned *d
         dist[v] = dist[u] + graph[u][v];
       }
     }
-    // for (unsigned v = 0; v < size; v++) {
-    //   if(dist[v] == 2147483647) {
-    //     std::cout << "INF" << ':' << done[v] << ' ';
-    //   }
-    //   else {
-    //     std::cout << dist[v] << ':' << done[v] << ' ';
-    //   }
-    // }
-    // std::cout << std::endl;
   }
 }
 
 void dijkstra_sw_bin(const Graph *g, unsigned src, unsigned *dist, unsigned *prev) {
   MinHeap h((*g).size());
-  dist[src] = 0;
-  prev[src] = -1;
-  h.insertKey(src, dist[src]);
-  for (unsigned i = 1; i < (*g).size(); i++) {
+  for (unsigned i = 0; i < (*g).size(); i++) {
     dist[i] = UINT_MAX;
     h.insertKey(i, dist[i]);
   }
+  dist[src] = 0;
+  h.decreaseKey(src, dist[src]);
   while (!h.isEmpty()) {
     std::pair<unsigned, unsigned> p = h.extractMin();
     unsigned u = p.first;
@@ -98,13 +86,13 @@ void dijkstra_sw_bin(const Graph *g, unsigned src, unsigned *dist, unsigned *pre
 
 void dijkstra_sw_fib(const Graph *g, unsigned src, unsigned *dist, unsigned *prev) {
   FibQueue<unsigned, unsigned> fq;
-  dist[src] = 0;
-  prev[src] = -1;
-  fq.push(dist[src], src);
-  for (unsigned i = 1; i < (*g).size(); i++) {
+  for (unsigned i = 0; i < (*g).size(); i++) {
     dist[i] = UINT_MAX;
     fq.push(dist[i], i);
   }
+  dist[src] = 0;
+  auto src_node = fq.findNode(src);
+  fq.decrease_key(src_node, dist[src]);
   while (!fq.isEmpty()) {
     auto n = fq.pop();
     unsigned u = n.data();
