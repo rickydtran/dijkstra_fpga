@@ -30,11 +30,6 @@
 #define DONE_ADDR ((1 << MMAP_ADDR_WIDTH) - 1)
 
 int main(int argc, char **argv) {
-  if (argc != 6) {
-    std::cerr << "Usage: " << argv[0]
-              << " <runs> <vertices> <src> <cfactor> <mweight>" << std::endl;
-    return -1;
-  }
 
 #ifdef DO_ARM
   if (argc != 7) {
