@@ -150,8 +150,7 @@ int main(int argc, char **argv) {
       board->write(input[j], MEM_IN_ADDR, size);
     }
     write_time.stop();
-
-    unsigned src = 0;
+    
     board->write(&size, SIZE_ADDR, 1);
     board->write(&src, SRC_ADDR, 1);
 
