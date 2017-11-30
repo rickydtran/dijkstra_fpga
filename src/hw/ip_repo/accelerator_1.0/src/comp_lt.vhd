@@ -18,7 +18,7 @@ end comp_lt;
 
 architecture bhv of comp_lt is
 begin
-  process(in1, in2)
+  process(in1, in2, d)
   begin
     if(unsigned(in1) = unsigned(d)) then
       lt <= '0';

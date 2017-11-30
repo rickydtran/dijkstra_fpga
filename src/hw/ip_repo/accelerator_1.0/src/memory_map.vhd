@@ -31,7 +31,7 @@ entity memory_map is
   size            : out std_logic_vector(C_MEM_ADDR_WIDTH downto 0);
   src             : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
   done            : in  std_logic;
-  mem_in_wr_data  : out std_logic_vector(C_MEM_IN_WIDTH-1 downto 0);
+  mem_in_wr_data  : out std_logic_vector(31 downto 0);
   mem_in_wr_addr  : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
   mem_in_wr_en    : out std_logic;
   --mem_in_wr_en    : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);

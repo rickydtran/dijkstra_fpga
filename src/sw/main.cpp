@@ -13,9 +13,9 @@
 #include "Timer.h"
 #include "dijkstra.h"
 
-#define DO_ARM
+// #define DO_ARM
 #define PRINT_PATH
-#define ADDR_WIDTH 4
+#define ADDR_WIDTH 8
 #define WORD_WIDTH_IN 8
 #define WORD_WIDTH_OUT 16
 #define MAX_SIZE (1 << ADDR_WIDTH)
@@ -30,7 +30,6 @@
 #define DONE_ADDR ((1 << MMAP_ADDR_WIDTH) - 1)
 
 int main(int argc, char **argv) {
-
 #ifdef DO_ARM
   if (argc != 7) {
     std::cerr << "Usage: " << argv[0]
@@ -90,7 +89,10 @@ int main(int argc, char **argv) {
 
   g.create_random_graph(seed, p, max_wt);
 
+  std::cout << "Number of Edges: " << g.num_of_edges() / 2 << std::endl;
+
   unsigned **input = g.get_matrix();
+  unsigned **hw_input = g.create_hw_matrix(input);
 
   unsigned *sw_dist_base, *sw_dist_bin, *sw_dist_fib;
   unsigned *sw_prev_base, *sw_prev_bin, *sw_prev_fib;
@@ -145,12 +147,12 @@ int main(int argc, char **argv) {
     hw_time.start();
     write_time.start();
     // board->write(input, MEM_IN_ADDR, size);
-    for (unsigned j = 0; j < size; j++) {
+    for (unsigned j = 0; j < size / 4; j++) {
       board->write(&j, MEM_IN_SEL, 1);
-      board->write(input[j], MEM_IN_ADDR, size);
+      board->write(hw_input[j], MEM_IN_ADDR, size);
     }
     write_time.stop();
-    
+
     board->write(&size, SIZE_ADDR, 1);
     board->write(&src, SRC_ADDR, 1);
 
@@ -173,9 +175,9 @@ int main(int argc, char **argv) {
     read_time.stop();
     hw_time.stop();
 
-    for (unsigned i = 0; i < size; i++) {
-      hw_prev[i] = (hw_output[i] >> WORD_WIDTH_OUT) & (MAX_SIZE - 1);
-      hw_dist[i] = hw_output[i] & (MAX_DIST - 1);
+    for (unsigned j = 0; j < size; i++) {
+      hw_prev[j] = (hw_output[i] >> WORD_WIDTH_OUT) & (MAX_SIZE - 1);
+      hw_dist[j] = hw_output[i] & (MAX_DIST - 1);
     }
 
 #ifdef PRINT_PATH
@@ -360,6 +362,7 @@ int main(int argc, char **argv) {
   // std::cout << std::endl;
 
   delete[] input;
+  delete[] hw_input;
   free(sw_dist_base);
   free(sw_dist_bin);
   free(sw_dist_fib);

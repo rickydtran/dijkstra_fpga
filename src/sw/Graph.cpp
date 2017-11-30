@@ -61,7 +61,8 @@ void Graph::create_random_graph(unsigned seed, double p, unsigned max_wt) {
   }
 }
 
-void Graph::create_spanning_tree(std::set<std::pair<unsigned, unsigned>> &c, unsigned seed) {
+void Graph::create_spanning_tree(std::set<std::pair<unsigned, unsigned>> &c,
+                                 unsigned seed) {
   std::mt19937 mt(seed);
   std::uniform_int_distribution<unsigned> dist(0, V - 1);
   bool check[V];
@@ -135,6 +136,30 @@ unsigned **Graph::get_matrix() {
   return matrix;
 }
 
-std::vector<std::pair<unsigned, unsigned>> Graph::get_adj_list(unsigned i) const {
+unsigned **Graph::create_hw_matrix(unsigned **matrix) {
+  unsigned **hmatrix = new unsigned *[V];
+  for (unsigned i = 0; i < V; i++) {
+    hmatrix[i] = new unsigned[V / 4];
+  }
+
+  for (unsigned i = 0; i < V; i++) {
+    for (unsigned j = 0; j < V / 4; j++) {
+      hmatrix[i][j] = 0;
+    }
+  }
+
+  for (unsigned i = 0; i < V / 4; i++) {
+    for (unsigned j = 0; j < V; j++) {
+      hmatrix[i][j] = (matrix[i * 4][j] & 0xFF) << 24 |
+                      (matrix[i * 4 + 1][j] & 0xFF) << 16 |
+                      (matrix[i * 4 + 2][j] & 0xFF) << 8 |
+                      (matrix[i * 4 + 3][j] & 0xFF);
+    }
+  }
+  return hmatrix;
+}
+
+std::vector<std::pair<unsigned, unsigned>> Graph::get_adj_list(
+    unsigned i) const {
   return adj[i];
 }

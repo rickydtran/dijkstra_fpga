@@ -7,7 +7,7 @@ create_project $prj_name $curr_dir/$prj_name -part xc7z020clg484-1
 set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
 set_property target_language VHDL [current_project]
 set_property simulator_language VHDL [current_project]
-import_files -fileset constrs_1 -force -norecurse $curr_dir/zedboard_master_XDC_RevC_D_v3.xdc
+# import_files -fileset constrs_1 -force -norecurse $curr_dir/zedboard_master_XDC_RevC_D_v3.xdc
 create_bd_design $lab
 update_compile_order -fileset sources_1
 startgroup

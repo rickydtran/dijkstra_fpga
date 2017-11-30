@@ -45,6 +45,7 @@ void dijkstra_sw_base(unsigned **graph, unsigned src, unsigned size, unsigned *d
   bool done[size];
   for (unsigned i = 0; i < size; i++) {
     dist[i] = UINT_MAX;
+    prev[i] = 0;
     done[i] = false;
   }
   dist[src] = 0;
@@ -64,6 +65,7 @@ void dijkstra_sw_bin(const Graph *g, unsigned src, unsigned *dist, unsigned *pre
   MinHeap h((*g).size());
   for (unsigned i = 0; i < (*g).size(); i++) {
     dist[i] = UINT_MAX;
+    prev[i] = 0;
     h.insertKey(i, dist[i]);
   }
   dist[src] = 0;
@@ -88,6 +90,7 @@ void dijkstra_sw_fib(const Graph *g, unsigned src, unsigned *dist, unsigned *pre
   FibQueue<unsigned, unsigned> fq;
   for (unsigned i = 0; i < (*g).size(); i++) {
     dist[i] = UINT_MAX;
+    prev[i] = 0;
     fq.push(dist[i], i);
   }
   dist[src] = 0;

@@ -13,29 +13,28 @@ entity user_app_tb is
 end user_app_tb;
 
 architecture tb of user_app_tb is
-
   type t_2d_a is array(0 to 15, 0 to 15) of integer range 0 to 255;
   constant input_key : t_2d_a :=
-  ((    0,   156,   147,   169,     4,    35,   173,   124,   242,   165,   237,     6,   171,     0,   237,   116),
-   (  156,     0,    18,   196,   235,   146,   140,   231,   161,   100,   247,   225,   224,   130,     0,   127),
-   (  147,    18,     0,    21,     0,   181,    35,    92,    14,   142,    12,    60,   234,    36,   191,    17),
-   (  169,   196,    21,     0,   134,   170,   176,   114,    64,   144,   187,   131,   211,   133,   128,   250),
-   (    4,   235,     0,   134,     0,   235,     9,     5,   160,     0,     9,    35,    91,   168,     0,   174),
-   (   35,   146,   181,   170,   235,     0,    54,   178,    35,   120,   119,    95,   178,   182,   202,   207),
-   (  173,   140,    35,   176,     9,    54,     0,   227,   169,   183,   224,   130,   229,   108,   132,   138),
-   (  124,   231,    92,   114,     5,   178,   227,     0,   195,    24,    86,   155,   181,   226,   224,   227),
-   (  242,   161,    14,    64,   160,    35,   169,   195,     0,   246,   243,    40,   241,   172,   169,     6),
-   (  165,   100,   142,   144,     0,   120,   183,    24,   246,     0,    51,   246,    81,   246,    13,   113),
-   (  237,   247,    12,   187,     9,   119,   224,    86,   243,    51,     0,   127,    71,    90,   206,   125),
-   (    6,   225,    60,   131,    35,    95,   130,   155,    40,   246,   127,     0,   135,   244,   132,   245),
-   (  171,   224,   234,   211,    91,   178,   229,   181,   241,    81,    71,   135,     0,   138,   233,   223),
-   (    0,   130,    36,   133,   168,   182,   108,   226,   172,   246,    90,   244,   138,     0,    76,   160),
-   (  237,     0,   191,   128,     0,   202,   132,   224,   169,    13,   206,   132,   233,    76,     0,   143),
-   (  116,   127,    17,   250,   174,   207,   138,   227,     6,   113,   125,   245,   223,   160,   143,     0));
+  ((    0,     0,     0,     0,     0,     0,     0,   151,     0,     0,     0,     0,     0,     0,     0,     0),
+   (    0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,    41,     0,     0,     0),
+   (    0,     0,     0,     0,     0,     0,   124,     0,     0,     0,     0,     0,     0,     0,     0,     0),
+   (    0,     0,     0,     0,     0,    50,     0,     0,     0,   109,   167,     0,     0,     0,     0,    63),
+   (    0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     4,     0,     0,     0,     0,     0),
+   (    0,     0,     0,    50,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0),
+   (    0,     0,   124,     0,     0,     0,     0,     2,   128,     0,     0,    35,     0,     0,     0,     0),
+   (  151,     0,     0,     0,     0,     0,     2,     0,     0,   177,     0,     0,    98,     0,     0,     0),
+   (    0,     0,     0,     0,     0,     0,   128,     0,     0,     0,     0,     0,     0,     0,     0,     0),
+   (    0,     0,     0,   109,     0,     0,     0,   177,     0,     0,     0,     0,     0,     0,     0,     0),
+   (    0,     0,     0,   167,     4,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0),
+   (    0,     0,     0,     0,     0,     0,    35,     0,     0,     0,     0,     0,     0,     0,     0,     0),
+   (    0,    41,     0,     0,     0,     0,     0,    98,     0,     0,     0,     0,     0,     0,    99,     0),
+   (    0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,   119,     0),
+   (    0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,    99,   119,     0,     0),
+   (    0,     0,     0,    63,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0,     0));
    
   type key is array(0 to 15) of integer;
   constant answer_key : key :=
-  ( 0, 131115, 655385, 131118, 4, 35, 262157, 262153, 131111, 458785, 262157, 6, 655444, 131133, 589870, 131114 );
+  ( 0, 786722, 393493, 590261, 655968, 197095, 458905, 151, 393497, 459080, 197212, 393404, 459001, 917971, 786780, 197108 );
 
   constant TEST_SIZE : integer := 16;
   constant MAX_CYCLES : integer  := TEST_SIZE*4;
@@ -96,16 +95,19 @@ begin
     wait until clk'event and clk = '1';
 
     -- write contents to input ram, which starts at addr 0
-    for i in 0 to TEST_SIZE-1 loop
+    for i in 0 to (TEST_SIZE / 4) - 1 loop
       mmap_wr_addr <= C_MEM_IN_SEL_ADDR;
       mmap_wr_en   <= '1';
       mmap_wr_data <= std_logic_vector(to_unsigned(i, C_MMAP_DATA_WIDTH));
       wait until clk'event and clk = '1';
       clearMMAP;
-      for j in 0 to TEST_SIZE-1 loop
+      for j in 0 to TEST_SIZE - 1 loop
         mmap_wr_addr <= std_logic_vector(to_unsigned(j, C_MMAP_ADDR_WIDTH));
         mmap_wr_en   <= '1';
-        mmap_wr_data <= std_logic_vector(to_unsigned(input_key(i, j), 32));
+        mmap_wr_data <= std_logic_vector(to_unsigned(input_key(4*i, j), 8) &
+                                         to_unsigned(input_key(4*i+1, j), 8) &
+                                         to_unsigned(input_key(4*i+2, j), 8) &
+                                         to_unsigned(input_key(4*i+3, j), 8));
         wait until clk'event and clk = '1';
         clearMMAP;
       end loop;      
@@ -179,17 +181,20 @@ begin
       wait until rising_edge(clk);
     end loop;
 
-    for i in 0 to TEST_SIZE-1 loop
-    ---- send go = 1 over memory map
+    -- write contents to input ram, which starts at addr 0
+    for i in 0 to (TEST_SIZE / 4) - 1 loop
       mmap_wr_addr <= C_MEM_IN_SEL_ADDR;
       mmap_wr_en   <= '1';
       mmap_wr_data <= std_logic_vector(to_unsigned(i, C_MMAP_DATA_WIDTH));
       wait until clk'event and clk = '1';
       clearMMAP;
-      for j in 0 to TEST_SIZE-1 loop
+      for j in 0 to TEST_SIZE - 1 loop
         mmap_wr_addr <= std_logic_vector(to_unsigned(j, C_MMAP_ADDR_WIDTH));
         mmap_wr_en   <= '1';
-        mmap_wr_data <= std_logic_vector(to_unsigned(input_key(i, j), 32));
+        mmap_wr_data <= std_logic_vector(to_unsigned(input_key(j, 4*i), 8) &
+                                         to_unsigned(input_key(j, 4*i+1), 8) &
+                                         to_unsigned(input_key(j, 4*i+2), 8) &
+                                         to_unsigned(input_key(j, 4*i+3), 8));
         wait until clk'event and clk = '1';
         clearMMAP;
       end loop;      

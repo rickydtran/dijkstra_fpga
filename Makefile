@@ -1,8 +1,8 @@
 # RICKY TRAN
 # DIJKSTRA MAKEFILE
 
-CC := g++
-# CC := arm-linux-g++
+# CC := g++
+CC := arm-linux-g++
 SRC_DIR := src/sw
 BUILD_DIR := build
 TARGET := bin/dijkstra

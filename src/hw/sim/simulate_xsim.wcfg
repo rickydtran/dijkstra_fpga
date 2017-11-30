@@ -12,34 +12,17 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="11270000001fs"></ZoomEndTime>
-      <Cursor1Time time="3975000000fs"></Cursor1Time>
+      <ZoomStartTime time="1141666666fs"></ZoomStartTime>
+      <ZoomEndTime time="1685666667fs"></ZoomEndTime>
+      <Cursor1Time time="1595000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="103"></NameColumnWidth>
-      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+      <NameColumnWidth column_width="129"></NameColumnWidth>
+      <ValueColumnWidth column_width="71"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="110" />
    <wave_markers>
-      <marker label="" time="3005833000" />
-      <marker label="" time="3045000000" />
-      <marker label="" time="3085000000" />
-      <marker label="" time="3125000000" />
-      <marker label="" time="3165000000" />
-      <marker label="" time="3205000000" />
-      <marker label="" time="3245000000" />
-      <marker label="" time="3285000000" />
-      <marker label="" time="3325000000" />
-      <marker label="" time="3365000000" />
-      <marker label="" time="3405000000" />
-      <marker label="" time="3445000000" />
-      <marker label="" time="3485000000" />
-      <marker label="" time="3525000000" />
-      <marker label="" time="3565000000" />
-      <marker label="" time="3605000000" />
       <marker label="" time="215000000" />
-      <marker label="" time="3975000000" />
    </wave_markers>
    <wvobject type="group" fp_name="group1317">
       <obj_property name="label">MEM_MAP</obj_property>
@@ -89,8 +72,8 @@
          <obj_property name="ObjectShortName">done</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/user_app_tb/UUT/U_MMAP/mem_in_wr_data">
-         <obj_property name="ElementShortName">mem_in_wr_data[15:0]</obj_property>
-         <obj_property name="ObjectShortName">mem_in_wr_data[15:0]</obj_property>
+         <obj_property name="ElementShortName">mem_in_wr_data[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_in_wr_data[31:0]</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/user_app_tb/UUT/U_MMAP/mem_in_wr_addr">
          <obj_property name="ElementShortName">mem_in_wr_addr[3:0]</obj_property>
@@ -201,9 +184,9 @@
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/mem_in_wr_data">
-      <obj_property name="ElementShortName">mem_in_wr_data[15:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_in_wr_data[15:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">mem_in_wr_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_in_wr_data[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/mem_in_wr_addr">
       <obj_property name="ElementShortName">mem_in_wr_addr[3:0]</obj_property>
@@ -225,8 +208,8 @@
       <obj_property name="ObjectShortName">mem_in_wr_en</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/mem_in_wr_en_arr">
-      <obj_property name="ElementShortName">mem_in_wr_en_arr[15:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_in_wr_en_arr[15:0]</obj_property>
+      <obj_property name="ElementShortName">mem_in_wr_en_arr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_in_wr_en_arr[3:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/mem_out_wr_addr">
@@ -496,53 +479,45 @@
       <obj_property name="label">RAM</obj_property>
       <obj_property name="DisplayName">label</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/clk">
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/wen">
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/wen">
       <obj_property name="ElementShortName">wen</obj_property>
       <obj_property name="ObjectShortName">wen</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/waddr">
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/waddr">
       <obj_property name="ElementShortName">waddr[3:0]</obj_property>
       <obj_property name="ObjectShortName">waddr[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/wdata">
-      <obj_property name="ElementShortName">wdata[15:0]</obj_property>
-      <obj_property name="ObjectShortName">wdata[15:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/wdata">
+      <obj_property name="ElementShortName">wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wdata[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/raddr">
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/raddr">
       <obj_property name="ElementShortName">raddr[3:0]</obj_property>
       <obj_property name="ObjectShortName">raddr[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/rdata">
-      <obj_property name="ElementShortName">rdata[15:0]</obj_property>
-      <obj_property name="ObjectShortName">rdata[15:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/rdata">
+      <obj_property name="ElementShortName">rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/memory">
-      <obj_property name="ElementShortName">memory[15:0][15:0]</obj_property>
-      <obj_property name="ObjectShortName">memory[15:0][15:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/memory">
+      <obj_property name="ElementShortName">memory[15:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[15:0][31:0]</obj_property>
    </wvobject>
-   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/num_words">
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/num_words">
       <obj_property name="ElementShortName">num_words</obj_property>
       <obj_property name="ObjectShortName">num_words</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/word_width">
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/word_width">
       <obj_property name="ElementShortName">word_width</obj_property>
       <obj_property name="ObjectShortName">word_width</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/addr_width">
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/addr_width">
       <obj_property name="ElementShortName">addr_width</obj_property>
       <obj_property name="ObjectShortName">addr_width</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="divider4542" type="divider">
       <obj_property name="label">CTRL</obj_property>

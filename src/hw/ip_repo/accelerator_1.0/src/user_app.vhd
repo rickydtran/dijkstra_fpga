@@ -41,7 +41,7 @@ architecture default of user_app is
     size            : out std_logic_vector(C_MEM_ADDR_WIDTH downto 0);
     src             : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
     done            : in  std_logic;
-    mem_in_wr_data  : out std_logic_vector(C_MEM_IN_WIDTH-1 downto 0);
+    mem_in_wr_data  : out std_logic_vector(31 downto 0);
     mem_in_wr_addr  : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
     mem_in_wr_en    : out std_logic;
     mem_in_sel      : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
@@ -146,14 +146,14 @@ architecture default of user_app is
   signal done                  : std_logic;
   signal src                   : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
 
-  signal mem_in_wr_data        : std_logic_vector(C_MEM_IN_WIDTH-1 downto 0);
+  signal mem_in_wr_data        : std_logic_vector(31 downto 0);
   signal mem_in_wr_addr        : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
   --signal mem_in_rd_data       : std_logic_vector(C_MEM_IN_WIDTH-1 downto 0);
   signal mem_in_rd_data        : data_bus_type(2**C_MEM_ADDR_WIDTH-1 downto 0) := (others => (others => '0'));
 
   signal mem_in_rd_addr        : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
   signal mem_in_wr_en          : std_logic;
-  signal mem_in_wr_en_arr      : std_logic_vector(2**C_MEM_ADDR_WIDTH - 1 downto 0);
+  signal mem_in_wr_en_arr      : std_logic_vector((2**C_MEM_ADDR_WIDTH / 4) - 1 downto 0);
   --signal mem_in_rd_addr_valid : std_logic;
 
   --signal mem_out_wr_data       : std_logic_vector(C_MEM_OUT_WIDTH-1 downto 0);
@@ -210,11 +210,11 @@ begin
       mem_out_rd_addr => mem_out_rd_addr
       );
 
-  U_MEM_IN : for i in 0 to 2**C_MEM_ADDR_WIDTH-1 generate
+  U_MEM_IN : for i in 0 to ((2**C_MEM_ADDR_WIDTH / 4) - 1) generate
     U_RAM : entity work.ram(ASYNC_READ)
       generic map (
         num_words  => 2**C_MEM_ADDR_WIDTH,
-        word_width => C_MEM_IN_WIDTH,
+        word_width => 32,
         addr_width => C_MEM_ADDR_WIDTH)
       port map (
         clk   => clk,
@@ -222,7 +222,10 @@ begin
         waddr => mem_in_wr_addr,
         wdata => mem_in_wr_data,
         raddr => mem_in_rd_addr,  -- TODO: connect to input address generator
-        rdata => mem_in_rd_data(i)(C_MEM_IN_WIDTH-1 downto 0)); -- TODO: connect to pipeline input
+        rdata(31 downto 24) => mem_in_rd_data(4*i)(C_MEM_IN_WIDTH-1 downto 0), 
+        rdata(23 downto 16) => mem_in_rd_data(4*i+1)(C_MEM_IN_WIDTH-1 downto 0),
+        rdata(15 downto 8)  => mem_in_rd_data(4*i+2)(C_MEM_IN_WIDTH-1 downto 0),
+        rdata(7 downto 0)   => mem_in_rd_data(4*i+3)(C_MEM_IN_WIDTH-1 downto 0)); -- TODO: connect to pipeline input
   end generate U_MEM_IN;
 
   U_MEM_OUT : ram_conc
