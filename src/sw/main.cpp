@@ -13,7 +13,7 @@
 #include "Timer.h"
 #include "dijkstra.h"
 
-// #define DO_ARM
+#define DO_ARM
 #define PRINT_PATH
 #define ADDR_WIDTH 8
 #define WORD_WIDTH_IN 8

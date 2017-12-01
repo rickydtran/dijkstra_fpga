@@ -1677,3 +1677,6 @@ selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 655, 264); // n:a (JVi
 // Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
 // TclEventType: WAVEFORM_UPDATE_WAVEFORM
 // TclEventType: WAVEFORM_UPDATE_COMMANDS
+// HMemoryUtils.trashcanNow. Engine heap size: 1,020 MB. GUI used memory: 42 MB. Current time: 11/30/17 6:04:17 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,020 MB. GUI used memory: 41 MB. Current time: 11/30/17 6:34:17 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,020 MB. GUI used memory: 41 MB. Current time: 11/30/17 7:04:17 PM EST

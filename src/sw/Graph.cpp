@@ -137,23 +137,23 @@ unsigned **Graph::get_matrix() {
 }
 
 unsigned **Graph::create_hw_matrix(unsigned **matrix) {
-  unsigned **hmatrix = new unsigned *[V];
-  for (unsigned i = 0; i < V; i++) {
-    hmatrix[i] = new unsigned[V / 4];
+  unsigned **hmatrix = new unsigned *[V / 4];
+  for (unsigned i = 0; i < V / 4; i++) {
+    hmatrix[i] = new unsigned[V];
   }
 
-  for (unsigned i = 0; i < V; i++) {
-    for (unsigned j = 0; j < V / 4; j++) {
+  for (unsigned i = 0; i < V / 4; i++) {
+    for (unsigned j = 0; j < V; j++) {
       hmatrix[i][j] = 0;
     }
   }
 
   for (unsigned i = 0; i < V / 4; i++) {
     for (unsigned j = 0; j < V; j++) {
-      hmatrix[i][j] = (matrix[i * 4][j] & 0xFF) << 24 |
-                      (matrix[i * 4 + 1][j] & 0xFF) << 16 |
-                      (matrix[i * 4 + 2][j] & 0xFF) << 8 |
-                      (matrix[i * 4 + 3][j] & 0xFF);
+      hmatrix[i][j] = (matrix[4 * i][j] & 0xFF) << 24 |
+                      (matrix[4 * i + 1][j] & 0xFF) << 16 |
+                      (matrix[4 * i + 2][j] & 0xFF) << 8 |
+                      (matrix[4 * i + 3][j] & 0xFF);
     }
   }
   return hmatrix;
