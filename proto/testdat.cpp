@@ -40,38 +40,38 @@ int main(int argc, char **argv) {
   std::cout << "  constant input_key : t_2d_a :=" << std::endl;
 
   // INPUT SET
-  // std::cout << "  (";
-  // for (unsigned i = 0; i < size; i++) {
-  //   std::cout << '(';
-  //   for (unsigned j = 0; j < size; j++) {
-  //     if (i == size - 1 && j == size - 1) {
-  //       std::cout << std::setw(5) << input[i][j] << "));";
-  //     } else if (j == size - 1) {
-  //       std::cout << std::setw(5) << input[i][j] << "),";
-  //     } else {
-  //       std::cout << std::setw(5) << input[i][j] << ", ";
-  //     }
-  //   }
-  //   std::cout << std::endl;
-  //   std::cout << "   ";
-  // }
-  // std::cout << std::endl;
   std::cout << "  (";
-  for (unsigned i = 0; i < size / 4; i++) {
+  for (unsigned i = 0; i < size; i++) {
     std::cout << '(';
     for (unsigned j = 0; j < size; j++) {
       if (i == size - 1 && j == size - 1) {
-        std::cout << std::setw(9) << hw_input[i][j] << "));";
+        std::cout << std::setw(5) << input[i][j] << "));";
       } else if (j == size - 1) {
-        std::cout << std::setw(9) << hw_input[i][j] << "),";
+        std::cout << std::setw(5) << input[i][j] << "),";
       } else {
-        std::cout << std::setw(9) << hw_input[i][j] << ", ";
+        std::cout << std::setw(5) << input[i][j] << ", ";
       }
     }
     std::cout << std::endl;
     std::cout << "   ";
   }
   std::cout << std::endl;
+  // std::cout << "  (";
+  // for (unsigned i = 0; i < size / 4; i++) {
+  //   std::cout << '(';
+  //   for (unsigned j = 0; j < size; j++) {
+  //     if (i == size - 1 && j == size - 1) {
+  //       std::cout << std::setw(9) << hw_input[i][j] << "));";
+  //     } else if (j == size - 1) {
+  //       std::cout << std::setw(9) << hw_input[i][j] << "),";
+  //     } else {
+  //       std::cout << std::setw(9) << hw_input[i][j] << ", ";
+  //     }
+  //   }
+  //   std::cout << std::endl;
+  //   std::cout << "   ";
+  // }
+  // std::cout << std::endl;
 
   dijkstra_sw_base(input, src, size, sw_dist_base, sw_prev_base);
 

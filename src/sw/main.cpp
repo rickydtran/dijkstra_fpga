@@ -14,8 +14,8 @@
 #include "dijkstra.h"
 
 #define DO_ARM
-#define PRINT_PATH
-#define ADDR_WIDTH 8
+// #define PRINT_PATH
+#define ADDR_WIDTH 4
 #define WORD_WIDTH_IN 8
 #define WORD_WIDTH_OUT 16
 #define MAX_SIZE (1 << ADDR_WIDTH)
@@ -175,9 +175,9 @@ int main(int argc, char **argv) {
     read_time.stop();
     hw_time.stop();
 
-    for (unsigned j = 0; j < size; i++) {
-      hw_prev[j] = (hw_output[i] >> WORD_WIDTH_OUT) & (MAX_SIZE - 1);
-      hw_dist[j] = hw_output[i] & (MAX_DIST - 1);
+    for (unsigned j = 0; j < size; j++) {
+      hw_prev[j] = (hw_output[j] >> WORD_WIDTH_OUT) & (MAX_SIZE - 1);
+      hw_dist[j] = hw_output[j] & (MAX_DIST - 1);
     }
 
 #ifdef PRINT_PATH
