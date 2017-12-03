@@ -18,7 +18,6 @@ entity datapath is
     m_en           : in  std_logic;
 
     rst_d          : in  std_logic;
-    lt_en          : in  std_logic;
     valid_in       : in  std_logic;
 
     mem_in_rd_data : in  data_bus_type(2**C_MEM_ADDR_WIDTH-1 downto 0);
@@ -93,8 +92,7 @@ architecture str of datapath is
 
   signal add_buf_out : data_bus_plus(2**C_MEM_ADDR_WIDTH-1 downto 0);
 
-  signal lt_in       : std_logic_vector(2**C_MEM_ADDR_WIDTH-1 downto 0);
-  signal lt_out      : std_logic_vector(2**C_MEM_ADDR_WIDTH-1 downto 0);
+  signal lt          : std_logic_vector(2**C_MEM_ADDR_WIDTH-1 downto 0);
 
   signal done_in     : std_logic_vector(2**C_MEM_ADDR_WIDTH-1 downto 0);
   signal done_out    : std_logic_vector(2**C_MEM_ADDR_WIDTH-1 downto 0);
@@ -166,16 +164,6 @@ begin
     );
   end generate U_ADD_BUF;
 
-  U_REG_LT_BUF : reg
-    generic map (2**C_MEM_ADDR_WIDTH)
-    port map (
-      clk    => clk,
-      rst    => rst,
-      en     => lt_en,
-      input  => lt_in,
-      output => lt_out
-    );
-
   U_COMP : for i in 0 to 2**C_MEM_ADDR_WIDTH-1 generate
     U_COMP_LT : comp_lt
     generic map (width)
@@ -185,7 +173,7 @@ begin
       in2(width-1 downto 0) => mem_out_rd_bus(i)(C_DATA_WIDTH-1 downto 0), --Remember to change to parallel dist vector
       d(width) => '0',
       d(width-1 downto 0)  => min_dist,
-      lt  => lt_in(i)
+      lt => lt(i)
     );
   end generate U_COMP;
 
@@ -193,7 +181,7 @@ begin
     U_MUX_2_1 : mux_2_1
     generic map (C_MEM_OUT_WIDTH)
     port map (
-      sel => lt_out(i),
+      sel => lt(i),
       input1 => mem_out_rd_bus(i), --dist
       input2(C_MEM_OUT_WIDTH-1 downto C_DATA_WIDTH) => min_addr,
       input2(C_DATA_WIDTH-1 downto 0) => add_buf_out(i)(C_DATA_WIDTH-1 downto 0),

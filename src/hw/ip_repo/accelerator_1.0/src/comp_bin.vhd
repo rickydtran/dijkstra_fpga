@@ -39,23 +39,8 @@ architecture str of comp_bin is
     );
   end component;
   
-  -- 4 BIT 16 * 16 SIZE TEST COMPARATOR
-  -- constant levels : integer := integer(log2(real(2**C_MEM_ADDR_WIDTH)));
-
-  --signal mux_out : data_bus_mem_out(2**C_MEM_ADDR_WIDTH-1 downto 0);
-  --signal level_0 : data_bus_mem_out(((2**C_MEM_ADDR_WIDTH)/2)-1 downto 0); --8
-  --signal level_1 : data_bus_mem_out(((2**C_MEM_ADDR_WIDTH)/4)-1 downto 0); --4
-  --signal level_2 : data_bus_mem_out(((2**C_MEM_ADDR_WIDTH)/8)-1 downto 0); --2
-
   signal mux_out : data_bus_mem_out(2**C_MEM_ADDR_WIDTH-1 downto 0);
-  signal level_0 : data_bus_mem_out(((2**C_MEM_ADDR_WIDTH)/2)-1 downto 0); --8
-  signal level_1 : data_bus_mem_out(((2**C_MEM_ADDR_WIDTH)/4)-1 downto 0); --4
-  signal level_2 : data_bus_mem_out(((2**C_MEM_ADDR_WIDTH)/8)-1 downto 0); --2
-  signal level_3 : data_bus_mem_out(((2**C_MEM_ADDR_WIDTH)/16)-1 downto 0); --2
-  signal level_4 : data_bus_mem_out(((2**C_MEM_ADDR_WIDTH)/32)-1 downto 0); --2
-  signal level_5 : data_bus_mem_out(((2**C_MEM_ADDR_WIDTH)/64)-1 downto 0); --2
-  signal level_6 : data_bus_mem_out(((2**C_MEM_ADDR_WIDTH)/128)-1 downto 0); --2
-  signal s_output : std_logic_vector(C_MEM_OUT_WIDTH-1 downto 0);
+  signal bin_tree : data_bus_mem_out(2**C_MEM_ADDR_WIDTH-2 downto 0);
 
 begin
 
@@ -72,139 +57,30 @@ begin
     );
   end generate U_MUX_DONE;
 
-  U_LEV_ZERO : for i in 0 to ((2**C_MEM_ADDR_WIDTH)/2)-1 generate
-    U_COMP_MIN : comp_min
-    generic map (C_MEM_OUT_WIDTH)
-    port map (
-      input1 => mux_out(2*i),
-      input2 => mux_out(2*i+1),
-      output => level_0(i)
-    );
-  end generate U_LEV_ZERO;
+  U_COMP_MIN_TREE : for i in 0 to C_MEM_ADDR_WIDTH - 1 generate
+    U_COMP_MIN_LEV : for j in 0 to 2**i - 1 generate
+      U_LEVEL_0 : if (i = C_MEM_ADDR_WIDTH - 1) generate
+        U_COMP_MIN : comp_min
+        generic map (C_MEM_OUT_WIDTH)
+        port MAP (
+          input1 => mux_out(2*j),
+          input2 => mux_out(2*j+1),
+          output => bin_tree((2**i-1)+j)      
+        );
+      end generate U_LEVEL_0;
+      U_LEVEL_J : if (i < C_MEM_ADDR_WIDTH -1) generate
+        U_COMP_MIN : comp_min
+        generic map (C_MEM_OUT_WIDTH)
+        port MAP (
+          input1 => bin_tree(2*((2**i-1)+j)+1),
+          input2 => bin_tree(2*((2**i-1)+j)+2),
+          output => bin_tree((2**i-1)+j)      
+        );
+      end generate U_LEVEL_J;
+    end generate U_COMP_MIN_LEV;
+  end generate U_COMP_MIN_TREE;
 
-  U_LEV_ONE : for i in 0 to ((2**C_MEM_ADDR_WIDTH)/4)-1 generate
-    U_COMP_MIN : comp_min
-    generic map (C_MEM_OUT_WIDTH)
-    port map (
-      input1 => level_0(2*i),
-      input2 => level_0(2*i+1),
-      output => level_1(i)
-    );
-  end generate U_LEV_ONE;
-
-  U_LEV_TWO : for i in 0 to ((2**C_MEM_ADDR_WIDTH)/8)-1 generate
-    U_COMP_MIN : comp_min
-    generic map (C_MEM_OUT_WIDTH)
-    port map (
-      input1 => level_1(2*i),
-      input2 => level_1(2*i+1),
-      output => level_2(i)
-    );
-  end generate U_LEV_TWO;
-
-  --U_LEV_THREE : for i in 0 to ((2**C_MEM_ADDR_WIDTH)/16)-1 generate
-  --  U_COMP_MIN : comp_min
-  --  generic map (C_MEM_OUT_WIDTH)
-  --  port map (
-  --    input1 => level_2(2*i),
-  --    input2 => level_2(2*i+1),
-  --    output => level_3(i)
-  --  );
-  --end generate U_LEV_THREE;
-
-  --U_LEV_FOUR : for i in 0 to ((2**C_MEM_ADDR_WIDTH)/32)-1 generate
-  --  U_COMP_MIN : comp_min
-  --  generic map (C_MEM_OUT_WIDTH)
-  --  port map (
-  --    input1 => level_3(2*i),
-  --    input2 => level_3(2*i+1),
-  --    output => level_4(i)
-  --  );
-  --end generate U_LEV_FOUR;
-
-  --U_LEV_FIVE : for i in 0 to ((2**C_MEM_ADDR_WIDTH)/64)-1 generate
-  --  U_COMP_MIN : comp_min
-  --  generic map (C_MEM_OUT_WIDTH)
-  --  port map (
-  --    input1 => level_4(2*i),
-  --    input2 => level_4(2*i+1),
-  --    output => level_5(i)
-  --  );
-  --end generate U_LEV_FIVE;
-
-  --U_LEV_SIX : for i in 0 to ((2**C_MEM_ADDR_WIDTH)/128)-1 generate
-  --  U_COMP_MIN : comp_min
-  --  generic map (C_MEM_OUT_WIDTH)
-  --  port map (
-  --    input1 => level_5(2*i),
-  --    input2 => level_5(2*i+1),
-  --    output => level_6(i)
-  --  );
-  --end generate U_LEV_SIX;
-
-  U_COMP_MIN : comp_min
-  generic map (C_MEM_OUT_WIDTH)
-  port map (
-    input1 => level_2(0),
-    input2 => level_2(1),
-    output => s_output
-  );
-
-  min_addr <= s_output(C_MEM_OUT_WIDTH-1 downto C_DATA_WIDTH);
-  min_dist <= s_output(C_DATA_WIDTH-1 downto 0);
-
-  --U_MUX_DONE : for i in 0 to 2**C_MEM_ADDR_WIDTH-1 generate
-  --  U_MUX_2_1 : mux_2_1
-  --  generic map (C_MEM_OUT_WIDTH)
-  --  port map (
-  --    sel    => done_arr(i),
-  --    input1(C_MEM_OUT_WIDTH-1 downto C_DATA_WIDTH) => std_logic_vector(to_unsigned(i, C_MEM_ADDR_WIDTH)),
-  --    input1(C_DATA_WIDTH-1 downto 0) => mem_out_rd_bus(i)(C_DATA_WIDTH-1 downto 0),
-  --    input2(C_MEM_OUT_WIDTH-1 downto C_DATA_WIDTH) => std_logic_vector(to_unsigned(i, C_MEM_ADDR_WIDTH)),
-  --    input2(C_DATA_WIDTH-1 downto 0) => std_logic_vector(to_unsigned(2**C_DATA_WIDTH-1, C_DATA_WIDTH)),
-  --    output => mux_out(i)
-  --  );
-  --end generate U_MUX_DONE;
-
-  --U_LEV_ZERO : for i in 0 to ((2**C_MEM_ADDR_WIDTH)/2)-1 generate
-  --  U_COMP_MIN : comp_min
-  --  generic map (C_MEM_OUT_WIDTH)
-  --  port map (
-  --    input1 => mux_out(2*i),
-  --    input2 => mux_out(2*i+1),
-  --    output => level_0(i)
-  --  );
-  --end generate U_LEV_ZERO;
-
-  --U_LEV_ONE : for i in 0 to ((2**C_MEM_ADDR_WIDTH)/4)-1 generate
-  --  U_COMP_MIN : comp_min
-  --  generic map (C_MEM_OUT_WIDTH)
-  --  port map (
-  --    input1 => level_0(2*i),
-  --    input2 => level_0(2*i+1),
-  --    output => level_1(i)
-  --  );
-  --end generate U_LEV_ONE;
-
-  --U_LEV_TWO : for i in 0 to ((2**C_MEM_ADDR_WIDTH)/8)-1 generate
-  --  U_COMP_MIN : comp_min
-  --  generic map (C_MEM_OUT_WIDTH)
-  --  port map (
-  --    input1 => level_1(2*i),
-  --    input2 => level_1(2*i+1),
-  --    output => level_2(i)
-  --  );
-  --end generate U_LEV_TWO;
-
-  --U_COMP_MIN : comp_min
-  --generic map (C_MEM_OUT_WIDTH)
-  --port map (
-  --  input1 => level_2(0),
-  --  input2 => level_2(1),
-  --  output => s_output
-  --);
-
-  --min_addr <= s_output(C_MEM_OUT_WIDTH-1 downto C_DATA_WIDTH);
-  --min_dist <= s_output(C_DATA_WIDTH-1 downto 0);
+  min_addr <= bin_tree(0)(C_MEM_OUT_WIDTH-1 downto C_DATA_WIDTH);
+  min_dist <= bin_tree(0)(C_DATA_WIDTH-1 downto 0);
 
 end str;

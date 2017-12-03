@@ -112,7 +112,6 @@ architecture default of user_app is
         m_en           : in  std_logic;
 
         rst_d          : in  std_logic;
-        lt_en          : in  std_logic;
         valid_in       : in  std_logic;
 
         mem_in_rd_data : in  data_bus_type(2**C_MEM_ADDR_WIDTH-1 downto 0);
@@ -134,7 +133,6 @@ architecture default of user_app is
       m_en         : out std_logic;
       mem_out_en   : out std_logic;
       valid_out    : out std_logic;
-      lt_en        : out std_logic;
       rst_d        : out std_logic
     );
   end component;
@@ -169,7 +167,6 @@ architecture default of user_app is
   signal mem_in_sel            : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
   signal dp_en, m_en           : std_logic;
   signal valid_out             : std_logic;
-  signal lt_en                 : std_logic;
   signal rst_d                 : std_logic;
 
 begin
@@ -257,7 +254,6 @@ begin
       mem_out_wr_bus  => s_mem_out_wr_bus,
       mem_out_rd_bus  => s_mem_out_rd_bus,
       valid_in        => valid_out,
-      lt_en           => lt_en,
       rst_d           => rst_d);
   ------------------------------------------------------------------------------
 
@@ -272,7 +268,6 @@ begin
       m_en         => m_en,
       mem_out_en   => mem_out_wr_en,
       valid_out    => valid_out,
-      lt_en        => lt_en,
       rst_d        => rst_d);
 
   mem_out_wr_addr       <= src;

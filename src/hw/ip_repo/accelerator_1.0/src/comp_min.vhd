@@ -22,7 +22,7 @@ architecture bhv of comp_min is
 begin
   process(input1, input2)
   begin
-    if(unsigned(input1(C_MEM_IN_WIDTH-1 downto 0)) < unsigned(input2(C_MEM_IN_WIDTH-1 downto 0))) then
+    if(unsigned(input1(C_DATA_WIDTH-1 downto 0)) < unsigned(input2(C_DATA_WIDTH-1 downto 0))) then
       output <= input1;
     else
       output <= input2;

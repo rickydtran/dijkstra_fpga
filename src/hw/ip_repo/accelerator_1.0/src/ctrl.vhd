@@ -21,7 +21,6 @@ entity ctrl is
     m_en         : out std_logic;
     mem_out_en   : out std_logic;
     valid_out    : out std_logic;
-    lt_en        : out std_logic;
     rst_d        : out std_logic
   );
 end ctrl;
@@ -62,7 +61,6 @@ begin
     m_en         <= '0';
     next_val     <= '0';
     mem_out_en   <= '0';
-    lt_en        <= '0';
     next_rst_d   <= '0';
     case state is
       when S_WAIT_GO_1 =>
@@ -89,9 +87,6 @@ begin
         next_state <= S_UPDATE_DIST;
       when S_UPDATE_DIST =>
         dp_en      <= '1';
-        next_state <= S_STALL_ONE;
-      when S_STALL_ONE =>
-        lt_en      <= '1';
         next_val   <= '1';
         next_count <= count + 1;
         next_state <= S_LOOP_COND;

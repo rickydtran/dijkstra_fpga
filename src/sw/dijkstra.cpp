@@ -51,6 +51,7 @@ void dijkstra_sw_base(unsigned **graph, unsigned src, unsigned size, unsigned *d
   dist[src] = 0;
   for (unsigned i = 0; i < size; i++) {
     unsigned u = min_distance(dist, done, size);
+    // std::cout << u << std::endl;
     done[u] = true;
     for (unsigned v = 0; v < size; v++) {
       if ((graph[u][v]) && (dist[v] > dist[u] + graph[u][v])) {

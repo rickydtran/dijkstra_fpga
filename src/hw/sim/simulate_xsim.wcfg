@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1141666666fs"></ZoomStartTime>
-      <ZoomEndTime time="1685666667fs"></ZoomEndTime>
-      <Cursor1Time time="1595000000fs"></Cursor1Time>
+      <ZoomStartTime time="854000000fs"></ZoomStartTime>
+      <ZoomEndTime time="1221000001fs"></ZoomEndTime>
+      <Cursor1Time time="965000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="129"></NameColumnWidth>
-      <ValueColumnWidth column_width="71"></ValueColumnWidth>
+      <ValueColumnWidth column_width="63"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="110" />
+   <WVObjectSize size="104" />
    <wave_markers>
       <marker label="" time="215000000" />
    </wave_markers>
@@ -284,22 +284,6 @@
       <obj_property name="ElementShortName">min_dist[15:0]</obj_property>
       <obj_property name="ObjectShortName">min_dist[15:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/U_COMP_BIN/level_0">
-      <obj_property name="ElementShortName">level_0[7:0][19:0]</obj_property>
-      <obj_property name="ObjectShortName">level_0[7:0][19:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/U_COMP_BIN/level_1">
-      <obj_property name="ElementShortName">level_1[3:0][19:0]</obj_property>
-      <obj_property name="ObjectShortName">level_1[3:0][19:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/U_COMP_BIN/level_2">
-      <obj_property name="ElementShortName">level_2[1:0][19:0]</obj_property>
-      <obj_property name="ObjectShortName">level_2[1:0][19:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/U_COMP_BIN/s_output">
-      <obj_property name="ElementShortName">s_output[19:0]</obj_property>
-      <obj_property name="ObjectShortName">s_output[19:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="divider1326" type="divider">
       <obj_property name="label">DATAPATH</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -338,10 +322,6 @@
       <obj_property name="ElementShortName">en</obj_property>
       <obj_property name="ObjectShortName">en</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/user_app_tb/UUT/U_DATAPATH/lt_en">
-      <obj_property name="ElementShortName">lt_en</obj_property>
-      <obj_property name="ObjectShortName">lt_en</obj_property>
-   </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/U_DATAPATH/valid_in">
       <obj_property name="ElementShortName">valid_in</obj_property>
       <obj_property name="ObjectShortName">valid_in</obj_property>
@@ -364,6 +344,10 @@
       <obj_property name="ObjectShortName">min_addr[3:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/U_DATAPATH/rst_d">
+      <obj_property name="ElementShortName">rst_d</obj_property>
+      <obj_property name="ObjectShortName">rst_d</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/prev">
       <obj_property name="ElementShortName">prev[15:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">prev[15:0][3:0]</obj_property>
@@ -379,13 +363,9 @@
       <obj_property name="ObjectShortName">add_buf_out[15:0][16:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/lt_in">
-      <obj_property name="ElementShortName">lt_in[15:0]</obj_property>
-      <obj_property name="ObjectShortName">lt_in[15:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/lt_out">
-      <obj_property name="ElementShortName">lt_out[15:0]</obj_property>
-      <obj_property name="ObjectShortName">lt_out[15:0]</obj_property>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/lt">
+      <obj_property name="ElementShortName">lt[15:0]</obj_property>
+      <obj_property name="ObjectShortName">lt[15:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/done_in">
       <obj_property name="ElementShortName">done_in[15:0]</obj_property>
@@ -559,10 +539,6 @@
    <wvobject type="logic" fp_name="/user_app_tb/UUT/U_CTRL/valid_out">
       <obj_property name="ElementShortName">valid_out</obj_property>
       <obj_property name="ObjectShortName">valid_out</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/user_app_tb/UUT/U_CTRL/lt_en">
-      <obj_property name="ElementShortName">lt_en</obj_property>
-      <obj_property name="ObjectShortName">lt_en</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/U_CTRL/rst_d">
       <obj_property name="ElementShortName">rst_d</obj_property>
