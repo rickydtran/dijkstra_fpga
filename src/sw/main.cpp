@@ -15,10 +15,10 @@
 
 #define DO_ARM
 // #define PRINT_PATH
-#define ADDR_WIDTH 6
+// #define ADDR_WIDTH 6
 #define WORD_WIDTH_IN 8
 #define WORD_WIDTH_OUT 16
-#define MAX_SIZE (1 << ADDR_WIDTH)
+// #define MAX_SIZE (1 << ADDR_WIDTH)
 #define MAX_WEIGHT (1 << WORD_WIDTH_IN)
 #define MAX_DIST (1 << WORD_WIDTH_OUT)
 #define MEM_IN_ADDR 0
@@ -42,7 +42,9 @@ int main(int argc, char **argv) {
   unsigned runs = atoi(argv[1]);
   assert(runs > 0);
   unsigned size = atoi(argv[2]);
-  assert(size <= MAX_SIZE);
+  // assert(size <= MAX_SIZE);
+  unsigned ADDR_WIDTH = log2(size);
+  unsigned MAX_SIZE = (1 << ADDR_WIDTH);
   unsigned src = atoi(argv[3]);
   assert((src >= 0) && (src < MAX_SIZE));
   double p = atof(argv[4]);
