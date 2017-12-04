@@ -15,7 +15,7 @@
 
 #define DO_ARM
 // #define PRINT_PATH
-#define ADDR_WIDTH 9
+#define ADDR_WIDTH 6
 #define WORD_WIDTH_IN 8
 #define WORD_WIDTH_OUT 16
 #define MAX_SIZE (1 << ADDR_WIDTH)
