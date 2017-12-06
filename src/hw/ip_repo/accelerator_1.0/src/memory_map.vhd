@@ -31,11 +31,14 @@ entity memory_map is
   size            : out std_logic_vector(C_MEM_ADDR_WIDTH downto 0);
   src             : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
   done            : in  std_logic;
-  mem_in_wr_data  : out std_logic_vector(31 downto 0);
+  --mem_in_wr_data  : out std_logic_vector(C_MEM_IN_WIDTH-1 downto 0);
+  mem_in_wr_data  : out std_logic_vector(MMAP_DATA_RANGE);
   mem_in_wr_addr  : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
+  --mem_in_wr_addr0 : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
+  --mem_in_wr_addr1 : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);    
   mem_in_wr_en    : out std_logic;
   --mem_in_wr_en    : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
-  mem_in_sel      : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
+  --mem_in_sel      : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
   mem_out_rd_data : in  std_logic_vector(C_MEM_OUT_WIDTH-1 downto 0);
   mem_out_rd_addr : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0)
   );
@@ -45,7 +48,7 @@ architecture BHV of memory_map is
 
   signal reg_go         : std_logic;
   signal reg_size       : std_logic_vector(C_MEM_ADDR_WIDTH downto 0);
-  signal reg_mem_in_sel : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
+  --signal reg_mem_in_sel : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
   signal reg_src        : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
   signal reg_rd_data    : std_logic_vector(C_MMAP_DATA_WIDTH-1 downto 0);
   signal rd_data_sel    : std_logic;
@@ -56,6 +59,7 @@ begin
 
   mem_in_wr_data <= wr_data(mem_in_wr_data'range);
   mem_in_wr_addr <= wr_addr(mem_in_wr_addr'range);
+  --mem_in_wr_en   <= '1' when wr_en = '1' and unsigned(wr_addr) >= unsigned(C_MEM_START_ADDR) and unsigned(wr_addr) <= unsigned(C_MEM_END_ADDR) else '0';
   mem_in_wr_en   <= '1' when wr_en = '1' and unsigned(wr_addr) >= unsigned(C_MEM_START_ADDR) and unsigned(wr_addr) <= unsigned(C_MEM_END_ADDR) else '0';
   mem_out_rd_addr <= rd_addr(mem_out_rd_addr'range);
 
@@ -64,7 +68,7 @@ begin
   if (rst = '1') then
     reg_go   <= '0';
     reg_size <= (others => '0');
-    reg_mem_in_sel <= (others => '0');
+    --reg_mem_in_sel <= (others => '0');
     reg_src <= (others => '0');
     rd_data_sel <= '0';
     reg_rd_data <= (others => '0');
@@ -80,8 +84,8 @@ begin
         reg_go <= wr_data(0);
       when C_SIZE_ADDR =>
         reg_size <= wr_data(reg_size'range);
-      when C_MEM_IN_SEL_ADDR =>
-        reg_mem_in_sel <= wr_data(reg_mem_in_sel'range);
+      --when C_MEM_IN_SEL_ADDR =>
+      --  reg_mem_in_sel <= wr_data(reg_mem_in_sel'range);
       when C_SRC_ADDR =>
         reg_src <= wr_data(reg_src'range);
       when others => null;
@@ -118,7 +122,7 @@ begin
 
   go   <= reg_go;
   size <= reg_size;
-  mem_in_sel <= reg_mem_in_sel;
+  --mem_in_sel <= reg_mem_in_sel;
   src <= reg_src;
 
   -- mux that defines dout based on where the read data come from

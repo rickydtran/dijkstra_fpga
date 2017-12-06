@@ -5,6 +5,7 @@
 **/
 
 #include "Graph.h"
+#include "specs.h"
 #include <cmath>
 #include <iostream>
 #include <random>
@@ -30,6 +31,8 @@ unsigned Graph::num_of_edges() {
 void Graph::add_edge(unsigned u, unsigned v, unsigned wt) {
   adj[u].push_back(std::make_pair(v, wt));
   adj[v].push_back(std::make_pair(u, wt));
+  unsigned temp = (u & (MAX_SIZE - 1)) << (ADDR_WIDTH + WORD_WIDTH_IN) | (v & (MAX_SIZE - 1)) << WORD_WIDTH_IN | (wt & (MAX_WEIGHT - 1));
+  edge_list.push_back(temp);
 }
 
 void Graph::create_random_graph(unsigned seed, double p, unsigned max_wt) {
@@ -163,3 +166,5 @@ std::vector<std::pair<unsigned, unsigned>> Graph::get_adj_list(
     unsigned i) const {
   return adj[i];
 }
+
+std::vector<unsigned> Graph::get_edge_list() const { return edge_list; }

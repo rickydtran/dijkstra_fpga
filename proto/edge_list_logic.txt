@@ -1,0 +1,47 @@
+edge list
+
+
+0 4 8
+4 0 8
+
+write to 0 4 8
+write to 4 0 8
+
+
+16 | 16
+8 | 8 | 16
+
+31 downto 24 23 downto 16 15 downto 0
+
+select 0 addr 4 wr 8
+select 4 addr 0 wr 8
+
+
+addr1 0-
+        |- wr to addr 1 if sel = 0
+addr2 4-
+
+addr1 0-
+        |- wr to addr 2 if sel = 1
+addr2 4-
+
+wr_en 0
+addr1 = 4
+data = 8
+
+wr_en 4
+addr2 = 0
+data = 8
+
+mux at each rom block for wr_addr
+multiplex which address bus to use
+
+en = 0
+mux0 = 0 (addr 1)
+addr1 = 4
+data = 8
+
+en = 4
+mux1 = 1 (addr2)
+addr2 = 0
+data - 8

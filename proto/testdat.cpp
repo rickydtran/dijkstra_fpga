@@ -34,6 +34,8 @@ int main(int argc, char **argv) {
 
   unsigned **input = g.get_matrix();
   unsigned **hw_input = g.create_hw_matrix(input);
+  std::vector<unsigned> vec_edge_list = g.get_edge_list();
+  unsigned *edge_list = &vec_edge_list[0];
 
   std::cout << "  type t_2d_a is array(0 to " << size - 1 << ", 0 to "
             << size - 1 << ") of integer range 0 to 255;" << std::endl;
@@ -73,6 +75,19 @@ int main(int argc, char **argv) {
   // }
   // std::cout << std::endl;
 
+  std::cout << "  type list is array(0 to " << (g.num_of_edges() / 2) - 1 << ") of integer;" << std::endl;
+  std::cout << "  constant edge_list : list :=" << std::endl;
+  // INPUT SET
+  std::cout << "  ( ";
+  for (unsigned i = 0; i < g.num_of_edges() / 2; i++) {
+    if (i == (g.num_of_edges() / 2) - 1) {
+      std::cout << std::setedge_list[i] << " );";
+    } else {
+      std::cout << edge_list[i] << ", ";
+    }
+  }
+  std::cout << std::endl;
+  std::cout << std::endl;
   dijkstra_sw_base(input, src, size, sw_dist_base, sw_prev_base);
 
   std::cout << "  type key is array(0 to " << size - 1 << ") of integer;"

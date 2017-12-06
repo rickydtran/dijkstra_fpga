@@ -12,21 +12,22 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="854000000fs"></ZoomStartTime>
-      <ZoomEndTime time="1221000001fs"></ZoomEndTime>
-      <Cursor1Time time="965000000fs"></Cursor1Time>
+      <ZoomStartTime time="701740000fs"></ZoomStartTime>
+      <ZoomEndTime time="1213740001fs"></ZoomEndTime>
+      <Cursor1Time time="855000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="129"></NameColumnWidth>
-      <ValueColumnWidth column_width="63"></ValueColumnWidth>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="89"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="104" />
+   <WVObjectSize size="166" />
    <wave_markers>
       <marker label="" time="215000000" />
    </wave_markers>
    <wvobject type="group" fp_name="group1317">
       <obj_property name="label">MEM_MAP</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="logic" fp_name="/user_app_tb/UUT/U_MMAP/clk">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -64,8 +65,8 @@
          <obj_property name="ObjectShortName">go</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/user_app_tb/UUT/U_MMAP/size">
-         <obj_property name="ElementShortName">size[4:0]</obj_property>
-         <obj_property name="ObjectShortName">size[4:0]</obj_property>
+         <obj_property name="ElementShortName">size[6:0]</obj_property>
+         <obj_property name="ObjectShortName">size[6:0]</obj_property>
       </wvobject>
       <wvobject type="logic" fp_name="/user_app_tb/UUT/U_MMAP/done">
          <obj_property name="ElementShortName">done</obj_property>
@@ -76,36 +77,28 @@
          <obj_property name="ObjectShortName">mem_in_wr_data[31:0]</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/user_app_tb/UUT/U_MMAP/mem_in_wr_addr">
-         <obj_property name="ElementShortName">mem_in_wr_addr[3:0]</obj_property>
-         <obj_property name="ObjectShortName">mem_in_wr_addr[3:0]</obj_property>
+         <obj_property name="ElementShortName">mem_in_wr_addr[5:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_in_wr_addr[5:0]</obj_property>
       </wvobject>
       <wvobject type="logic" fp_name="/user_app_tb/UUT/U_MMAP/mem_in_wr_en">
          <obj_property name="ElementShortName">mem_in_wr_en</obj_property>
          <obj_property name="ObjectShortName">mem_in_wr_en</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/user_app_tb/UUT/U_MMAP/mem_in_sel">
-         <obj_property name="ElementShortName">mem_in_sel[3:0]</obj_property>
-         <obj_property name="ObjectShortName">mem_in_sel[3:0]</obj_property>
-      </wvobject>
       <wvobject type="array" fp_name="/user_app_tb/UUT/U_MMAP/mem_out_rd_data">
-         <obj_property name="ElementShortName">mem_out_rd_data[19:0]</obj_property>
-         <obj_property name="ObjectShortName">mem_out_rd_data[19:0]</obj_property>
+         <obj_property name="ElementShortName">mem_out_rd_data[21:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_out_rd_data[21:0]</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/user_app_tb/UUT/U_MMAP/mem_out_rd_addr">
-         <obj_property name="ElementShortName">mem_out_rd_addr[3:0]</obj_property>
-         <obj_property name="ObjectShortName">mem_out_rd_addr[3:0]</obj_property>
+         <obj_property name="ElementShortName">mem_out_rd_addr[5:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_out_rd_addr[5:0]</obj_property>
       </wvobject>
       <wvobject type="logic" fp_name="/user_app_tb/UUT/U_MMAP/reg_go">
          <obj_property name="ElementShortName">reg_go</obj_property>
          <obj_property name="ObjectShortName">reg_go</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/user_app_tb/UUT/U_MMAP/reg_size">
-         <obj_property name="ElementShortName">reg_size[4:0]</obj_property>
-         <obj_property name="ObjectShortName">reg_size[4:0]</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/user_app_tb/UUT/U_MMAP/reg_mem_in_sel">
-         <obj_property name="ElementShortName">reg_mem_in_sel[3:0]</obj_property>
-         <obj_property name="ObjectShortName">reg_mem_in_sel[3:0]</obj_property>
+         <obj_property name="ElementShortName">reg_size[6:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_size[6:0]</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/user_app_tb/UUT/U_MMAP/reg_rd_data">
          <obj_property name="ElementShortName">reg_rd_data[31:0]</obj_property>
@@ -144,12 +137,10 @@
    <wvobject type="array" fp_name="/user_app_tb/UUT/mmap_wr_addr">
       <obj_property name="ElementShortName">mmap_wr_addr[17:0]</obj_property>
       <obj_property name="ObjectShortName">mmap_wr_addr[17:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/mmap_wr_data">
       <obj_property name="ElementShortName">mmap_wr_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">mmap_wr_data[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/mmap_rd_en">
       <obj_property name="ElementShortName">mmap_rd_en</obj_property>
@@ -158,74 +149,82 @@
    <wvobject type="array" fp_name="/user_app_tb/UUT/mmap_rd_addr">
       <obj_property name="ElementShortName">mmap_rd_addr[17:0]</obj_property>
       <obj_property name="ObjectShortName">mmap_rd_addr[17:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/mmap_rd_data">
       <obj_property name="ElementShortName">mmap_rd_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">mmap_rd_data[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/go">
       <obj_property name="ElementShortName">go</obj_property>
       <obj_property name="ObjectShortName">go</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/size">
-      <obj_property name="ElementShortName">size[4:0]</obj_property>
-      <obj_property name="ObjectShortName">size[4:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">size[6:0]</obj_property>
+      <obj_property name="ObjectShortName">size[6:0]</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/done">
       <obj_property name="ElementShortName">done</obj_property>
       <obj_property name="ObjectShortName">done</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/src">
-      <obj_property name="ElementShortName">src[3:0]</obj_property>
-      <obj_property name="ObjectShortName">src[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">src[5:0]</obj_property>
+      <obj_property name="ObjectShortName">src[5:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/mem_in_wr_data">
       <obj_property name="ElementShortName">mem_in_wr_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">mem_in_wr_data[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/mem_in_wr_addr">
-      <obj_property name="ElementShortName">mem_in_wr_addr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_in_wr_addr[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">mem_in_wr_addr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_in_wr_addr[5:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/mem_in_rd_data">
-      <obj_property name="ElementShortName">mem_in_rd_data[15:0][15:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_in_rd_data[15:0][15:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">mem_in_rd_data[63:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_in_rd_data[63:0][15:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/mem_in_rd_addr">
-      <obj_property name="ElementShortName">mem_in_rd_addr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_in_rd_addr[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">mem_in_rd_addr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_in_rd_addr[5:0]</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/mem_in_wr_en">
       <obj_property name="ElementShortName">mem_in_wr_en</obj_property>
       <obj_property name="ObjectShortName">mem_in_wr_en</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/mem_in_wr_en_arr">
-      <obj_property name="ElementShortName">mem_in_wr_en_arr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_in_wr_en_arr[3:0]</obj_property>
+      <obj_property name="ElementShortName">mem_in_wr_en_arr[63:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_in_wr_en_arr[63:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/mem_out_wr_addr">
-      <obj_property name="ElementShortName">mem_out_wr_addr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_out_wr_addr[3:0]</obj_property>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/mem_in_wr_addr_sel">
+      <obj_property name="ElementShortName">mem_in_wr_addr_sel[63:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_in_wr_addr_sel[63:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/mem_in_wr_addr0">
+      <obj_property name="ElementShortName">mem_in_wr_addr0[5:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_in_wr_addr0[5:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/mem_in_wr_addr1">
+      <obj_property name="ElementShortName">mem_in_wr_addr1[5:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_in_wr_addr1[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/mem_in_wr_addr_out">
+      <obj_property name="ElementShortName">mem_in_wr_addr_out[63:0][5:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_in_wr_addr_out[63:0][5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/mem_out_wr_addr">
+      <obj_property name="ElementShortName">mem_out_wr_addr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_out_wr_addr[5:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/mem_out_rd_data">
-      <obj_property name="ElementShortName">mem_out_rd_data[19:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_out_rd_data[19:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">mem_out_rd_data[21:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_out_rd_data[21:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/mem_out_rd_addr">
-      <obj_property name="ElementShortName">mem_out_rd_addr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_out_rd_addr[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">mem_out_rd_addr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_out_rd_addr[5:0]</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/mem_out_wr_en">
       <obj_property name="ElementShortName">mem_out_wr_en</obj_property>
@@ -236,32 +235,32 @@
       <obj_property name="ObjectShortName">mem_out_wr_data_valid</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/s_mem_out_wr_bus">
-      <obj_property name="ElementShortName">s_mem_out_wr_bus[15:0][19:0]</obj_property>
-      <obj_property name="ObjectShortName">s_mem_out_wr_bus[15:0][19:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">s_mem_out_wr_bus[63:0][21:0]</obj_property>
+      <obj_property name="ObjectShortName">s_mem_out_wr_bus[63:0][21:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/s_mem_out_rd_bus">
-      <obj_property name="ElementShortName">s_mem_out_rd_bus[15:0][19:0]</obj_property>
-      <obj_property name="ObjectShortName">s_mem_out_rd_bus[15:0][19:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/user_app_tb/UUT/mem_in_sel">
-      <obj_property name="ElementShortName">mem_in_sel[3:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_in_sel[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">s_mem_out_rd_bus[63:0][21:0]</obj_property>
+      <obj_property name="ObjectShortName">s_mem_out_rd_bus[63:0][21:0]</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/dp_en">
       <obj_property name="ElementShortName">dp_en</obj_property>
       <obj_property name="ObjectShortName">dp_en</obj_property>
    </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/m_en">
+      <obj_property name="ElementShortName">m_en</obj_property>
+      <obj_property name="ObjectShortName">m_en</obj_property>
+   </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/valid_out">
       <obj_property name="ElementShortName">valid_out</obj_property>
       <obj_property name="ObjectShortName">valid_out</obj_property>
    </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/rst_d">
+      <obj_property name="ElementShortName">rst_d</obj_property>
+      <obj_property name="ObjectShortName">rst_d</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/ZERO">
-      <obj_property name="ElementShortName">ZERO[19:0]</obj_property>
-      <obj_property name="ObjectShortName">ZERO[19:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">ZERO[21:0]</obj_property>
+      <obj_property name="ObjectShortName">ZERO[21:0]</obj_property>
    </wvobject>
    <wvobject fp_name="divider235" type="divider">
       <obj_property name="label">COMP_BIN</obj_property>
@@ -269,16 +268,16 @@
       <obj_property name="BkColor">#00FFFF</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/U_COMP_BIN/mem_out_rd_bus">
-      <obj_property name="ElementShortName">mem_out_rd_bus[15:0][19:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_out_rd_bus[15:0][19:0]</obj_property>
+      <obj_property name="ElementShortName">mem_out_rd_bus[63:0][21:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_out_rd_bus[63:0][21:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/U_COMP_BIN/done_arr">
-      <obj_property name="ElementShortName">done_arr[15:0]</obj_property>
-      <obj_property name="ObjectShortName">done_arr[15:0]</obj_property>
+      <obj_property name="ElementShortName">done_arr[63:0]</obj_property>
+      <obj_property name="ObjectShortName">done_arr[63:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/U_COMP_BIN/min_addr">
-      <obj_property name="ElementShortName">min_addr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">min_addr[3:0]</obj_property>
+      <obj_property name="ElementShortName">min_addr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">min_addr[5:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/U_COMP_BIN/min_dist">
       <obj_property name="ElementShortName">min_dist[15:0]</obj_property>
@@ -297,22 +296,22 @@
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/mem_in_rd_addr">
-      <obj_property name="ElementShortName">mem_in_rd_addr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_in_rd_addr[3:0]</obj_property>
+      <obj_property name="ElementShortName">mem_in_rd_addr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_in_rd_addr[5:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/mem_in_rd_data">
-      <obj_property name="ElementShortName">mem_in_rd_data[15:0][15:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_in_rd_data[15:0][15:0]</obj_property>
+      <obj_property name="ElementShortName">mem_in_rd_data[63:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_in_rd_data[63:0][15:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/mem_out_wr_bus">
-      <obj_property name="ElementShortName">mem_out_wr_bus[15:0][19:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_out_wr_bus[15:0][19:0]</obj_property>
+      <obj_property name="ElementShortName">mem_out_wr_bus[63:0][21:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_out_wr_bus[63:0][21:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/mem_out_rd_bus">
-      <obj_property name="ElementShortName">mem_out_rd_bus[15:0][19:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_out_rd_bus[15:0][19:0]</obj_property>
+      <obj_property name="ElementShortName">mem_out_rd_bus[63:0][21:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_out_rd_bus[63:0][21:0]</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/U_DATAPATH/m_en">
       <obj_property name="ElementShortName">m_en</obj_property>
@@ -331,8 +330,8 @@
       <obj_property name="ObjectShortName">min_dist_in[15:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/min_addr_in">
-      <obj_property name="ElementShortName">min_addr_in[3:0]</obj_property>
-      <obj_property name="ObjectShortName">min_addr_in[3:0]</obj_property>
+      <obj_property name="ElementShortName">min_addr_in[5:0]</obj_property>
+      <obj_property name="ObjectShortName">min_addr_in[5:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/min_dist">
       <obj_property name="ElementShortName">min_dist[15:0]</obj_property>
@@ -340,8 +339,8 @@
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/min_addr">
-      <obj_property name="ElementShortName">min_addr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">min_addr[3:0]</obj_property>
+      <obj_property name="ElementShortName">min_addr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">min_addr[5:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/U_DATAPATH/rst_d">
@@ -349,31 +348,31 @@
       <obj_property name="ObjectShortName">rst_d</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/prev">
-      <obj_property name="ElementShortName">prev[15:0][3:0]</obj_property>
-      <obj_property name="ObjectShortName">prev[15:0][3:0]</obj_property>
+      <obj_property name="ElementShortName">prev[63:0][5:0]</obj_property>
+      <obj_property name="ObjectShortName">prev[63:0][5:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/dist">
-      <obj_property name="ElementShortName">dist[15:0][15:0]</obj_property>
-      <obj_property name="ObjectShortName">dist[15:0][15:0]</obj_property>
+      <obj_property name="ElementShortName">dist[63:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">dist[63:0][15:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/add_buf_out">
-      <obj_property name="ElementShortName">add_buf_out[15:0][16:0]</obj_property>
-      <obj_property name="ObjectShortName">add_buf_out[15:0][16:0]</obj_property>
+      <obj_property name="ElementShortName">add_buf_out[63:0][16:0]</obj_property>
+      <obj_property name="ObjectShortName">add_buf_out[63:0][16:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/lt">
-      <obj_property name="ElementShortName">lt[15:0]</obj_property>
-      <obj_property name="ObjectShortName">lt[15:0]</obj_property>
+      <obj_property name="ElementShortName">lt[63:0]</obj_property>
+      <obj_property name="ObjectShortName">lt[63:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/done_in">
-      <obj_property name="ElementShortName">done_in[15:0]</obj_property>
-      <obj_property name="ObjectShortName">done_in[15:0]</obj_property>
+      <obj_property name="ElementShortName">done_in[63:0]</obj_property>
+      <obj_property name="ObjectShortName">done_in[63:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_DATAPATH/done_out">
-      <obj_property name="ElementShortName">done_out[15:0]</obj_property>
-      <obj_property name="ObjectShortName">done_out[15:0]</obj_property>
+      <obj_property name="ElementShortName">done_out[63:0]</obj_property>
+      <obj_property name="ObjectShortName">done_out[63:0]</obj_property>
    </wvobject>
    <wvobject type="other" fp_name="/user_app_tb/UUT/U_DATAPATH/width">
       <obj_property name="ElementShortName">width</obj_property>
@@ -397,13 +396,13 @@
       <obj_property name="ObjectShortName">wen</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_MEM_OUT/waddr">
-      <obj_property name="ElementShortName">waddr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">waddr[3:0]</obj_property>
+      <obj_property name="ElementShortName">waddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">waddr[5:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_MEM_OUT/wdata">
-      <obj_property name="ElementShortName">wdata[19:0]</obj_property>
-      <obj_property name="ObjectShortName">wdata[19:0]</obj_property>
+      <obj_property name="ElementShortName">wdata[21:0]</obj_property>
+      <obj_property name="ObjectShortName">wdata[21:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/U_MEM_OUT/dat_val">
@@ -411,28 +410,28 @@
       <obj_property name="ObjectShortName">dat_val</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_MEM_OUT/data_in">
-      <obj_property name="ElementShortName">data_in[15:0][19:0]</obj_property>
-      <obj_property name="ObjectShortName">data_in[15:0][19:0]</obj_property>
+      <obj_property name="ElementShortName">data_in[63:0][21:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[63:0][21:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_MEM_OUT/raddr">
-      <obj_property name="ElementShortName">raddr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">raddr[3:0]</obj_property>
+      <obj_property name="ElementShortName">raddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">raddr[5:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_MEM_OUT/rdata">
-      <obj_property name="ElementShortName">rdata[19:0]</obj_property>
-      <obj_property name="ObjectShortName">rdata[19:0]</obj_property>
+      <obj_property name="ElementShortName">rdata[21:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[21:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_MEM_OUT/data_out">
-      <obj_property name="ElementShortName">data_out[15:0][19:0]</obj_property>
-      <obj_property name="ObjectShortName">data_out[15:0][19:0]</obj_property>
+      <obj_property name="ElementShortName">data_out[63:0][21:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[63:0][21:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_MEM_OUT/memory">
-      <obj_property name="ElementShortName">memory[15:0][19:0]</obj_property>
-      <obj_property name="ObjectShortName">memory[15:0][19:0]</obj_property>
+      <obj_property name="ElementShortName">memory[63:0][21:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[63:0][21:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject type="other" fp_name="/user_app_tb/UUT/U_MEM_OUT/num_words">
@@ -451,8 +450,8 @@
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_MEM_OUT/dijk_mem_init">
-      <obj_property name="ElementShortName">dijk_mem_init[19:0]</obj_property>
-      <obj_property name="ObjectShortName">dijk_mem_init[19:0]</obj_property>
+      <obj_property name="ElementShortName">dijk_mem_init[21:0]</obj_property>
+      <obj_property name="ObjectShortName">dijk_mem_init[21:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="divider2225" type="divider">
@@ -468,24 +467,26 @@
       <obj_property name="ObjectShortName">wen</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/waddr">
-      <obj_property name="ElementShortName">waddr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">waddr[3:0]</obj_property>
+      <obj_property name="ElementShortName">waddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">waddr[5:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/wdata">
-      <obj_property name="ElementShortName">wdata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">wdata[31:0]</obj_property>
+      <obj_property name="ElementShortName">wdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">wdata[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/raddr">
-      <obj_property name="ElementShortName">raddr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">raddr[3:0]</obj_property>
+      <obj_property name="ElementShortName">raddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">raddr[5:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/rdata">
-      <obj_property name="ElementShortName">rdata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">rdata[31:0]</obj_property>
+      <obj_property name="ElementShortName">rdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/memory">
-      <obj_property name="ElementShortName">memory[15:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">memory[15:0][31:0]</obj_property>
+      <obj_property name="ElementShortName">memory[63:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[63:0][7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/num_words">
       <obj_property name="ElementShortName">num_words</obj_property>
@@ -496,6 +497,210 @@
       <obj_property name="ObjectShortName">word_width</obj_property>
    </wvobject>
    <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(0)\/U_RAM/addr_width">
+      <obj_property name="ElementShortName">addr_width</obj_property>
+      <obj_property name="ObjectShortName">addr_width</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/\U_MEM_IN(1)\/U_RAM/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/\U_MEM_IN(1)\/U_RAM/wen">
+      <obj_property name="ElementShortName">wen</obj_property>
+      <obj_property name="ObjectShortName">wen</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(1)\/U_RAM/waddr">
+      <obj_property name="ElementShortName">waddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">waddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(1)\/U_RAM/wdata">
+      <obj_property name="ElementShortName">wdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">wdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(1)\/U_RAM/raddr">
+      <obj_property name="ElementShortName">raddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">raddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(1)\/U_RAM/rdata">
+      <obj_property name="ElementShortName">rdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(1)\/U_RAM/memory">
+      <obj_property name="ElementShortName">memory[63:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[63:0][7:0]</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(1)\/U_RAM/num_words">
+      <obj_property name="ElementShortName">num_words</obj_property>
+      <obj_property name="ObjectShortName">num_words</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(1)\/U_RAM/word_width">
+      <obj_property name="ElementShortName">word_width</obj_property>
+      <obj_property name="ObjectShortName">word_width</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(1)\/U_RAM/addr_width">
+      <obj_property name="ElementShortName">addr_width</obj_property>
+      <obj_property name="ObjectShortName">addr_width</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/\U_MEM_IN(2)\/U_RAM/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/\U_MEM_IN(2)\/U_RAM/wen">
+      <obj_property name="ElementShortName">wen</obj_property>
+      <obj_property name="ObjectShortName">wen</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(2)\/U_RAM/waddr">
+      <obj_property name="ElementShortName">waddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">waddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(2)\/U_RAM/wdata">
+      <obj_property name="ElementShortName">wdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">wdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(2)\/U_RAM/raddr">
+      <obj_property name="ElementShortName">raddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">raddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(2)\/U_RAM/rdata">
+      <obj_property name="ElementShortName">rdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(2)\/U_RAM/memory">
+      <obj_property name="ElementShortName">memory[63:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[63:0][7:0]</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(2)\/U_RAM/num_words">
+      <obj_property name="ElementShortName">num_words</obj_property>
+      <obj_property name="ObjectShortName">num_words</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(2)\/U_RAM/word_width">
+      <obj_property name="ElementShortName">word_width</obj_property>
+      <obj_property name="ObjectShortName">word_width</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(2)\/U_RAM/addr_width">
+      <obj_property name="ElementShortName">addr_width</obj_property>
+      <obj_property name="ObjectShortName">addr_width</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/\U_MEM_IN(3)\/U_RAM/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/\U_MEM_IN(3)\/U_RAM/wen">
+      <obj_property name="ElementShortName">wen</obj_property>
+      <obj_property name="ObjectShortName">wen</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(3)\/U_RAM/waddr">
+      <obj_property name="ElementShortName">waddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">waddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(3)\/U_RAM/wdata">
+      <obj_property name="ElementShortName">wdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">wdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(3)\/U_RAM/raddr">
+      <obj_property name="ElementShortName">raddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">raddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(3)\/U_RAM/rdata">
+      <obj_property name="ElementShortName">rdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(3)\/U_RAM/memory">
+      <obj_property name="ElementShortName">memory[63:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[63:0][7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(3)\/U_RAM/num_words">
+      <obj_property name="ElementShortName">num_words</obj_property>
+      <obj_property name="ObjectShortName">num_words</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(3)\/U_RAM/word_width">
+      <obj_property name="ElementShortName">word_width</obj_property>
+      <obj_property name="ObjectShortName">word_width</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(3)\/U_RAM/addr_width">
+      <obj_property name="ElementShortName">addr_width</obj_property>
+      <obj_property name="ObjectShortName">addr_width</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/wen">
+      <obj_property name="ElementShortName">wen</obj_property>
+      <obj_property name="ObjectShortName">wen</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/waddr">
+      <obj_property name="ElementShortName">waddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">waddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/wdata">
+      <obj_property name="ElementShortName">wdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">wdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/raddr">
+      <obj_property name="ElementShortName">raddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">raddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/rdata">
+      <obj_property name="ElementShortName">rdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/memory">
+      <obj_property name="ElementShortName">memory[63:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[63:0][7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/num_words">
+      <obj_property name="ElementShortName">num_words</obj_property>
+      <obj_property name="ObjectShortName">num_words</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/word_width">
+      <obj_property name="ElementShortName">word_width</obj_property>
+      <obj_property name="ObjectShortName">word_width</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(15)\/U_RAM/addr_width">
+      <obj_property name="ElementShortName">addr_width</obj_property>
+      <obj_property name="ObjectShortName">addr_width</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/\U_MEM_IN(14)\/U_RAM/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/\U_MEM_IN(14)\/U_RAM/wen">
+      <obj_property name="ElementShortName">wen</obj_property>
+      <obj_property name="ObjectShortName">wen</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(14)\/U_RAM/waddr">
+      <obj_property name="ElementShortName">waddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">waddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(14)\/U_RAM/wdata">
+      <obj_property name="ElementShortName">wdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">wdata[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(14)\/U_RAM/raddr">
+      <obj_property name="ElementShortName">raddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">raddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(14)\/U_RAM/rdata">
+      <obj_property name="ElementShortName">rdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/\U_MEM_IN(14)\/U_RAM/memory">
+      <obj_property name="ElementShortName">memory[63:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[63:0][7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(14)\/U_RAM/num_words">
+      <obj_property name="ElementShortName">num_words</obj_property>
+      <obj_property name="ObjectShortName">num_words</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(14)\/U_RAM/word_width">
+      <obj_property name="ElementShortName">word_width</obj_property>
+      <obj_property name="ObjectShortName">word_width</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/user_app_tb/UUT/\U_MEM_IN(14)\/U_RAM/addr_width">
       <obj_property name="ElementShortName">addr_width</obj_property>
       <obj_property name="ObjectShortName">addr_width</obj_property>
    </wvobject>
@@ -517,8 +722,8 @@
       <obj_property name="ObjectShortName">go</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_CTRL/size">
-      <obj_property name="ElementShortName">size[4:0]</obj_property>
-      <obj_property name="ObjectShortName">size[4:0]</obj_property>
+      <obj_property name="ElementShortName">size[6:0]</obj_property>
+      <obj_property name="ObjectShortName">size[6:0]</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/user_app_tb/UUT/U_CTRL/done">
       <obj_property name="ElementShortName">done</obj_property>
@@ -569,11 +774,43 @@
       <obj_property name="ObjectShortName">next_val</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_CTRL/count">
-      <obj_property name="ElementShortName">count[4:0]</obj_property>
-      <obj_property name="ObjectShortName">count[4:0]</obj_property>
+      <obj_property name="ElementShortName">count[6:0]</obj_property>
+      <obj_property name="ObjectShortName">count[6:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/user_app_tb/UUT/U_CTRL/next_count">
-      <obj_property name="ElementShortName">next_count[4:0]</obj_property>
-      <obj_property name="ObjectShortName">next_count[4:0]</obj_property>
+      <obj_property name="ElementShortName">next_count[6:0]</obj_property>
+      <obj_property name="ObjectShortName">next_count[6:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/U_DECODER_EDGE/rst">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/user_app_tb/UUT/U_DECODER_EDGE/mem_in_wr_en">
+      <obj_property name="ElementShortName">mem_in_wr_en</obj_property>
+      <obj_property name="ObjectShortName">mem_in_wr_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DECODER_EDGE/edge_in">
+      <obj_property name="ElementShortName">edge_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">edge_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DECODER_EDGE/mem_in_wr_en_arr">
+      <obj_property name="ElementShortName">mem_in_wr_en_arr[63:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_in_wr_en_arr[63:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DECODER_EDGE/mem_in_wr_addr_sel">
+      <obj_property name="ElementShortName">mem_in_wr_addr_sel[63:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_in_wr_addr_sel[63:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DECODER_EDGE/wr_addr0">
+      <obj_property name="ElementShortName">wr_addr0[5:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_addr0[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/user_app_tb/UUT/U_DECODER_EDGE/wr_addr1">
+      <obj_property name="ElementShortName">wr_addr1[5:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_addr1[5:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>

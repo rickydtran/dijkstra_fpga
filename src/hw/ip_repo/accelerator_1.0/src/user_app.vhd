@@ -41,10 +41,10 @@ architecture default of user_app is
     size            : out std_logic_vector(C_MEM_ADDR_WIDTH downto 0);
     src             : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
     done            : in  std_logic;
-    mem_in_wr_data  : out std_logic_vector(31 downto 0);
+    mem_in_wr_data  : out std_logic_vector(MMAP_DATA_RANGE);
     mem_in_wr_addr  : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
     mem_in_wr_en    : out std_logic;
-    mem_in_sel      : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
+    --mem_in_sel      : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
     mem_out_rd_data : in  std_logic_vector(C_MEM_OUT_WIDTH-1 downto 0);
     mem_out_rd_addr : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0)
     );
@@ -103,6 +103,26 @@ architecture default of user_app is
     );
   end component;
 
+  component mux_2_1
+    generic (width : positive := 32);
+    port (
+    sel             : in  std_logic;
+    input1, input2  : in  std_logic_vector(width-1 downto 0);
+    output          : out std_logic_vector(width-1 downto 0)
+    );
+  end component;
+
+  component decoder_edge
+    port (
+      rst                : in  std_logic;  
+      mem_in_wr_en       : in  std_logic;
+      edge_in            : in  std_logic_vector(MMAP_DATA_RANGE);
+      mem_in_wr_en_arr   : out std_logic_vector(2**C_MEM_ADDR_WIDTH-1 downto 0);
+      mem_in_wr_addr_sel : out std_logic_vector(2**C_MEM_ADDR_WIDTH-1 downto 0);
+      wr_addr0           : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
+      wr_addr1           : out std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0));
+  end component;
+
   component datapath
     generic (width : positive);
       port (
@@ -144,14 +164,18 @@ architecture default of user_app is
   signal done                  : std_logic;
   signal src                   : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
 
-  signal mem_in_wr_data        : std_logic_vector(31 downto 0);
+  signal mem_in_wr_data        : std_logic_vector(MMAP_DATA_RANGE);
   signal mem_in_wr_addr        : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
   --signal mem_in_rd_data       : std_logic_vector(C_MEM_IN_WIDTH-1 downto 0);
   signal mem_in_rd_data        : data_bus_type(2**C_MEM_ADDR_WIDTH-1 downto 0) := (others => (others => '0'));
 
   signal mem_in_rd_addr        : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
   signal mem_in_wr_en          : std_logic;
-  signal mem_in_wr_en_arr      : std_logic_vector((2**C_MEM_ADDR_WIDTH / 4) - 1 downto 0);
+  signal mem_in_wr_en_arr      : std_logic_vector(2**C_MEM_ADDR_WIDTH-1 downto 0);
+  signal mem_in_wr_addr_sel    : std_logic_vector(2**C_MEM_ADDR_WIDTH-1 downto 0);
+  signal mem_in_wr_addr0       : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
+  signal mem_in_wr_addr1       : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
+  signal mem_in_wr_addr_out    : data_bus_addr(2**C_MEM_ADDR_WIDTH-1 downto 0);
   --signal mem_in_rd_addr_valid : std_logic;
 
   --signal mem_out_wr_data       : std_logic_vector(C_MEM_OUT_WIDTH-1 downto 0);
@@ -164,22 +188,22 @@ architecture default of user_app is
   signal s_mem_out_wr_bus      : data_bus_mem_out(2**C_MEM_ADDR_WIDTH-1 downto 0);
   signal s_mem_out_rd_bus      : data_bus_mem_out(2**C_MEM_ADDR_WIDTH-1 downto 0);
 
-  signal mem_in_sel            : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
+  --signal mem_in_sel            : std_logic_vector(C_MEM_ADDR_WIDTH-1 downto 0);
   signal dp_en, m_en           : std_logic;
   signal valid_out             : std_logic;
   signal rst_d                 : std_logic;
 
 begin
 
-  U_MEM_IN_SEL : process(mem_in_sel, mem_in_wr_en)
-  begin
-    if(mem_in_wr_en = '1') then
-      mem_in_wr_en_arr <= (others => '0');
-      mem_in_wr_en_arr(to_integer(unsigned(mem_in_sel))) <= '1';
-    else
-      mem_in_wr_en_arr <= (others => '0');
-    end if;
-  end process;
+  --U_MEM_IN_SEL : process(mem_in_sel, mem_in_wr_en)
+  --begin
+  --  if(mem_in_wr_en = '1') then
+  --    mem_in_wr_en_arr <= (others => '0');
+  --    mem_in_wr_en_arr(to_integer(unsigned(mem_in_sel))) <= '1';
+  --  else
+  --    mem_in_wr_en_arr <= (others => '0');
+  --  end if;
+  --end process;
 
   U_MMAP : memory_map
     port map (
@@ -202,27 +226,64 @@ begin
       mem_in_wr_data  => mem_in_wr_data,
       mem_in_wr_addr  => mem_in_wr_addr,
       mem_in_wr_en    => mem_in_wr_en,
-      mem_in_sel      => mem_in_sel,
+      --mem_in_sel      => mem_in_sel,
       mem_out_rd_data => mem_out_rd_data,
       mem_out_rd_addr => mem_out_rd_addr
       );
 
-  U_MEM_IN : for i in 0 to ((2**C_MEM_ADDR_WIDTH / 4) - 1) generate
+  --U_MEM_IN : for i in 0 to ((2**C_MEM_ADDR_WIDTH / 4) - 1) generate
+  --  U_RAM : entity work.ram(ASYNC_READ)
+  --    generic map (
+  --      num_words  => 2**C_MEM_ADDR_WIDTH,
+  --      word_width => 32,
+  --      addr_width => C_MEM_ADDR_WIDTH)
+  --    port map (
+  --      clk   => clk,
+  --      wen   => mem_in_wr_en_arr(i),
+  --      waddr => mem_in_wr_addr,
+  --      wdata => mem_in_wr_data,
+  --      raddr => mem_in_rd_addr,  -- TODO: connect to input address generator
+  --      rdata(31 downto 24) => mem_in_rd_data(4*i)(C_MEM_IN_WIDTH-1 downto 0), 
+  --      rdata(23 downto 16) => mem_in_rd_data(4*i+1)(C_MEM_IN_WIDTH-1 downto 0),
+  --      rdata(15 downto 8)  => mem_in_rd_data(4*i+2)(C_MEM_IN_WIDTH-1 downto 0),
+  --      rdata(7 downto 0)   => mem_in_rd_data(4*i+3)(C_MEM_IN_WIDTH-1 downto 0)); -- TODO: connect to pipeline input
+  --end generate U_MEM_IN;
+
+  U_DECODER_EDGE : decoder_edge
+  port map (
+    rst                => rst,
+    mem_in_wr_en       => mem_in_wr_en,
+    edge_in            => mem_in_wr_data,
+    mem_in_wr_en_arr   => mem_in_wr_en_arr,
+    mem_in_wr_addr_sel => mem_in_wr_addr_sel,
+    wr_addr0           => mem_in_wr_addr0,
+    wr_addr1           => mem_in_wr_addr1
+  );
+
+  U_MUX_ADDR : for i in 0 to 2**C_MEM_ADDR_WIDTH-1 generate
+    U_MUX_2_1 : mux_2_1
+    generic map (C_MEM_ADDR_WIDTH)
+    port map (
+      sel    => mem_in_wr_addr_sel(i),
+      input1 => mem_in_wr_addr0,
+      input2 => mem_in_wr_addr1,
+      output => mem_in_wr_addr_out(i)
+    );
+  end generate U_MUX_ADDR;
+
+  U_MEM_IN : for i in 0 to 2**C_MEM_ADDR_WIDTH-1 generate
     U_RAM : entity work.ram(ASYNC_READ)
       generic map (
         num_words  => 2**C_MEM_ADDR_WIDTH,
-        word_width => 32,
+        word_width => C_MEM_IN_WIDTH,
         addr_width => C_MEM_ADDR_WIDTH)
       port map (
         clk   => clk,
         wen   => mem_in_wr_en_arr(i),
-        waddr => mem_in_wr_addr,
-        wdata => mem_in_wr_data,
-        raddr => mem_in_rd_addr,  -- TODO: connect to input address generator
-        rdata(31 downto 24) => mem_in_rd_data(4*i)(C_MEM_IN_WIDTH-1 downto 0), 
-        rdata(23 downto 16) => mem_in_rd_data(4*i+1)(C_MEM_IN_WIDTH-1 downto 0),
-        rdata(15 downto 8)  => mem_in_rd_data(4*i+2)(C_MEM_IN_WIDTH-1 downto 0),
-        rdata(7 downto 0)   => mem_in_rd_data(4*i+3)(C_MEM_IN_WIDTH-1 downto 0)); -- TODO: connect to pipeline input
+        waddr => mem_in_wr_addr_out(i),
+        wdata => mem_in_wr_data(C_MEM_IN_WIDTH-1 downto 0),
+        raddr => mem_in_rd_addr,
+        rdata => mem_in_rd_data(i)(C_MEM_IN_WIDTH-1 downto 0)); -- TODO: connect to pipeline input
   end generate U_MEM_IN;
 
   U_MEM_OUT : ram_conc
