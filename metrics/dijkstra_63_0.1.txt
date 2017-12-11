@@ -1,0 +1,44 @@
+Searching for available board....
+Starting job "bin/dijkstra 50 63 0 0.1 255 dijkstra_hw_wrapper.bit" on board 192.168.1.105:
+
+    ____  ____    ____ _________________  ___ 
+   / __ \/  _/   / / //_/ ___/_  __/ __ \/   |
+  / / / // /__  / / ,<  \__ \ / / / /_/ / /| |
+ / /_/ // // /_/ / /| |___/ // / / _, _/ ___ |
+/_____/___/\____/_/ |_/____//_/ /_/ |_/_/  |_|
+                        __________  _________ 
+                       / ____/ __ \/ ____/   |
+                      / /_  / /_/ / / __/ /| |
+                     / __/ / ____/ /_/ / ___ |
+                    /_/   /_/    \____/_/  |_|
+Beginning Benchmarks...
+Generating Data...
+63 Vertices with connectivity factor of 0.1
+Number of Edges: 198
+Executing Each Benchmark For 50 Runs
+============AVERAGE EXECUTION TIME============
+  Dijkstra Base Time:    2201.3 ns
+    Binary Heap Time:    2097.4 ns
+ Fibonacci Heap Time:   13144.2 ns
+  Dijkstra FPGA Time:    3216.7 ns
+   No Transfers Time:     134.9 ns
+===============AVERAGE SPEEDUP================
+        Speedup(BIN): 1.04958
+        Speedup(FIB): 0.16748
+        Speedup(F/B): 0.15957
+     Speedup(HW/BAS): 0.68436
+        No Transfers: 16.31347
+     Speedup(HW/BIN): 0.65203
+        No Transfers: 15.54291
+     Speedup(HW/FIB): 4.08629
+        No Transfers: 97.40774
+=================CHECK WORK===================
+BIN MINHEAP DIST CHECK: PASS!
+BIN MINHEAP PREV CHECK: PASS!
+FIB MINHEAP DIST CHECK: PASS!
+FIB MINHEAP PREV CHECK: PASS!
+DIJ HW FPGA DIST CHECK: FAIL!
+Error count: 19
+DIJ HW FPGA PREV CHECK: FAIL!
+Error count: 32
+

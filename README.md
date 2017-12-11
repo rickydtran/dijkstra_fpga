@@ -3,8 +3,8 @@
 
 # Table of Contents
 [Group Members](#team-members)  
-[Things to Do](#todo)
-[How to](#guide)
+[Things to Do](#todo)  
+[How to](#guide)   
 [Project Description](#description)  
 
 # <a name="group-members"></a>Group Members
@@ -23,9 +23,9 @@
 * ~~Create SW Implementation of Dijkstra's for adj list and heap(pqueue)~~
 * ~~Port fibbanacci heap into wrapper to use with adj list~~
 * ~~Brainstorm HW implementation and Optimizations~~
-* Create HW Implmenetation of Dijkstra's
+* ~~Create HW Implmenetation of Dijkstra's~~
 * ~~Do performance metrics of SW Implmentation~~
-* Do performance metrics of HW Implemenation
+* ~~Do performance metrics of HW Implemenation~~
 
 # <a name="guide"></a>How to:
 [CLICK FOR GIT DUMMY GUIDE](https://rogerdudler.github.io/git-guide/)
