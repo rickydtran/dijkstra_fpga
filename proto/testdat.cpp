@@ -81,7 +81,7 @@ int main(int argc, char **argv) {
   std::cout << "  ( ";
   for (unsigned i = 0; i < g.num_of_edges() / 2; i++) {
     if (i == (g.num_of_edges() / 2) - 1) {
-      std::cout << std::setedge_list[i] << " );";
+      std::cout << edge_list[i] << " );";
     } else {
       std::cout << edge_list[i] << ", ";
     }

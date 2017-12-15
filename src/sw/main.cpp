@@ -113,23 +113,20 @@ int main(int argc, char **argv) {
     sw_base_time.start();
     dijkstra_sw_base(input, src, size, sw_dist_base, sw_prev_base);
     sw_base_time.stop();
-#ifdef PRINT_PATH
-    print_solution(sw_dist_base, sw_prev_base, src, size);
-#endif
 
     sw_bin_time.start();
     dijkstra_sw_bin(&g, src, sw_dist_bin, sw_prev_bin);
     sw_bin_time.stop();
-#ifdef PRINT_PATH
-    print_solution(sw_dist_bin, sw_prev_bin, src, size);
-#endif
+// #ifdef PRINT_PATH
+//     print_solution(sw_dist_bin, sw_prev_bin, src, size);
+// #endif
 
     sw_fib_time.start();
     dijkstra_sw_fib(&g, src, sw_dist_fib, sw_prev_fib);
     sw_fib_time.stop();
-#ifdef PRINT_PATH
-    print_solution(sw_dist_fib, sw_prev_fib, src, size);
-#endif
+// #ifdef PRINT_PATH
+//     print_solution(sw_dist_fib, sw_prev_fib, src, size);
+// #endif
 
 #ifdef DO_ARM
     /**
@@ -172,13 +169,17 @@ int main(int argc, char **argv) {
       hw_prev[j] = (hw_output[j] >> WORD_WIDTH_OUT) & (size_max - 1);
       hw_dist[j] = hw_output[j] & (MAX_DIST - 1);
     }
+#endif
+  }
 
+#ifdef PRINT_PATH
+    print_solution(sw_dist_base, sw_prev_base, src, size);
+#endif
+#ifdef DO_ARM
 #ifdef PRINT_PATH
     print_solution(hw_dist, hw_prev, src, size);
 #endif
-
 #endif
-  }
 
     // for(unsigned i = 0; i < size; i++) {
     //   std::cout << sw_dist_base[i] << ' ';

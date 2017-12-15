@@ -7,8 +7,8 @@
 #ifndef _SPECS_H_
 #define _SPECS_H_
 
-#define DO_ARM
-// #define PRINT_PATH
+// #define DO_ARM
+#define PRINT_PATH
 #define ADDR_WIDTH 6
 #define WORD_WIDTH_IN 8
 #define WORD_WIDTH_OUT 16

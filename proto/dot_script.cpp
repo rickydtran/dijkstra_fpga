@@ -2,12 +2,12 @@
 #include <vector>
 #include "Graph.h"
 
-void create_dot_script(int v, int seed, double p, int max_wt) {
+void create_dot_script(unsigned v, unsigned seed, double p, unsigned max_wt) {
  Graph g(v);
  g.create_random_graph(seed, p, max_wt);
  std::cout << "digraph graphname { concentrate=true ";
- for(int i = 0; i < v; i++) {
-  std::vector<std::pair<int, int>> adj = g.get_adj_list(i);
+ for(unsigned i = 0; i < v; i++) {
+  std::vector<std::pair<unsigned, unsigned>> adj = g.get_adj_list(i);
   for(auto it = adj.begin(); it != adj.end(); ++it) {
     std::cout <<' ' << i << "->" << it->first << " [dir=\"both\"]; ";
   }
